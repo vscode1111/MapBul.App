@@ -1040,10 +1040,10 @@
   </wsdl:binding>
   <wsdl:service name="WebService">
     <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
-      <soap:address location="http://185.76.145.214/Service/webservice.asmx" />
+      <soap:address location="http://service.mapbul.scub111.com/WebService.asmx" />
     </wsdl:port>
     <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
-      <soap12:address location="http://185.76.145.214/Service/webservice.asmx" />
+      <soap12:address location="http://service.mapbul.scub111.com/WebService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

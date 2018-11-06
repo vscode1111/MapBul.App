@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://185.76.145.214/Service/webservice.asmx?disco" filename="webservice.disco" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://185.76.145.214/Service/webservice.asmx?wsdl" filename="webservice.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://service.mapbul.scub111.com/WebService.asmx?disco" filename="webservice.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://service.mapbul.scub111.com/WebService.asmx?wsdl" filename="webservice.wsdl" />
   </Results>
 </DiscoveryClientResultsFile>
