@@ -73,7 +73,7 @@
                     </StackLayout>
                 </StackLayout>
                 <StackLayout Padding="0,15,0,5">
-                    <Label Text="v 1.0.5" HorizontalTextAlignment="End"/>
+                    <Label Text="v 1.0.6" HorizontalTextAlignment="End"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

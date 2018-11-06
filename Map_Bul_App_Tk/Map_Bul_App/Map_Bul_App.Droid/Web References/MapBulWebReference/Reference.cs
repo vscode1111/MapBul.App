@@ -78,6 +78,7 @@ namespace Map_Bul_App.Droid.MapBulWebReference {
         /// <remarks/>
         public WebService() {
             this.Url = "http://service.mapbul.scub111.com/WebService.asmx";
+            //this.Url = "http://192.168.0.11:18748/webservice.asmx";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
