@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             x:Class="Map_Bul_App.Design.MenuItem"
+             Orientation="Horizontal" Padding="10,10,0,10" BackgroundColor="{x:Static design:CustomColors.DefBlurColor}">
+  <StackLayout.Resources>
+    <ResourceDictionary>
+    <Style x:Key="MenuLableStyle" TargetType="Label">
+      <Setter Property="VerticalOptions" Value="FillAndExpand" />
+      <Setter Property="HorizontalTextAlignment" Value="Start" />
+      <Setter Property="VerticalTextAlignment" Value="Center" />
+      <Setter Property="TextColor" Value="Black" />
+      <Setter Property="BackgroundColor" Value="Transparent" />
+    </Style>
+      </ResourceDictionary>
+  </StackLayout.Resources>
+  <Image x:Name="IconImage"
+                      Aspect="AspectFit" />
+  <StackLayout 
+      HorizontalOptions="FillAndExpand"
+      VerticalOptions="FillAndExpand"
+      Padding="5,0,0,0">
+      <design:NavLabel x:Name="TitleLabel"
+        Style="{StaticResource MenuLableStyle}"/>
+    </StackLayout>
+</StackLayout>

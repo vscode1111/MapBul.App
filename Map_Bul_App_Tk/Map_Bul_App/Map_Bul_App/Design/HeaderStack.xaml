@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+      x:Class="Map_Bul_App.Design.HeaderStack"
+      BackgroundColor="White"
+      VerticalOptions="FillAndExpand"
+      HorizontalOptions="FillAndExpand">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+  <StackLayout Grid.Row="0" Padding="30,0,30,0" HorizontalOptions="CenterAndExpand">
+    <design:ActionBarLabel x:Name="TitleLabel" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                VerticalOptions="CenterAndExpand" />
+  </StackLayout>
+    <StackLayout x:Name="LeftImageStack"
+                 Grid.Row="0"
+                 VerticalOptions="Start"
+                 Orientation="Horizontal"
+                 HorizontalOptions="Start"
+                 Padding="10,15,10,15">
+        <Image x:Name="LeftImage"
+               Aspect="AspectFit"
+               HorizontalOptions="Start"
+               VerticalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout x:Name="RightImageStack"
+                 Grid.Row="0"
+                 VerticalOptions="Start"
+                 Orientation="Horizontal"
+                 HorizontalOptions="End"
+                 Padding="10,15,10,15">
+      <Image x:Name="RightImage"
+             Aspect="AspectFit"
+             HorizontalOptions="End"
+             VerticalOptions="FillAndExpand" />
+    </StackLayout>
+
+</Grid>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:Map_Bul_App.ViewModel;assembly=Map_Bul_App"
+             xmlns:resX="clr-namespace:Map_Bul_App.ResX;assembly=Map_Bul_App"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             x:Class="Map_Bul_App.Views.LoginView">
+  <ContentPage.BindingContext>
+    <viewModel:LoginViewModel/>
+  </ContentPage.BindingContext>
+  <Grid
+     HorizontalOptions="FillAndExpand"
+     VerticalOptions="FillAndExpand"
+     RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="1*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="1*"/>
+    </Grid.ColumnDefinitions>
+    <ScrollView
+      Grid.Row="0"
+      Grid.Column="0"
+      IsEnabled="True"
+      HorizontalOptions="FillAndExpand"
+      VerticalOptions="FillAndExpand"
+      Orientation="Vertical">
+      <StackLayout 
+        BackgroundColor="White"
+        Orientation="Vertical"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Spacing="0"
+        Padding="75,75,75,125">
+        <Image Aspect="AspectFit"
+               Source="app_logo.png"
+               VerticalOptions="StartAndExpand"
+               HorizontalOptions="FillAndExpand"/>
+<StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Spacing="4">
+  <StackLayout Orientation="Vertical">
+          <design:AuthEntry
+            Placeholder="{resX:Translate AuthLogin}"
+            Text="{Binding Login}"/>
+          <design:AuthEntry
+            Placeholder="{resX:Translate AuthPassword}"
+            IsPassword="True"
+            Text="{Binding Password}"/>
+          <design:AuthButton
+            BorderColor="Black"
+            BorderRadius="1"
+            BorderWidth="2"
+            Text="{resX:Translate LoginButtonText}"
+            Command="{Binding LoginCommand}"/>
+  </StackLayout>
+  <StackLayout
+    Padding="0,5,0,5">
+    <design:AuthLabelRegistr
+      Text="{resX:Translate GuestLogin}"/>
+    <StackLayout.GestureRecognizers>
+      <TapGestureRecognizer
+        Command="{Binding GuestLoginCommand}"/>
+    </StackLayout.GestureRecognizers>
+  </StackLayout>
+  <StackLayout
+    Padding="0,5,0,5">
+    <design:AuthLabelRegistr
+      Text="{resX:Translate RecoverPassword}"/>
+    <StackLayout.GestureRecognizers>
+      <TapGestureRecognizer
+        Command="{Binding RecoverPasswordCommand}"/>
+    </StackLayout.GestureRecognizers>
+  </StackLayout>
+  <StackLayout
+    Padding="0,5,0,5">
+    <design:AuthLabelRegistr
+      Text="{resX:Translate AuthRegistration}"/>
+    <StackLayout.GestureRecognizers>
+      <TapGestureRecognizer
+        Command="{Binding RegistrationCommand}"/>
+    </StackLayout.GestureRecognizers>
+  </StackLayout>
+  
+      </StackLayout>
+      </StackLayout>
+
+    </ScrollView>
+    <StackLayout
+      Grid.Row="0" Grid.Column="0"
+      HorizontalOptions="FillAndExpand"
+      VerticalOptions="FillAndExpand"
+      IsVisible="{Binding IsActivityIndicatorVisible}"
+      />
+    <ActivityIndicator
+        Grid.Row="0" Grid.Column="0"
+        IsVisible="{Binding IsActivityIndicatorVisible}"
+        IsRunning="{Binding IsActivityIndicatorRuning}"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"/>
+  </Grid>
+</ContentPage>

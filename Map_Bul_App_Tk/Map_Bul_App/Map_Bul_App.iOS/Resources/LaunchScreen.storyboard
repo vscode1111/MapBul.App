@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5k-f2-b5h">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gAE-YM-kbH">
+            <objects>
+                <viewController id="X5k-f2-b5h" sceneMemberID="viewController" modalPresentationStyle="pageSheet">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="102"/>
+                        <viewControllerLayoutGuide type="bottom" id="103"/>
+                    </layoutGuides>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="568"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="96" translatesAutoresizingMaskIntoConstraints="NO" key="view" image="launchScreen.jpg" highlightedImage="launchScreen.jpg" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="568">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <inset key="insetFor6xAndEarlier" minX="0.0" minY="0.0" maxX="320" maxY="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                    </imageView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="339"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="acc_close.png" width="35" height="18"/>
+        <image name="acc_open.png" width="35" height="18"/>
+        <image name="add_picture.png" width="144" height="144"/>
+        <image name="add_picture_btn.png" width="1146" height="817"/>
+        <image name="app_back.png" width="72" height="72"/>
+        <image name="app_clear.png" width="72" height="72"/>
+        <image name="app_fav.png" width="72" height="72"/>
+        <image name="app_filter.png" width="72" height="72"/>
+        <image name="app_forw.png" width="72" height="72"/>
+        <image name="app_logo.png" width="667" height="503"/>
+        <image name="app_menu.png" width="72" height="72"/>
+        <image name="app_search.png" width="72" height="72"/>
+        <image name="background.png" width="1074" height="2208"/>
+        <image name="date_icon.png" width="72" height="72"/>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="drop_shadow_bottom.png" width="2000" height="19"/>
+        <image name="drop_shadow_right.png" width="11" height="2208"/>
+        <image name="drop_shadow_top.png" width="2000" height="19"/>
+        <image name="empty_object_icon.png" width="72" height="72"/>
+        <image name="empty_pin.png" width="158" height="168"/>
+        <image name="Fonts/Roboto-Black.ttf" width="0" height="0"/>
+        <image name="Fonts/Roboto-BlackItalic.ttf" width="0" height="0"/>
+        <image name="Fonts/Roboto-Bold.ttf" width="0" height="0"/>
+        <image name="Fonts/Roboto-BoldItalic.ttf" width="0" height="0"/>
+        <image name="Fonts/Roboto-Light.ttf" width="0" height="0"/>
+        <image name="Fonts/Roboto-LightItalic.ttf" width="0" height="0"/>
+        <image name="Fonts/Roboto-Medium.ttf" width="0" height="0"/>
+        <image name="Fonts/Roboto-MediumItalic.ttf" width="0" height="0"/>
+        <image name="Fonts/Roboto-Thin.ttf" width="0" height="0"/>
+        <image name="Fonts/Roboto-ThinItalic.ttf" width="0" height="0"/>
+        <image name="ico_bar.png" width="120" height="120"/>
+        <image name="ico_beach.png" width="120" height="120"/>
+        <image name="ico_cafe.png" width="120" height="120"/>
+        <image name="ico_club.png" width="120" height="120"/>
+        <image name="ico_exchange.png" width="120" height="120"/>
+        <image name="ico_golf.png" width="120" height="120"/>
+        <image name="ico_museum.png" width="120" height="120"/>
+        <image name="ico_opened.png" width="60" height="60"/>
+        <image name="ico_park.png" width="120" height="120"/>
+        <image name="ico_pharmacy.png" width="120" height="120"/>
+        <image name="ico_restaurant.png" width="120" height="120"/>
+        <image name="ico_serf.png" width="120" height="120"/>
+        <image name="ico_temple.png" width="120" height="120"/>
+        <image name="ico_theatre.png" width="120" height="120"/>
+        <image name="ico_wifi.png" width="60" height="60"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="launchScreen.jpg" width="1242" height="2208"/>
+        <image name="logo_white_trans.png" width="667" height="503"/>
+        <image name="logout.png" width="60" height="60"/>
+        <image name="minus_icon.png" width="72" height="72"/>
+        <image name="nav_articles.png" width="72" height="72"/>
+        <image name="nav_events.png" width="72" height="72"/>
+        <image name="nav_fav.png" width="72" height="72"/>
+        <image name="nav_login_logout.png" width="72" height="72"/>
+        <image name="nav_map.png" width="72" height="72"/>
+        <image name="open_icon.png" width="27" height="48"/>
+        <image name="pin_aqua.png" width="158" height="168"/>
+        <image name="pin_bank.png" width="158" height="168"/>
+        <image name="pin_bar.png" width="158" height="168"/>
+        <image name="pin_beach.png" width="158" height="168"/>
+        <image name="pin_cafe.png" width="158" height="168"/>
+        <image name="pin_club.png" width="158" height="168"/>
+        <image name="pin_exchange.png" width="158" height="168"/>
+        <image name="pin_golf.png" width="158" height="168"/>
+        <image name="pin_museum.png" width="158" height="168"/>
+        <image name="pin_park.png" width="158" height="168"/>
+        <image name="pin_pharmacy.png" width="158" height="168"/>
+        <image name="pin_restaurant.png" width="158" height="168"/>
+        <image name="pin_serf.png" width="158" height="168"/>
+        <image name="pin_temple.png" width="158" height="168"/>
+        <image name="pin_theatre.png" width="158" height="168"/>
+        <image name="plus_icon.png" width="72" height="72"/>
+        <image name="selected_black.png" width="30" height="23"/>
+        <image name="selected_blue.png" width="30" height="23"/>
+        <image name="selected_green.png" width="30" height="23"/>
+        <image name="selected_orange.png" width="30" height="23"/>
+        <image name="selected_purple.png" width="30" height="23"/>
+        <image name="selected_red.png" width="30" height="23"/>
+        <image name="splash_screen.png" width="1242" height="2208"/>
+        <image name="tag_iconn.png" width="72" height="72"/>
+        <image name="xamarin.png" width="200" height="84"/>
+        <image name="delete.png" width="71" height="136"/>
+        <image name="drop_shadow_left.png" width="12" height="336"/>
+        <image name="selected_alpha.png" width="30" height="23"/>
+        <image name="Icon-72.png" width="72" height="72"/>
+        <image name="Icon-Small-50.png" width="50" height="50"/>
+        <image name="Icon.png" width="57" height="57"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination"/>
+        <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
+    </simulatedMetricsContainer>
+</document>

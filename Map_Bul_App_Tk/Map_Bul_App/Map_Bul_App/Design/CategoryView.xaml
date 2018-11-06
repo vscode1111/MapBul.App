@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             x:Class="Map_Bul_App.Design.CategoryView"
+             Orientation="Vertical" 
+             x:Name="CellStack" 
+             HeightRequest="50"
+             HorizontalOptions="FillAndExpand"
+             VerticalOptions="Start"
+             BackgroundColor="White"
+             Spacing="0">
+               <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Fill" BackgroundColor="White">
+                 <StackLayout
+                     VerticalOptions="FillAndExpand"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Start"
+                     Padding="10,5,0,5">
+                   <Image
+                     x:Name="IconImage"
+                     HeightRequest="40"
+                       Aspect="AspectFit"
+                       VerticalOptions="FillAndExpand" />
+                 </StackLayout>
+                 <StackLayout
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Padding="20,0,0,0">
+                   <design:MainLabel x:Name="NameLabel" HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="CenterAndExpand" />
+                 </StackLayout>
+                 <StackLayout
+                        VerticalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        WidthRequest="10"
+                        HeightRequest="10"
+                        HorizontalOptions="End"
+                        Padding="0,20,20,20">
+                   <Image
+                     x:Name="SelectImage"
+                       Aspect="AspectFit"
+                       Source="selected_alpha.png"
+                     
+                       VerticalOptions="FillAndExpand" />
+                 </StackLayout>
+                 <StackLayout.GestureRecognizers>
+                   <TapGestureRecognizer x:Name="CellGestureRecognizer"/>
+                 </StackLayout.GestureRecognizers>
+               </StackLayout>
+               <design:Separator x:Name="SeparatorStack"/>
+               
+ </StackLayout>

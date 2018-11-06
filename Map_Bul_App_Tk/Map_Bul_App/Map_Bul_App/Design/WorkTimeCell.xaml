@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             x:Class="Map_Bul_App.Design.WorkTimeCell" Orientation="Horizontal" Spacing="5">
+    <Image Aspect="AspectFit" HeightRequest="25" Source="date_icon.png">
+        <Image.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding CalendarCommand}" />
+        </Image.GestureRecognizers>
+    </Image>
+    <StackLayout  Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
+                 Padding="5,0,20,7">
+        <design:FormattedRegistrationLabel VerticalOptions="End" x:Name="DaysLabel"
+                                           FormattedText="{Binding DaysFormattedString}"
+                                           HorizontalOptions="FillAndExpand">
+            <design:FormattedRegistrationLabel.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CalendarCommand}" />
+            </design:FormattedRegistrationLabel.GestureRecognizers>
+        </design:FormattedRegistrationLabel>
+        <design:Separator VerticalOptions="End" />
+      <StackLayout.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding CalendarCommand}" />
+      </StackLayout.GestureRecognizers>
+    </StackLayout>
+    <StackLayout  Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Fill" x:Name="PickersStackLayout">
+        <design:CustomTimePicker Time="{Binding StartTime}" WidthRequest="46" />
+        <design:RegistrationLabel Text="-" VerticalOptions="Center" />
+        <design:CustomTimePicker Time="{Binding StopTime}" WidthRequest="46" />
+        <Image Aspect="AspectFit" HeightRequest="25" Source="{Binding PlusMinusImage}" HorizontalOptions="End"
+               VerticalOptions="CenterAndExpand" Opacity="{x:Static design:Blur.DefOpacity}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding PlusMinusCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+    </StackLayout>
+
+</StackLayout>

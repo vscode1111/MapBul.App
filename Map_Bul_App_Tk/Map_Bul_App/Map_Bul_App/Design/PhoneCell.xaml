@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             xmlns:viewModel="clr-namespace:Map_Bul_App.ViewModel;assembly=Map_Bul_App"
+             xmlns:design1="clr-namespace:Map_Bul_App.ViewModel.Design;assembly=Map_Bul_App"
+             Orientation="Horizontal"
+             Spacing="5"
+             x:Class="Map_Bul_App.Design.PhoneCell">
+ <StackLayout.BindingContext>
+   <design1:PhoneViewModel/>
+ </StackLayout.BindingContext>
+  <design:AuthEntry Text="{Binding Phone.Number}" Keyboard="Telephone" HorizontalOptions="FillAndExpand"/>
+  <Image Aspect="AspectFit" HeightRequest="25"  Source="{Binding PlusMinusImage}" HorizontalOptions="End" VerticalOptions="CenterAndExpand" Opacity="{x:Static design:Blur.DefOpacity}">
+    <Image.GestureRecognizers>
+      <TapGestureRecognizer Command="{Binding PlusMinusCommand}"/>
+    </Image.GestureRecognizers>
+  </Image>
+  
+</StackLayout>

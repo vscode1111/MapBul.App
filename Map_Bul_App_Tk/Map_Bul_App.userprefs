@@ -1,0 +1,12 @@
+﻿<Properties StartupConfiguration="{DCEB11D3-2003-46DF-89FD-AAF6C7220696}|Default">
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../mte_ios/TanTutor/TanTutor/TanTutor/BasePage.cs" line="31" offsetX="569" offsetY="238" expression="Catalog.pMain.Navigation.NavigationStack.list" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.ItemProperties.Map__Bul__App.Droid PreferredExecutionTarget="Android.Proff" />
+  <MonoDevelop.Ide.ItemProperties.Map__Bul__App.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.8850e867e0e28c342453c2624a8a47e42e237e27" />
+</Properties>

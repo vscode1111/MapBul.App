@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             x:Class="Map_Bul_App.Design.AddPinCategoryCell">
+  <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand" BackgroundColor="White">
+    <StackLayout
+        VerticalOptions="FillAndExpand"
+        Orientation="Horizontal"
+        HorizontalOptions="Start"
+        Padding="10,5,0,5">
+      <Image
+        x:Name="IconImage"
+          Aspect="AspectFit"
+          VerticalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Padding="20,0,0,0">
+      <design:MainLabel x:Name="NameLabel" HorizontalOptions="FillAndExpand"
+                        VerticalOptions="CenterAndExpand" />
+    </StackLayout>
+    <StackLayout
+        VerticalOptions="FillAndExpand"
+        Orientation="Horizontal"
+        HorizontalOptions="End"
+        Padding="0,15,15,15">
+      <Image
+        x:Name="SelectImage"
+          Aspect="AspectFit"
+          Source="selected_black.png"
+          VerticalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout.GestureRecognizers>
+      <TapGestureRecognizer x:Name="CellGestureRecognizer"/>
+    </StackLayout.GestureRecognizers>
+  </StackLayout>
+</ViewCell>

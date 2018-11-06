@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+          xmlns:resX="clr-namespace:Map_Bul_App.ResX;assembly=Map_Bul_App"
+          x:Class="Map_Bul_App.Design.PinCellView">
+  <StackLayout
+   Orientation="Vertical" Spacing="0" >
+    <StackLayout x:Name="CellStackLayout"
+    HorizontalOptions="FillAndExpand"
+                 Orientation="Vertical"
+                 Spacing="0"
+                 Padding="10,5,5,10">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="70"/>
+          <ColumnDefinition Width="1*"/>
+          <ColumnDefinition Width="12"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" x:Name="PreviewImage" Aspect="AspectFill" HeightRequest="70" WidthRequest="70" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" Padding="5,0,0,0">
+          <design:CellTitleLabel TextColor="Black" HorizontalOptions="Start"  x:Name="NameLabel" />
+          <StackLayout Padding="0,0,0,2" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+            <Image x:Name="CategoryImage"
+                   Aspect="AspectFit"
+                   HeightRequest="25"
+                   VerticalOptions="FillAndExpand" />
+            <design:RegistrationLabel VerticalTextAlignment="Center" x:Name="CategoryLabel"/>
+          </StackLayout>
+          <design:RegistrationLabel x:Name="SubcategoryLabel" HorizontalOptions="StartAndExpand" />
+          <design:TagsLabel x:Name="TagsLabel" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+        <Image Grid.Column="2" HorizontalOptions="End" VerticalOptions ="CenterAndExpand" Source="open_icon.png" Aspect="AspectFit" HeightRequest="20"/>
+      </Grid>
+
+    </StackLayout>
+    <design:Separator BackgroundColor="{x:Static design:CustomColors.Gray}" />
+  </StackLayout>
+</ViewCell>

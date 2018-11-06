@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             xmlns:resX="clr-namespace:Map_Bul_App.ResX;assembly=Map_Bul_App"
+             xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
+             xmlns:settings="clr-namespace:Map_Bul_App.Settings;assembly=Map_Bul_App"
+             
+             x:Class="Map_Bul_App.Views.AddPinView">
+
+<!--    <ContentPage.BindingContext >
+        <viewModel:AddNewPinViewModel />
+    </ContentPage.BindingContext>-->
+  <ContentPage.Resources>
+  </ContentPage.Resources>
+    <Grid
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <design:HeaderStack Grid.Row="0" LeftImageSource="app_back.png" LeftImageCommand="{Binding BackClickCommand}"
+                            Title="{Binding Title}" />
+        <ScrollView
+            Grid.Row="1"
+            x:Name="Scroll"
+            Grid.Column="0"
+            IsEnabled="True"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Orientation="Vertical">
+            <StackLayout
+                BackgroundColor="White"
+                Orientation="Vertical"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Start"
+                Spacing="0">
+                <customMap:TKCustomMap
+                    HeightRequest="250"
+                    VerticalOptions="Start"
+                    HorizontalOptions="FillAndExpand"
+                    HasScrollEnabled="True"
+                    x:Name="TkMap"
+                    PinDragEndCommand="{Binding DragEndCommand}"
+                    MapCenter="{Binding MapCenter}"
+                    CustomPins="{Binding Pins}"
+                    IsShowingUser="False"
+                    IsRegionChangeAnimated="True" />
+                <Grid
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
+                    RowSpacing="0"
+                    BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand"
+                                 HorizontalOptions="FillAndExpand" Padding="10,10,10,10">
+                        <StackLayout Orientation="Vertical">
+                            <design:CustomStackLayoutWithEntry
+                                LabelText="{resX:WithRequiedTranslate PinName}"
+                                EntryText="{Binding Pin.Name}" TextChanged="CheckFields"/>
+                            <design:CustomStackLayoutWithEntry
+                                LabelText="{resX:WithRequiedTranslate PinIntroduction}"
+                                EntryText="{Binding Pin.Introduction}" TextChanged="CheckFields"/>
+                            <StackLayout HorizontalOptions="FillAndExpand"
+                                         Spacing="0"
+                                         Orientation="Vertical">
+                                <design:RegistrationLabel
+                                    Text="{resX:WithRequiedTranslate PinDescription}" />
+                                <design:CustomEditor
+                                    HeightRequest="120"
+                                    Text="{Binding Pin.Description}" TextChanged="CheckFields"/>
+                            </StackLayout>
+                            <!--Тип объекта-->
+                            <StackLayout HorizontalOptions="FillAndExpand"
+                                         Spacing="0"
+                                         Orientation="Vertical">
+                                <design:RegistrationLabel VerticalOptions="CenterAndExpand"
+                                    Text="{resX:WithRequiedTranslate PinBaseCategory}" />
+                                <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Padding="0,0,0,2" VerticalOptions="FillAndExpand">
+                                        <Image Source="{Binding BaseCategoryImage}"
+                                               Aspect="AspectFit"
+                                               HeightRequest="25"
+                                               VerticalOptions="FillAndExpand" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="EndAndExpand" Padding="5,0,0,3">
+                                        <design:RegistrationLabel Text="{Binding BaseCategoryString}"
+                                                                  TextColor="{Binding BaseCategoryColor}" />
+                                        <design:Separator VerticalOptions="End" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenCloseCategoriesCommand}" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <!--Теги-->
+                            <StackLayout HorizontalOptions="FillAndExpand"
+                                         Spacing="0"
+                                         Orientation="Vertical">
+                                <design:RegistrationLabel VerticalOptions="CenterAndExpand"
+                                    Text="{resX:WithRequiedTranslate PinTags}" />
+                                <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Padding="0,0,0,2" VerticalOptions="FillAndExpand">
+                                        <Image Source="tag_iconn.png"
+                                               Opacity="{x:Static design:Blur.DefOpacity}"
+                                               Aspect="AspectFit"
+                                               HeightRequest="25"
+                                               VerticalOptions="FillAndExpand" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="EndAndExpand" Padding="5,0,0,3">
+                                        <design:TagsLabel Text="{Binding Tags}"/>
+                                        <design:Separator VerticalOptions="End" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenCloseTagsCommand}" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <!--Время работы-->
+
+                            <StackLayout Orientation="Vertical" Spacing="5">
+                                <design:RegistrationLabel VerticalOptions="CenterAndExpand"
+                                    Text="{resX:WithRequiedTranslate AddPinWorkTime}" />
+                                <StackLayout Orientation="Vertical" Spacing="0" x:Name="WorkTimeStack" />
+                            </StackLayout>
+
+                          <StackLayout Orientation="Vertical" Spacing="5">
+                            <design:RegistrationLabel VerticalOptions="CenterAndExpand"
+                                Text="{resX:Translate PinDiscount}" />
+                            <design:CustomPicker SelectedIndex="{Binding SelectedDiscountIndex, Mode=TwoWay}" x:Name="DiscountPicker" HeightRequest="40" />
+                          </StackLayout>
+                            <!--Телефоны-->
+                            <StackLayout Orientation="Vertical" Spacing="5">
+                                <design:RegistrationLabel
+                                    Text="{resX:Translate PinPhone}" />
+                                <StackLayout Orientation="Vertical" Spacing="0" x:Name="PhoneStack" />
+                            </StackLayout>
+
+                            <design:CustomStackLayoutWithEntry
+                                LabelText="{resX:Translate PinSite}"
+                                EntryText="{Binding Pin.Site}" />
+                          <design:CustomStackLayoutWithEntry
+                                LabelText="{resX:Translate PinEmail}"
+                                EntryText="{Binding Pin.Email}" Keyboard="{x:Static Keyboard.Email}"/>
+                          <!--Изображение-->
+                          <design:AddImagesView
+                            x:Name="ImagesView"
+                            ImagePaths="{Binding Photos}"
+                            OldImagePaths="{Binding OldPhotos}"
+                            PhotosBase64Dictionary="{Binding PhotosBase64Dictionary}"/>
+                            <!--<Image Source="{Binding Photo}" Aspect="AspectFit" HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" HeightRequest="300">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectPhotoCommand}" />
+                                </Image.GestureRecognizers>
+                            </Image>-->
+                          <!--Личная на проверку-->
+                          <Grid
+                            HeightRequest="30"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            RowSpacing="0"
+                            ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                              <RowDefinition Height="1"/>
+                              <RowDefinition Height="30"/>
+                              <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="1"/>
+                              <ColumnDefinition Width="0.5*"/>
+                              <ColumnDefinition Width="1"/>
+                              <ColumnDefinition Width="0.5*"/>
+                              <ColumnDefinition Width="1"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout
+                              Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" 
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="FillAndExpand"
+                              BackgroundColor="Black"/>
+                            <StackLayout
+                              Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="FillAndExpand"
+                              BackgroundColor="Black"/>
+                            <StackLayout
+                              Grid.Row="0" Grid.RowSpan="3" Grid.Column="4" 
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="FillAndExpand"
+                              BackgroundColor="Black"/>
+                            <StackLayout
+                              Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="FillAndExpand"
+                              BackgroundColor="Black"/>
+                            <StackLayout
+                              Grid.Row="1" Grid.Column="2"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="FillAndExpand"
+                              BackgroundColor="Black"/>
+                            <StackLayout
+                              Grid.Row="1" Grid.Column="1"
+                              VerticalOptions="FillAndExpand"
+                              BackgroundColor="White"
+                              HorizontalOptions="FillAndExpand">
+                              <Label
+                                IsEnabled="{Binding IsGuide}"
+                                Text="{resX:Translate ForReview}"
+                                TextColor="Black"
+                                VerticalOptions="FillAndExpand"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"/>
+                              <StackLayout.Triggers>
+                                <DataTrigger Binding="{Binding IsPersonalMarker}" Value="True" TargetType="StackLayout">
+                                  <Setter Property="BackgroundColor" Value="#e6e6e6"/>
+                                </DataTrigger>
+                              </StackLayout.Triggers>
+                              <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectGuideMarkerTypeCommand}"/>
+                              </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout
+                              Grid.Row="1" Grid.Column="3"
+                              VerticalOptions="FillAndExpand"
+                              BackgroundColor="White"
+                              HorizontalOptions="FillAndExpand">
+                              <Label
+                                Text="{resX:Translate MyPin}"
+                                TextColor="Black"
+                                VerticalOptions="FillAndExpand"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"/>
+                              <StackLayout.Triggers>
+                                <DataTrigger Binding="{Binding IsPersonalMarker}" Value="False" TargetType="StackLayout">
+                                  <Setter Property="BackgroundColor" Value="#e6e6e6"/>
+                                </DataTrigger>
+                              </StackLayout.Triggers>
+                              <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectPersonalMarkerTypeCommand}"/>
+                              </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                          </Grid>
+                        </StackLayout>
+                      <design:AuthButton
+                          BorderColor="Black"
+                          BorderRadius="1"
+                          BorderWidth="2"
+                          Text="{resX:Translate AddMarkerTitile}"
+                          Command="{Binding AddPinCommand}" IsEnabled="{Binding IsAllFieldsValid}">
+                        <design:AuthButton.Triggers>
+                          <DataTrigger Binding="{Binding IsRedact}" Value="True" TargetType="design:AuthButton">
+                            <Setter Property="Text" Value="{resX:Translate SaveChanges}"/>
+                          </DataTrigger>
+                        </design:AuthButton.Triggers>
+                      </design:AuthButton>
+                    </StackLayout>
+                    <Image Source="drop_shadow_top.png" HorizontalOptions="FillAndExpand" Aspect="AspectFill"
+                           VerticalOptions="Start" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+        <Image Grid.Row="1" Source="drop_shadow_top.png" HorizontalOptions="FillAndExpand" Aspect="AspectFill"
+               VerticalOptions="Start" />
+      <!--Список категорий-->
+        <StackLayout Grid.Row="0" Grid.RowSpan="2" BackgroundColor="{Binding BackgroundColorOfActivityIndicator}"
+                     IsVisible="{Binding CategoriesPopupVisible}" VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand">
+            <StackLayout Padding="30,50,30,50" Spacing="0" VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand" x:Name="CategoryPopup">
+                <StackLayout Spacing="5" Orientation="Vertical" BackgroundColor="White"
+                             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout Padding="10,0,0,0">
+                        <design:ActionBarLabel Text="{resX:Translate PinBaseCategory}" HorizontalTextAlignment="Start" />
+                    </StackLayout>
+                    <design:Separator />
+                  <design:CachingListView
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        BackgroundColor="White"
+                        SeparatorVisibility="None"
+                        HasUnevenRows="True"
+                        IsPullToRefreshEnabled="False"
+                        IsEnabled="True"
+                        ItemsSource="{Binding PinCategories}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <design:CategoryCellVew BindingContext="{Binding .}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </design:CachingListView>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+      <!--Список тегов-->
+        <StackLayout Grid.Row="0" Grid.RowSpan="2" BackgroundColor="{Binding BackgroundColorOfActivityIndicator}"
+                     IsVisible="{Binding TagsPopupVisible}" x:Name="TagsPopup">
+            <StackLayout Padding="30,50,30,50" Spacing="0" VerticalOptions="StartAndExpand"
+                         HorizontalOptions="FillAndExpand">
+                <StackLayout Spacing="5" Orientation="Vertical" BackgroundColor="White"
+                             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout Padding="10,0,0,0">
+                        <design:ActionBarLabel Text="{resX:Translate PinTags}" HorizontalTextAlignment="Start" />
+                    </StackLayout>
+                    <design:Separator />
+                    <ListView
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        BackgroundColor="White"
+                        SeparatorVisibility="None"
+                        HasUnevenRows="True"
+                        IsPullToRefreshEnabled="False"
+                        IsEnabled="True"
+                        ItemsSource="{Binding VisibleTags}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <design:CategoryCellVew BindingContext="{Binding .}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <design:Separator />
+                    <StackLayout Padding="0,0,10,0">
+                        <design:MainButton Text="{resX:Translate Ok}" HorizontalOptions="End" BorderWidth="0"
+                                           BorderRadius="1" Command="{Binding OpenCloseTagsCommand}" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+      <!--Список дней недели-->
+      <StackLayout Grid.Row="0" Grid.RowSpan="2" BackgroundColor="{Binding BackgroundColorOfActivityIndicator}"
+             IsVisible="{Binding DaysPopupVisible}" x:Name="DaysPopup">
+        <StackLayout Padding="30,100,30,0" Spacing="0" VerticalOptions="Fill"
+                     HorizontalOptions="CenterAndExpand">
+          <StackLayout  Orientation="Vertical" BackgroundColor="White"
+                       HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Spacing="0">
+            <StackLayout Padding="10,0,0,0" HeightRequest="50">
+              <design:ActionBarLabel Text="{resX:Translate AddPinWorkDays}" HorizontalTextAlignment="Start" VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <design:Separator />
+            <design:CachingListView
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Fill"
+                HeightRequest="250"
+                BackgroundColor="White"
+                SeparatorVisibility="None"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="False"
+                IsEnabled="True"
+                ItemsSource="{Binding WeekViewModel.Days}">
+              <ListView.ItemTemplate>
+                <DataTemplate>
+                  <design:DayCell BindingContext="{Binding .}" />
+                </DataTemplate>
+              </ListView.ItemTemplate>
+            </design:CachingListView>
+            <design:Separator />
+            <StackLayout Padding="0,0,10,0"  Orientation="Horizontal" HeightRequest="40" HorizontalOptions="FillAndExpand">
+              <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                <design:MainButton Text="{resX:Translate Cancel}" HorizontalOptions="End" BorderWidth="0" 
+                   BorderRadius="1" Command="{Binding CloseDaysCommand}" CommandParameter="{x:Static settings:ButtonAction.Cancel}" VerticalOptions="Center" />
+                <design:MainButton Text="{resX:Translate Ok}" HorizontalOptions="End" BorderWidth="0" 
+                                   BorderRadius="1" Command="{Binding CloseDaysCommand}" CommandParameter="{x:Static settings:ButtonAction.Ok}" VerticalOptions="Center"/>
+              </StackLayout>
+            </StackLayout>
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+        <StackLayout
+            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            IsVisible="{Binding IsActivityIndicatorVisible}"
+            BackgroundColor="{Binding BackgroundColorOfActivityIndicator, Mode=OneWay}" />
+        <ActivityIndicator
+            x:Name="Indicator"
+            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+            IsVisible="{Binding IsActivityIndicatorVisible}"
+            IsRunning="{Binding IsActivityIndicatorRuning}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+    </Grid>
+</ContentPage>

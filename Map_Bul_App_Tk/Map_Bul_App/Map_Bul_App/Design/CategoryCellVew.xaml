@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             xmlns:converters="clr-namespace:Map_Bul_App.Converters;assembly=Map_Bul_App"
+             x:Class="Map_Bul_App.Design.CategoryCellVew">
+             <StackLayout Orientation="Vertical"  HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" BackgroundColor="White" Spacing="0" IsVisible="{Binding IsVisible}">
+              <StackLayout.Resources>
+                <ResourceDictionary>
+                  <converters:BoolToOpacityConverter x:Key="OpacityConverter" />
+                </ResourceDictionary>
+              </StackLayout.Resources>
+               <StackLayout.Opacity>
+                 <Binding Path="ItemSelected" Converter="{StaticResource OpacityConverter}" Mode="OneWay"/>
+               </StackLayout.Opacity>
+               <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand" BackgroundColor="White">
+                 <StackLayout
+                     VerticalOptions="CenterAndExpand"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Start"
+                     Padding="10,5,0,5">
+                   <Image
+                     Source="{Binding Icon}"
+                     HeightRequest="35"
+                       Aspect="AspectFit"
+                       VerticalOptions="FillAndExpand" />
+                 </StackLayout>
+                 <StackLayout
+                     HorizontalOptions="StartAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Padding="10,0,0,0">
+                   <design:MainLabel Text="{Binding Name}" TextColor="{Binding Color}" HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="CenterAndExpand" />
+                 </StackLayout>
+                 <StackLayout
+                     VerticalOptions="CenterAndExpand"
+                     Orientation="Horizontal"
+                     HorizontalOptions="End"
+                     Padding="0,15,10,15">
+                   <Image
+                     IsVisible="{Binding ItemSelected}"
+                       Aspect="AspectFit"
+                     HeightRequest="10"
+                       Source="selected_alpha.png"
+                     BackgroundColor="{Binding Color}"
+                       VerticalOptions="FillAndExpand" />
+                 </StackLayout>
+               </StackLayout>
+               <StackLayout.GestureRecognizers>
+                 <TapGestureRecognizer x:Name="CellGestureRecognizer"/>
+               </StackLayout.GestureRecognizers>
+             </StackLayout>
+</ViewCell>

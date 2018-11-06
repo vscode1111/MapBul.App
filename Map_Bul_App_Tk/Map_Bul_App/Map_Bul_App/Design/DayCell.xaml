@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Map_Bul_App.Converters;assembly=Map_Bul_App"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             x:Class="Map_Bul_App.Design.DayCell">
+  <StackLayout Orientation="Vertical"  HeightRequest="35" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" BackgroundColor="White" Spacing="0" >
+    <StackLayout.Resources>
+      <ResourceDictionary>
+        <converters:BoolToOpacityConverter x:Key="OpacityConverter" />
+      </ResourceDictionary>
+    </StackLayout.Resources>
+    <StackLayout.Opacity>
+      <Binding Path="IsEnabled" Converter="{StaticResource OpacityConverter}" Mode="OneWay"/>
+    </StackLayout.Opacity>
+    <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand" BackgroundColor="White">
+      <StackLayout
+          HorizontalOptions="StartAndExpand"
+          VerticalOptions="FillAndExpand"
+          Padding="10,0,0,0">
+        <design:MainLabel Text="{Binding Name}" TextColor="{Binding Color}" HorizontalOptions="FillAndExpand"
+                          VerticalOptions="CenterAndExpand" />
+      </StackLayout>
+      <StackLayout
+          VerticalOptions="CenterAndExpand"
+          Orientation="Horizontal"
+          HorizontalOptions="End"
+          Padding="0,10,10,10">
+        <Image
+          IsVisible="{Binding IsSelected}"
+            Aspect="AspectFit"
+          HeightRequest="10"
+            Source="selected_alpha.png"
+          BackgroundColor="{Binding Color}"
+            VerticalOptions="FillAndExpand" />
+      </StackLayout>
+    </StackLayout>
+    <StackLayout.GestureRecognizers>
+      <TapGestureRecognizer Command="{Binding DayTappedCommand}"/>
+    </StackLayout.GestureRecognizers>
+  </StackLayout>
+</ViewCell>

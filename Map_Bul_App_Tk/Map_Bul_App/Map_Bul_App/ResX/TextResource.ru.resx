@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionBarFindPlaceholder" xml:space="preserve">
+    <value>Я ищу...</value>
+  </data>
+  <data name="AddingMarkerTitle" xml:space="preserve">
+    <value>Добавление метки</value>
+  </data>
+  <data name="EditMarkerTitle" xml:space="preserve">
+    <value>Редактирование метки</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Сохранить изменения</value>
+  </data>
+  <data name="AddMarkerTitile" xml:space="preserve">
+    <value>Добавить метку</value>
+  </data>
+  <data name="ArticleAdressLabelText" xml:space="preserve">
+    <value>Место события:</value>
+  </data>
+  <data name="ArticleDateLabelText" xml:space="preserve">
+    <value>Дата события:</value>
+  </data>
+  <data name="ArticlesButtonText" xml:space="preserve">
+    <value>Статьи</value>
+    <comment>Текст кнопки открытия статей</comment>
+  </data>
+  <data name="AuthLogin" xml:space="preserve">
+    <value>Логин (эл. адрес)</value>
+  </data>
+  <data name="AuthPassword" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="AuthRegistration" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="CalendarButtonText" xml:space="preserve">
+    <value>Календарь</value>
+    <comment>Текст кнопки открытия календаря</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="EventTitleString" xml:space="preserve">
+    <value>События</value>
+  </data>
+  <data name="Favorites" xml:space="preserve">
+    <value>Избранное</value>
+    <comment>Текст кнопки открытия избранных меток</comment>
+  </data>
+  <data name="FilterCategory" xml:space="preserve">
+    <value>Выбрать категорию</value>
+  </data>
+  <data name="FilterFooterShow" xml:space="preserve">
+    <value>Показать</value>
+  </data>
+  <data name="FilterSubCategory" xml:space="preserve">
+    <value>Показать только</value>
+  </data>
+  <data name="FilterTitle" xml:space="preserve">
+    <value>Фильтр</value>
+  </data>
+  <data name="GuestLogin" xml:space="preserve">
+    <value>Войти как гость</value>
+  </data>
+  <data name="LocalEntering" xml:space="preserve">
+    <value>Локальный вход</value>
+  </data>
+  <data name="LoginButtonText" xml:space="preserve">
+    <value>ВОЙТИ</value>
+    <comment>Текст кнопки входа</comment>
+  </data>
+  <data name="OpenMapButton" xml:space="preserve">
+    <value>Карта</value>
+    <comment>Текст кнопки открытия карты</comment>
+  </data>
+  <data name="RecoverPassword" xml:space="preserve">
+    <value>Забыли пароль?</value>
+  </data>
+  <data name="RegistrationBirthDate" xml:space="preserve">
+    <value>Дата рождения</value>
+  </data>
+  <data name="RegistrationButton" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
+  <data name="RegistrationLogin" xml:space="preserve">
+    <value>Эл. адрес*</value>
+  </data>
+  <data name="RegistrationName" xml:space="preserve">
+    <value>Имя*</value>
+  </data>
+  <data name="RegistrationPhone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="RegistrationSex" xml:space="preserve">
+    <value>Пол</value>
+  </data>
+  <data name="ServerEntering" xml:space="preserve">
+    <value>Вход через сервер</value>
+  </data>
+  <data name="PinBaseCategory" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="PinDescription" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="PinEmail" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="PinIntroduction" xml:space="preserve">
+    <value>Вступление</value>
+  </data>
+  <data name="PinLogo" xml:space="preserve">
+    <value>Логтип</value>
+  </data>
+  <data name="PinName" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="PinPhone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="PinPhoto" xml:space="preserve">
+    <value>Фотография</value>
+  </data>
+  <data name="PinSite" xml:space="preserve">
+    <value>Сайт</value>
+  </data>
+  <data name="PinStatus" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="PinTags" xml:space="preserve">
+    <value>Теги</value>
+  </data>
+  <data name="PinTicket" xml:space="preserve">
+    <value>Входной билет</value>
+  </data>
+  <data name="PinDiscount" xml:space="preserve">
+    <value>Скидка</value>
+  </data>
+  <data name="AddPinWorkTime" xml:space="preserve">
+    <value>Время работы</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ок</value>
+  </data>
+  <data name="AddPinWorkDays" xml:space="preserve">
+    <value>Дни работы</value>
+  </data>
+  <data name="AddPinSelectPhoto" xml:space="preserve">
+    <value>Выбрать фото</value>
+  </data>
+  <data name="AddPinTakePhoto" xml:space="preserve">
+    <value>Сделать фото</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Places" xml:space="preserve">
+    <value>Места</value>
+  </data>
+  <data name="FSex" xml:space="preserve">
+    <value>Женский</value>
+  </data>
+  <data name="MSex" xml:space="preserve">
+    <value>Мужской</value>
+  </data>
+  <data name="RegistrationLastName" xml:space="preserve">
+    <value>Фамилия*</value>
+  </data>
+  <data name="RegistrationMiddleName" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="RecoverPasswordButton" xml:space="preserve">
+    <value>Восстановить пароль</value>
+  </data>
+  <data name="RecoverPasswordTitle" xml:space="preserve">
+    <value>Восстановление пароля</value>
+  </data>
+  <data name="FilterWifi" xml:space="preserve">
+    <value>Есть wi-fi</value>
+  </data>
+  <data name="FilterWorkingNow" xml:space="preserve">
+    <value>Работает сейчас</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Закрыто</value>
+  </data>
+  <data name="FavoriteMarkers" xml:space="preserve">
+    <value>Показать избранные метки</value>
+  </data>
+  <data name="FilterAction" xml:space="preserve">
+    <value>Фильтры меток</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Источник: </value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>Фото: </value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Время начала:</value>
+  </data>
+  <data name="StartTimeA" xml:space="preserve">
+    <value>Время начала:</value>
+  </data>
+  <data name="FutureEvents" xml:space="preserve">
+    <value>Будущие</value>
+  </data>
+  <data name="PastEvents" xml:space="preserve">
+    <value>Прошедшие</value>
+  </data>
+  <data name="ShowAllEvents" xml:space="preserve">
+    <value>Показать все события</value>
+  </data>
+  <data name="ShowMyMarker" xml:space="preserve">
+    <value>Показывать свои метки</value>
+  </data>
+  <data name="EditMarker" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="EvryTime" xml:space="preserve">
+    <value>Круглосуточно</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Важное предупреждение</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Успех</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Уведомление</value>
+  </data>
+  <data name="ForReview" xml:space="preserve">
+    <value>На проверку</value>
+  </data>
+  <data name="MyPin" xml:space="preserve">
+    <value>Личная</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  
+  <data name="NoInternetConnectionToast" xml:space="preserve">
+    <value>Нет соединения с интернетом</value>
+  </data>
+  <data name="ThePinIsAddedToast" xml:space="preserve">
+    <value>Точка добавлена, ожидайте подтверждения администратором.</value>
+  </data>
+  <data name="PinEditedToast" xml:space="preserve">
+    <value>Точка отредактирована.</value>
+  </data>
+  <data name="PinAddedToast" xml:space="preserve">
+    <value>Точка добавлена.</value>
+  </data>
+  <data name="ErrorToast" xml:space="preserve">
+    <value>Произошла ошибка</value>
+  </data>
+  <data name="SuccessfulRegistrationToast" xml:space="preserve">
+    <value>Успешная регистрация, пароль выслан на указанный e-mail</value>
+  </data>
+  <data name="NoFavoritePinsToast" xml:space="preserve">
+    <value>Нет избранных меток.</value>
+  </data>
+  <data name="EnterEmailAddressToast" xml:space="preserve">
+    <value>Введите адрес электронной почты.</value>
+  </data>
+  <data name="PasswordSentToast" xml:space="preserve">
+    <value>Пароль выслан на указанный адрес.</value>
+  </data>
+
+
+</root>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.1" package="ru.etreta.mapbul.android" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="15" />
+	<application android:label="X-island" android:icon="@drawable/icon" android:largeHeap="true">
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCwxK-1FnusRJOx1ZpcTS5dpIoJZH9h0Eg" android:theme="@style/MyTheme" />
+		<!--    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCwxK-1FnusRJOx1ZpcTS5dpIoJZH9h0Eg" />-->
+	</application>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+</manifest>

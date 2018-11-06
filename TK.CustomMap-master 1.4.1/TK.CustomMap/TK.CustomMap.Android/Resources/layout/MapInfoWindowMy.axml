@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="0dip"
+    android:gravity="left"
+    android:background="@android:color/white">
+    <ImageView
+        android:id="@+id/TitleImage"
+        android:layout_width="100dp"
+        android:layout_height="fill_parent"
+        android:scaleType="center"
+        android:layout_gravity="left" />
+    <LinearLayout
+        android:id="@+id/InfoWindowLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/InfoWindowTitle"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Restoran"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_orange_dark" />
+        <TextView
+            android:id="@+id/InfoTextType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ресторан"
+            android:textColor="@android:color/black" />
+        <TextView
+            android:id="@+id/InfoTextType2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Китайский"
+            android:textColor="@android:color/black" />
+        <TextView
+            android:id="@+id/InfoTextTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:00 - 19:00"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+        <TextView
+            android:id="@+id/InfoTextTags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#дешевая #для семьи с детьми"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+</LinearLayout>

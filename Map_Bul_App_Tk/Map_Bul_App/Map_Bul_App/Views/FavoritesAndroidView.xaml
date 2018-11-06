@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             xmlns:resX="clr-namespace:Map_Bul_App.ResX;assembly=Map_Bul_App"
+             xmlns:settings="clr-namespace:Map_Bul_App.Settings;assembly=Map_Bul_App"
+             xmlns:viewModel="clr-namespace:Map_Bul_App.ViewModel;assembly=Map_Bul_App"
+             BackgroundColor="White"
+             x:Class="Map_Bul_App.Views.FavoritesAndroidView">
+    <ContentPage.BindingContext>
+        <viewModel:FavoritesViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        BackgroundColor="White"
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <design:HeaderStack Grid.Row="0" Grid.Column="0" LeftImageSource="app_menu.png"
+                            LeftImageCommand="{Binding MenuShowCloseClickCommand}" Title="{resX:Translate Favorites}" />
+
+        <Grid
+            Grid.Row="1" HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            ColumnSpacing="0"
+            RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.33*" />
+                <ColumnDefinition Width="0.33*" />
+                <ColumnDefinition Width="0.33*" />
+            </Grid.ColumnDefinitions>
+          <!--Tabs-->
+            <StackLayout
+                Grid.Row="0" Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" Spacing="0">
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding SelectFrameCommand}"
+                        CommandParameter="{x:Static settings:Pages.Map}" />
+                </StackLayout.GestureRecognizers>
+                <design:FavoritesBarLabel
+                    Text="{resX:Translate Places}" />
+                <design:Separator IsVisible="True" VerticalOptions="End">
+                    <design:Separator.Triggers>
+                        <DataTrigger TargetType="design:Separator"
+                                     Binding="{Binding SelectedTitle}" Value="0">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </design:Separator.Triggers>
+                </design:Separator>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="0" Grid.Column="1"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+               Orientation="Horizontal" Spacing="0">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding SelectFrameCommand}"
+                        CommandParameter="{x:Static settings:Pages.Calendar}" />
+                </StackLayout.GestureRecognizers>
+              <design:VerticalSeparator />
+              <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                <design:FavoritesBarLabel
+                    Text="{resX:Translate EventTitleString}" />
+                <design:Separator IsVisible="True" VerticalOptions="End">
+                    <design:Separator.Triggers>
+                        <DataTrigger TargetType="design:Separator"
+                                     Binding="{Binding SelectedTitle}" Value="1">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </design:Separator.Triggers>
+                </design:Separator>
+              </StackLayout>
+              <design:VerticalSeparator />
+            </StackLayout>
+            <StackLayout
+                Grid.Row="0" Grid.Column="2"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" Spacing="0">
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding SelectFrameCommand}"
+                        CommandParameter="{x:Static settings:Pages.Articles}" />
+                </StackLayout.GestureRecognizers>
+                <design:FavoritesBarLabel 
+                    Text="{resX:Translate ArticlesButtonText}" />
+                <design:Separator IsVisible="True" VerticalOptions="End">
+                    <design:Separator.Triggers>
+                        <DataTrigger TargetType="design:Separator"
+                                     Binding="{Binding SelectedTitle}" Value="2">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </design:Separator.Triggers>
+                </design:Separator>
+            </StackLayout>
+<!--Content-->
+
+                    <design:FavoritesFrame
+                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand"
+                        IsVisible="True"
+                        VerticalOptions="FillAndExpand"
+                        x:Name="PinsFrame">
+                      <design:CachingListView
+                        
+                            x:Name="PinsListView"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            SeparatorVisibility="None"
+                            HasUnevenRows="True"
+                            IsEnabled="True"
+                            BackgroundColor="White"
+                            ItemTapped="PinsListView_OnItemTapped"
+                            IsPullToRefreshEnabled="False"
+                            IsRefreshing="{Binding IsRefreshing}"
+                            ItemsSource="{Binding Pins}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <design:PinCellView PinName="{Binding Name}" CategoryColor="{Binding Color}"
+                                                        CategoryName="{Binding RootCategoryName}"
+                                                        PreviewImageSource="{Binding InfoImage}"
+                                                        CategoryImageSource="{Binding Icon}"
+                                                        SubCategoryName="{Binding BaseCategoryName}"
+                                                        Tags="{Binding StringTags}">
+                                        <design:PinCellView.ContextActions>
+                                            <MenuItem Text="{resX:Translate Delete}" Icon="delete.png" IsDestructive="True" Command="{Binding DeleteCommand}"/>
+                                        </design:PinCellView.ContextActions>
+                                    </design:PinCellView>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </design:CachingListView>
+                    </design:FavoritesFrame>
+
+                    <design:FavoritesFrame               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+             IsVisible="False" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                           x:Name="EventsFrame">
+                      <design:CachingListView
+
+                            x:Name="EventsListView"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            SeparatorVisibility="None"
+                            HasUnevenRows="True"
+                            IsEnabled="True"
+                            BackgroundColor="White"
+                            ItemTapped="ListView_OnItemTapped"
+                            IsPullToRefreshEnabled="False"
+                            IsRefreshing="{Binding IsRefreshing}"
+                            ItemsSource="{Binding Events}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <design:ArticleCellView Date="{Binding PublishedDate}"
+                                                            ImageSource="{Binding TitlePhoto}"
+                                                            Title="{Binding Title}" Tags="{Binding TagsString}"
+                                                            StartDate="{Binding StartDate}" StopDate="{Binding StopDate}">
+                                        <design:ArticleCellView.ContextActions>
+                                            <MenuItem Text="{resX:Translate Delete}" Icon="delete.png"
+                                                      IsDestructive="True" Command="{Binding DeleteCommand}" />
+                                        </design:ArticleCellView.ContextActions>
+                                    </design:ArticleCellView>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </design:CachingListView>
+                    </design:FavoritesFrame>
+          <design:FavoritesFrame
+             Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+             IsVisible="False"
+                        x:Name="ArticlesFrame">
+            <design:CachingListView
+                  x:Name="ArticlesListView"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="FillAndExpand"
+                            SeparatorVisibility="None"
+                            HasUnevenRows="True"
+                            IsEnabled="True"
+                            IsPullToRefreshEnabled="False"
+                            IsRefreshing="{Binding IsRefreshing}"
+                            ItemTapped="ListView_OnItemTapped"
+                            ItemsSource="{Binding Articles}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <design:ArticleCellView Date="{Binding PublishedDate}"
+                                                            ImageSource="{Binding TitlePhoto}"
+                                                            Title="{Binding Title}" Tags="{Binding TagsString}">
+                                        <design:ArticleCellView.ContextActions>
+                                            <MenuItem Text="{resX:Translate Delete}" Icon="delete.png"
+                                                      IsDestructive="True" Command="{Binding DeleteCommand}" />
+                                        </design:ArticleCellView.ContextActions>
+                                    </design:ArticleCellView>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </design:CachingListView>
+                    </design:FavoritesFrame>
+        </Grid>
+        <Image Grid.Row="1" Grid.Column="0" Source="drop_shadow_top.png"
+               HorizontalOptions="FillAndExpand" Aspect="AspectFill"
+               VerticalOptions="Start" />
+        <StackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     IsVisible="{Binding IsActivityIndicatorVisible}"
+                     BackgroundColor="{Binding BackgroundColorOfActivityIndicator, Mode=OneWay}" />
+        <ActivityIndicator
+            Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+            IsVisible="{Binding IsActivityIndicatorVisible}"
+            IsRunning="{Binding IsActivityIndicatorRuning}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+    </Grid>
+</ContentPage>

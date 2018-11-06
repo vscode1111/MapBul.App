@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             xmlns:coverters="clr-namespace:Map_Bul_App.Converters;assembly=Map_Bul_App"
+             xmlns:resX="clr-namespace:Map_Bul_App.ResX;assembly=Map_Bul_App"
+             xmlns:viewModel="clr-namespace:Map_Bul_App.ViewModel;assembly=Map_Bul_App"
+             Padding="0,0,0,0"
+             x:Class="Map_Bul_App.Views.FilterPage">
+    <ContentPage.BindingContext>
+        <viewModel:FilterViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <coverters:BoolToOpacityConverter x:Key="OpacityConverter" />
+            <coverters:BoolToSourceConverter x:Key="SourceConverter" />
+            <coverters:IntToStringConverter x:Key="TextConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        RowSpacing="0"
+        Padding="0,0,0,0"
+        BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <!--Header-->
+        <design:HeaderStack Grid.Row="0" LeftImageSource="app_back.png" LeftImageCommand="{Binding BackClickCommand}"
+                            Title="{resX:Translate FilterTitle}" RightImageSource="app_clear.png"
+                            RightImageCommand="{Binding ClearFilterCommand}" />
+        <Image Grid.Row="1" Source="drop_shadow_top.png" HorizontalOptions="FillAndExpand" Aspect="AspectFill"
+               VerticalOptions="Start" />
+        <ScrollView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical"
+                         Spacing="0">
+
+
+                <!--Свои метки, Wifi и открыто сейчас.-->
+              <StackLayout Orientation="Horizontal" HeightRequest="50" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Fill"
+                           IsVisible="{Binding IsNotGuest}"
+                           Opacity="{Binding MyMarkerSelected,Converter={StaticResource OpacityConverter}}">
+                <StackLayout
+                    VerticalOptions="FillAndExpand"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Start"
+                    Padding="15,15,0,15">
+                  <Image
+                      Aspect="AspectFit"
+                      Source="ico_my.png"
+                      VerticalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Padding="20,0,0,0">
+                  <design:MainLabel Text="{resX:Translate ShowMyMarker}" HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+                <StackLayout
+                    IsVisible="{Binding MyMarkerSelected}"
+                    VerticalOptions="FillAndExpand"
+                    Orientation="Horizontal"
+                    HorizontalOptions="End"
+                    Padding="0,20,15,20">
+                  <Image
+                      Aspect="AspectFit"
+                      Source="selected_black.png"
+                      VerticalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding ChangeShowMyMarkerCommand}" />
+                </StackLayout.GestureRecognizers>
+              </StackLayout>
+              <design:Separator />
+                <StackLayout Orientation="Horizontal" HeightRequest="50" HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Fill"
+                             Opacity="{Binding WifiSelected,Converter={StaticResource OpacityConverter}}">
+                    <StackLayout
+                        VerticalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        HorizontalOptions="Start"
+                        Padding="15,15,0,15">
+                        <Image
+                            Aspect="AspectFit"
+                            Source="ico_wifi.png"
+                            VerticalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Padding="20,0,0,0">
+                        <design:MainLabel Text="{resX:Translate FilterWifi}" HorizontalOptions="FillAndExpand"
+                                          VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout
+                        IsVisible="{Binding WifiSelected}"
+                        VerticalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        HorizontalOptions="End"
+                        Padding="0,20,15,20">
+                        <Image
+                            Aspect="AspectFit"
+                            Source="selected_black.png"
+                            VerticalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeWifiEnabledCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <design:Separator />
+                <StackLayout Orientation="Horizontal" HeightRequest="50" HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Fill"
+                             Opacity="{Binding NowOpenSelected,Converter={StaticResource OpacityConverter}}">
+                    <StackLayout
+                        VerticalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        HorizontalOptions="Start"
+                        Padding="15,15,0,15">
+                        <Image
+                            Aspect="AspectFit"
+                            Source="ico_opened.png"
+                            VerticalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Padding="20,0,0,0">
+                        <design:MainLabel Text="{resX:Translate FilterWorkingNow}" HorizontalOptions="FillAndExpand"
+                                          VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout
+                        IsVisible="{Binding NowOpenSelected}"
+                        VerticalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        HorizontalOptions="End"
+                        Padding="0,20,15,20">
+                        <Image
+                            Aspect="AspectFit"
+                            Source="selected_black.png"
+                            VerticalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeNowOpenEnabledCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <design:Separator />
+                <!--Категории-->
+                <StackLayout Orientation="Horizontal" HeightRequest="50" HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Fill"
+                             Opacity="{Binding CategoriesVisible,Converter={StaticResource OpacityConverter}}">
+                    <StackLayout
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Padding="20,0,0,0">
+                        <design:MainLabel Text="{resX:Translate FilterCategory}" HorizontalOptions="FillAndExpand"
+                                          VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout
+                        VerticalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        HorizontalOptions="End"
+                        Padding="0,21,15,21">
+                        <Image
+                            Aspect="AspectFit"
+                            Source="{Binding CategoriesVisible,Converter={StaticResource SourceConverter}}"
+                            VerticalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenCloseCategories}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                             x:Name="CategoriesStack" IsVisible="{Binding CategoriesVisible}" Spacing="1" />
+                <design:Separator />
+                <!--Подкатегории-->
+                <StackLayout Orientation="Horizontal" HeightRequest="50" HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Fill"
+                             Opacity="{Binding SubCategoriesVisible,Converter={StaticResource OpacityConverter}}">
+                    <StackLayout
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Padding="20,0,0,0">
+                        <design:MainLabel Text="{resX:Translate FilterSubCategory}" HorizontalOptions="FillAndExpand"
+                                          VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout
+                        VerticalOptions="Start"
+                        Orientation="Horizontal"
+                        HorizontalOptions="End"
+                        Padding="0,21,15,21">
+                        <Image
+                            Aspect="AspectFit"
+                            Source="{Binding SubCategoriesVisible,Converter={StaticResource SourceConverter}}"
+                            VerticalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenCloseSubCategories}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                             x:Name="SubCategoriesStack" IsVisible="{Binding SubCategoriesVisible}" Spacing="1" />
+
+                <design:Separator />
+
+            </StackLayout>
+        </ScrollView>
+        <Image Grid.Row="1" Source="drop_shadow_bottom.png" HorizontalOptions="FillAndExpand" Aspect="AspectFill"
+               VerticalOptions="End" />
+        <StackLayout Grid.Row="2" Orientation="Horizontal" VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand" Spacing="0" Padding="15,15,15,15">
+          <StackLayout Padding="0,-5,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                         Orientation="Horizontal">
+            <design:ActionBarLabel HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="{Binding SelectedPinsCnt,Converter={StaticResource TextConverter}}"/>
+          </StackLayout>
+          
+            <Image
+                Aspect="AspectFit"
+                Source="app_forw.png"
+                HorizontalOptions="End"
+                VerticalOptions="FillAndExpand" />
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ShowOnMapCommand}" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+
+        <StackLayout
+            Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            IsVisible="{Binding IsActivityIndicatorVisible}"
+            BackgroundColor="{Binding BackgroundColorOfActivityIndicator, Mode=OneWay}" />
+        <ActivityIndicator
+            Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+            IsVisible="{Binding IsActivityIndicatorRuning}"
+            IsRunning="{Binding IsActivityIndicatorRuning}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+    </Grid>
+</ContentPage>

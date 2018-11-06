@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tkmap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             x:Class="Map_Bul_App.Views.TKMapView">
+
+  <Grid
+    HorizontalOptions="FillAndExpand"
+    VerticalOptions="FillAndExpand"
+    RowSpacing="0"
+    BackgroundColor="White">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="50" />
+      <RowDefinition Height="1*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="1*"/>
+    </Grid.ColumnDefinitions>
+    
+    <StackLayout x:Name="ActionBarStack" 
+                 Orientation="Horizontal"
+                 Grid.Row="0"
+                 Spacing="0"
+                 BackgroundColor="White"
+                 VerticalOptions="FillAndExpand" 
+                 HorizontalOptions="FillAndExpand">
+      <StackLayout 
+        VerticalOptions="FillAndExpand"
+        Orientation="Horizontal"
+                 HorizontalOptions="Start"
+                 Padding="15,15,0,15">
+        <Image
+                Aspect="AspectFit"
+                Source="app_menu.png"
+                VerticalOptions="FillAndExpand"/>
+        <StackLayout.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding MenuShowCloseClickCommand}"/>
+        </StackLayout.GestureRecognizers>
+      </StackLayout>
+<StackLayout
+  HorizontalOptions="FillAndExpand" 
+  VerticalOptions="CenterAndExpand"
+  x:Name="EntryStackLayout"
+  Spacing="0"
+  Padding="20,0,0,0">
+  <design:ActionBarEntry Text="{Binding FindText}" HorizontalOptions="FillAndExpand" x:Name="BarEntry" />
+</StackLayout>
+      <StackLayout
+        VerticalOptions="FillAndExpand"
+        Orientation="Horizontal"
+        HorizontalOptions="Start"
+                 Padding="0,15,30,15">
+        <Image
+                Aspect="AspectFit"
+                Source="app_search.png"
+                VerticalOptions="FillAndExpand"/>
+        <StackLayout.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding FindByTagCommand}"/>
+        </StackLayout.GestureRecognizers>
+      </StackLayout>
+      <StackLayout
+              VerticalOptions="FillAndExpand"
+              Orientation="Horizontal"
+                       HorizontalOptions="End"
+                       Padding="0,15,15,15">
+        <Image
+                Aspect="AspectFit"
+                Source="app_filter.png"
+                VerticalOptions="FillAndExpand">
+        </Image>
+        <StackLayout.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding OpenFilterCommand}"/>
+        </StackLayout.GestureRecognizers>
+      </StackLayout>
+    </StackLayout>
+    <StackLayout
+      Grid.Row="1"
+      HorizontalOptions="FillAndExpand"
+      VerticalOptions="FillAndExpand">
+      
+    <tkmap:TKCustomMap 
+                x:Name="TkMap"
+                MapCenter="{Binding MapCenter}"
+                CustomPins="{Binding Pins}"
+                UserLocationChangedCommand="{Binding UserLocationChangedCommand}"
+                MapClickedCommand="{Binding MapClickedCommand}"
+                IsShowingUser="True"/>
+    </StackLayout>
+    <StackLayout x:Name="GoToUserLocationStack"
+      
+      Grid.Row="1"
+      HeightRequest="35" WidthRequest="35"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Start"
+      Spacing="0"
+                       Padding="15">
+      <Image  Source="app_location.png" VerticalOptions="Fill" HorizontalOptions="Fill"  Aspect="AspectFit"/>
+        <StackLayout.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding GoToUserLocation}"/>
+        </StackLayout.GestureRecognizers>
+      </StackLayout>
+
+
+
+
+    
+    
+    <Image Grid.Row="1" Source="drop_shadow_top.png" HorizontalOptions="FillAndExpand" Aspect="Fill"
+                                       VerticalOptions="Start" />
+      <StackLayout Grid.Row="1" VerticalOptions="End" BackgroundColor="White" x:Name="PreviewStack" IsVisible="False" Orientation="Horizontal"    Spacing="0">
+        <Image  Source="{Binding SelectedPin.InfoImage}" Aspect="AspectFit"  WidthRequest="100"/>
+        <StackLayout Orientation="Vertical"
+                     Spacing="0"
+                     HorizontalOptions="FillAndExpand"
+                     BackgroundColor="Transparent">
+          <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding SelectedPin.DefaultPinColor}"/>
+            <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" Spacing="0"
+                         HorizontalOptions="FillAndExpand" Padding="5,0,0,0">
+              <design:InfoTitleLabel
+                  Text="{Binding SelectedPin.Title}"
+                  HorizontalOptions="FillAndExpand"
+                  HorizontalTextAlignment="Start" />
+            </StackLayout>
+            <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="0"
+                         Padding="5,0,0,0">
+              <design:TypeLabel Text="{Binding SelectedPin.Subtitle}"
+                                TextColor="{Binding SelectedPin.DefaultPinColor}" />
+              <design:SubTypeLabel Text="{Binding SelectedPin.Type}" />
+              <design:TimeLabel Text="{Binding SelectedPin.WorkTime}" />
+              <design:TagsLabel Text="{Binding SelectedPin.Tags}" />
+            </StackLayout>
+          </Grid>
+        </StackLayout>
+        <StackLayout.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding CalloutClickedCommand}"/>
+        </StackLayout.GestureRecognizers>
+      </StackLayout>
+
+   
+  <StackLayout
+      Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+      HorizontalOptions="FillAndExpand"
+      VerticalOptions="FillAndExpand"
+      IsVisible="{Binding IsActivityIndicatorVisible}"
+      BackgroundColor="{Binding BackgroundColorOfActivityIndicator}" />
+    <ActivityIndicator
+        Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+        IsVisible="{Binding IsActivityIndicatorVisible}"
+        IsRunning="{Binding IsActivityIndicatorRuning}"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"/>
+  </Grid>
+</ContentPage>

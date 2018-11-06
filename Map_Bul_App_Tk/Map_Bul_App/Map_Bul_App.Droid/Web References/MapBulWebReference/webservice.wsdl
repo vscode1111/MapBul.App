@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://MapBul.ru/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://MapBul.ru/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://MapBul.ru/">
+      <s:element name="Authorize">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthorizeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserTypeById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserTypeByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserTypeByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMarkers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="p1Lat" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="p1Lng" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="p2Lat" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="p2Lng" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMarkersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMarkersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionMarkers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="p1Lat" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="p1Lng" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="p2Lat" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="p2Lng" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionMarkersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionMarkersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveRequestSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveRequestSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveRequestSessionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMarkerDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="markerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMarkerDescriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMarkerDescriptionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRootCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRootCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRootCategoriesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecentArticles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="refresh" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="existingDateTime" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecentArticlesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRecentArticlesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecentEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="refresh" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="existingDateTime" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecentEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRecentEventsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateMarker">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="introduction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="baseCategoryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lat" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="lng" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryTicket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="discount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="house" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="building" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="floor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="photoBase64" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="subCategoryIds" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="phones" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="openTimes" type="tns:ArrayOfKeyValueOfInt32Int32" />
+            <s:element minOccurs="0" maxOccurs="1" name="closeTimes" type="tns:ArrayOfKeyValueOfInt32Int32" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPersonal" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfKeyValueOfInt32Int32">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfInt32Int32" nillable="true" type="tns:KeyValueOfInt32Int32" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KeyValueOfInt32Int32">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Key" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateMarkerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateMarkerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditMarker">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="introduction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="baseCategoryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lat" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="lng" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryTicket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="discount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="house" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="building" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="floor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="photoBase64" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="subCategoryIds" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="phones" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="openTimes" type="tns:ArrayOfKeyValueOfInt32Int32" />
+            <s:element minOccurs="0" maxOccurs="1" name="closeTimes" type="tns:ArrayOfKeyValueOfInt32Int32" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPersonal" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="markerId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditMarkerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditMarkerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermittedCities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPersonal" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermittedCitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPermittedCitiesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermittedCountry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPermittedCountryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPermittedCountryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterTenant">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="middleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="birthDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterTenantResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterTenantResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecoverPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecoverPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecoverPasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveFavoriteArticleAndEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="articleEventId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveFavoriteArticleAndEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveFavoriteArticleAndEventResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveFavoriteMarker">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="markerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveFavoriteMarkerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveFavoriteMarkerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFavoriteArticleAndEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="articleEventId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFavoriteArticleAndEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveFavoriteArticleAndEventResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFavoriteMarker">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="markerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFavoriteMarkerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveFavoriteMarkerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFavoritsArticlAndEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFavoritsArticlAndEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFavoritsArticlAndEventResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFavoritsMarker">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFavoritsMarkerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFavoritsMarkerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRelatedEventsFromMarker">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="markerId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nearest" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="appLang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRelatedEventsFromMarkerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRelatedEventsFromMarkerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthorizeSoapIn">
+    <wsdl:part name="parameters" element="tns:Authorize" />
+  </wsdl:message>
+  <wsdl:message name="AuthorizeSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthorizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTypeByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserTypeById" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTypeByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserTypeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMarkersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMarkers" />
+  </wsdl:message>
+  <wsdl:message name="GetMarkersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMarkersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionMarkersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSessionMarkers" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionMarkersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionMarkersResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRequestSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveRequestSession" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRequestSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveRequestSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMarkerDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMarkerDescription" />
+  </wsdl:message>
+  <wsdl:message name="GetMarkerDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMarkerDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRootCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRootCategories" />
+  </wsdl:message>
+  <wsdl:message name="GetRootCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRootCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRecentArticlesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRecentArticles" />
+  </wsdl:message>
+  <wsdl:message name="GetRecentArticlesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRecentArticlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRecentEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRecentEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetRecentEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRecentEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateMarkerSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateMarker" />
+  </wsdl:message>
+  <wsdl:message name="CreateMarkerSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateMarkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditMarkerSoapIn">
+    <wsdl:part name="parameters" element="tns:EditMarker" />
+  </wsdl:message>
+  <wsdl:message name="EditMarkerSoapOut">
+    <wsdl:part name="parameters" element="tns:EditMarkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPermittedCitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPermittedCities" />
+  </wsdl:message>
+  <wsdl:message name="GetPermittedCitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPermittedCitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPermittedCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPermittedCountry" />
+  </wsdl:message>
+  <wsdl:message name="GetPermittedCountrySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPermittedCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterTenantSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterTenant" />
+  </wsdl:message>
+  <wsdl:message name="RegisterTenantSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterTenantResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecoverPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:RecoverPassword" />
+  </wsdl:message>
+  <wsdl:message name="RecoverPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:RecoverPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveFavoriteArticleAndEventSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveFavoriteArticleAndEvent" />
+  </wsdl:message>
+  <wsdl:message name="SaveFavoriteArticleAndEventSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveFavoriteArticleAndEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveFavoriteMarkerSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveFavoriteMarker" />
+  </wsdl:message>
+  <wsdl:message name="SaveFavoriteMarkerSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveFavoriteMarkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFavoriteArticleAndEventSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveFavoriteArticleAndEvent" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFavoriteArticleAndEventSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveFavoriteArticleAndEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFavoriteMarkerSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveFavoriteMarker" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFavoriteMarkerSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveFavoriteMarkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFavoritsArticlAndEventSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFavoritsArticlAndEvent" />
+  </wsdl:message>
+  <wsdl:message name="GetFavoritsArticlAndEventSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFavoritsArticlAndEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFavoritsMarkerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFavoritsMarker" />
+  </wsdl:message>
+  <wsdl:message name="GetFavoritsMarkerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFavoritsMarkerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRelatedEventsFromMarkerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRelatedEventsFromMarker" />
+  </wsdl:message>
+  <wsdl:message name="GetRelatedEventsFromMarkerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRelatedEventsFromMarkerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="Authorize">
+      <wsdl:input message="tns:AuthorizeSoapIn" />
+      <wsdl:output message="tns:AuthorizeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeById">
+      <wsdl:input message="tns:GetUserTypeByIdSoapIn" />
+      <wsdl:output message="tns:GetUserTypeByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMarkers">
+      <wsdl:input message="tns:GetMarkersSoapIn" />
+      <wsdl:output message="tns:GetMarkersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionMarkers">
+      <wsdl:input message="tns:GetSessionMarkersSoapIn" />
+      <wsdl:output message="tns:GetSessionMarkersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRequestSession">
+      <wsdl:input message="tns:RemoveRequestSessionSoapIn" />
+      <wsdl:output message="tns:RemoveRequestSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMarkerDescription">
+      <wsdl:input message="tns:GetMarkerDescriptionSoapIn" />
+      <wsdl:output message="tns:GetMarkerDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRootCategories">
+      <wsdl:input message="tns:GetRootCategoriesSoapIn" />
+      <wsdl:output message="tns:GetRootCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecentArticles">
+      <wsdl:input message="tns:GetRecentArticlesSoapIn" />
+      <wsdl:output message="tns:GetRecentArticlesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecentEvents">
+      <wsdl:input message="tns:GetRecentEventsSoapIn" />
+      <wsdl:output message="tns:GetRecentEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMarker">
+      <wsdl:input message="tns:CreateMarkerSoapIn" />
+      <wsdl:output message="tns:CreateMarkerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditMarker">
+      <wsdl:input message="tns:EditMarkerSoapIn" />
+      <wsdl:output message="tns:EditMarkerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermittedCities">
+      <wsdl:input message="tns:GetPermittedCitiesSoapIn" />
+      <wsdl:output message="tns:GetPermittedCitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermittedCountry">
+      <wsdl:input message="tns:GetPermittedCountrySoapIn" />
+      <wsdl:output message="tns:GetPermittedCountrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterTenant">
+      <wsdl:input message="tns:RegisterTenantSoapIn" />
+      <wsdl:output message="tns:RegisterTenantSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecoverPassword">
+      <wsdl:input message="tns:RecoverPasswordSoapIn" />
+      <wsdl:output message="tns:RecoverPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFavoriteArticleAndEvent">
+      <wsdl:input message="tns:SaveFavoriteArticleAndEventSoapIn" />
+      <wsdl:output message="tns:SaveFavoriteArticleAndEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFavoriteMarker">
+      <wsdl:input message="tns:SaveFavoriteMarkerSoapIn" />
+      <wsdl:output message="tns:SaveFavoriteMarkerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFavoriteArticleAndEvent">
+      <wsdl:input message="tns:RemoveFavoriteArticleAndEventSoapIn" />
+      <wsdl:output message="tns:RemoveFavoriteArticleAndEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFavoriteMarker">
+      <wsdl:input message="tns:RemoveFavoriteMarkerSoapIn" />
+      <wsdl:output message="tns:RemoveFavoriteMarkerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoritsArticlAndEvent">
+      <wsdl:input message="tns:GetFavoritsArticlAndEventSoapIn" />
+      <wsdl:output message="tns:GetFavoritsArticlAndEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoritsMarker">
+      <wsdl:input message="tns:GetFavoritsMarkerSoapIn" />
+      <wsdl:output message="tns:GetFavoritsMarkerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelatedEventsFromMarker">
+      <wsdl:input message="tns:GetRelatedEventsFromMarkerSoapIn" />
+      <wsdl:output message="tns:GetRelatedEventsFromMarkerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authorize">
+      <soap:operation soapAction="http://MapBul.ru/Authorize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeById">
+      <soap:operation soapAction="http://MapBul.ru/GetUserTypeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarkers">
+      <soap:operation soapAction="http://MapBul.ru/GetMarkers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionMarkers">
+      <soap:operation soapAction="http://MapBul.ru/GetSessionMarkers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRequestSession">
+      <soap:operation soapAction="http://MapBul.ru/RemoveRequestSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarkerDescription">
+      <soap:operation soapAction="http://MapBul.ru/GetMarkerDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRootCategories">
+      <soap:operation soapAction="http://MapBul.ru/GetRootCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecentArticles">
+      <soap:operation soapAction="http://MapBul.ru/GetRecentArticles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecentEvents">
+      <soap:operation soapAction="http://MapBul.ru/GetRecentEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMarker">
+      <soap:operation soapAction="http://MapBul.ru/CreateMarker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMarker">
+      <soap:operation soapAction="http://MapBul.ru/EditMarker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermittedCities">
+      <soap:operation soapAction="http://MapBul.ru/GetPermittedCities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermittedCountry">
+      <soap:operation soapAction="http://MapBul.ru/GetPermittedCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterTenant">
+      <soap:operation soapAction="http://MapBul.ru/RegisterTenant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecoverPassword">
+      <soap:operation soapAction="http://MapBul.ru/RecoverPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFavoriteArticleAndEvent">
+      <soap:operation soapAction="http://MapBul.ru/SaveFavoriteArticleAndEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFavoriteMarker">
+      <soap:operation soapAction="http://MapBul.ru/SaveFavoriteMarker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFavoriteArticleAndEvent">
+      <soap:operation soapAction="http://MapBul.ru/RemoveFavoriteArticleAndEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFavoriteMarker">
+      <soap:operation soapAction="http://MapBul.ru/RemoveFavoriteMarker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoritsArticlAndEvent">
+      <soap:operation soapAction="http://MapBul.ru/GetFavoritsArticlAndEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoritsMarker">
+      <soap:operation soapAction="http://MapBul.ru/GetFavoritsMarker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelatedEventsFromMarker">
+      <soap:operation soapAction="http://MapBul.ru/GetRelatedEventsFromMarker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authorize">
+      <soap12:operation soapAction="http://MapBul.ru/Authorize" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeById">
+      <soap12:operation soapAction="http://MapBul.ru/GetUserTypeById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarkers">
+      <soap12:operation soapAction="http://MapBul.ru/GetMarkers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionMarkers">
+      <soap12:operation soapAction="http://MapBul.ru/GetSessionMarkers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRequestSession">
+      <soap12:operation soapAction="http://MapBul.ru/RemoveRequestSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarkerDescription">
+      <soap12:operation soapAction="http://MapBul.ru/GetMarkerDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRootCategories">
+      <soap12:operation soapAction="http://MapBul.ru/GetRootCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecentArticles">
+      <soap12:operation soapAction="http://MapBul.ru/GetRecentArticles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecentEvents">
+      <soap12:operation soapAction="http://MapBul.ru/GetRecentEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMarker">
+      <soap12:operation soapAction="http://MapBul.ru/CreateMarker" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMarker">
+      <soap12:operation soapAction="http://MapBul.ru/EditMarker" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermittedCities">
+      <soap12:operation soapAction="http://MapBul.ru/GetPermittedCities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermittedCountry">
+      <soap12:operation soapAction="http://MapBul.ru/GetPermittedCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterTenant">
+      <soap12:operation soapAction="http://MapBul.ru/RegisterTenant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecoverPassword">
+      <soap12:operation soapAction="http://MapBul.ru/RecoverPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFavoriteArticleAndEvent">
+      <soap12:operation soapAction="http://MapBul.ru/SaveFavoriteArticleAndEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFavoriteMarker">
+      <soap12:operation soapAction="http://MapBul.ru/SaveFavoriteMarker" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFavoriteArticleAndEvent">
+      <soap12:operation soapAction="http://MapBul.ru/RemoveFavoriteArticleAndEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFavoriteMarker">
+      <soap12:operation soapAction="http://MapBul.ru/RemoveFavoriteMarker" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoritsArticlAndEvent">
+      <soap12:operation soapAction="http://MapBul.ru/GetFavoritsArticlAndEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFavoritsMarker">
+      <soap12:operation soapAction="http://MapBul.ru/GetFavoritsMarker" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelatedEventsFromMarker">
+      <soap12:operation soapAction="http://MapBul.ru/GetRelatedEventsFromMarker" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://185.76.145.214/Service/webservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://185.76.145.214/Service/webservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

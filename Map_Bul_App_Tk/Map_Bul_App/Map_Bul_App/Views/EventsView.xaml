@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             xmlns:resX="clr-namespace:Map_Bul_App.ResX;assembly=Map_Bul_App"
+             xmlns:viewModel="clr-namespace:Map_Bul_App.ViewModel;assembly=Map_Bul_App"
+             x:Class="Map_Bul_App.Views.EventsView">
+    <ContentPage.BindingContext>
+        <viewModel:ArticlesViewModel />
+    </ContentPage.BindingContext>
+    <Grid
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        RowSpacing="0"
+        BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+      <Grid 
+      BackgroundColor="White"
+      VerticalOptions="FillAndExpand"
+      HorizontalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+          <design:SmallActionBarLabel  HorizontalOptions="Start"
+                                  VerticalOptions="CenterAndExpand" 
+                                  Text="{resX:Translate EventTitleString}"/>
+          <design:EventSmallDatePicker Date="{Binding StartDate}" VerticalOptions="CenterAndExpand"/>
+          <design:ActionBarLabel  Text="—" VerticalOptions="Center" TextColor="{x:Static design:CustomColors.Gray}"/>
+          <design:EventSmallDatePicker Date="{Binding StopDate}" VerticalOptions="CenterAndExpand"/>
+          
+        </StackLayout>
+        <StackLayout 
+                     Grid.Row="0"
+                     VerticalOptions="Start"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Start"
+                     Padding="10,15,15,15">
+          <Image 
+            Source="app_back.png"
+                 Aspect="AspectFit"
+                 HorizontalOptions="Start"
+                 VerticalOptions="FillAndExpand">
+            <Image.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding MenuOrBackCommand}"/>
+            </Image.GestureRecognizers>
+            <Image.Triggers>
+              <DataTrigger Binding="{Binding MarkerId}" Value="0" TargetType="Image">
+                <Setter Property="Source" Value="app_menu.png"/>
+              </DataTrigger>
+            </Image.Triggers>
+          </Image>
+        </StackLayout>
+
+        <StackLayout 
+                     Grid.Row="0"
+                     VerticalOptions="Start"
+                     Orientation="Horizontal"
+                     HorizontalOptions="End"
+                     Padding="15,15,10,15">
+          <Image 
+            Source="app_search.png"
+                 Aspect="AspectFit"
+                 HorizontalOptions="End"
+                 VerticalOptions="FillAndExpand">
+            <Image.Triggers>
+              <DataTrigger Binding="{Binding IsFilterEnable}" Value="True" TargetType="Image">
+                <Setter Property="Source" Value="app_reset.png"/>
+              </DataTrigger>
+            </Image.Triggers>
+          </Image>
+        <StackLayout.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding SearchCommand}"/>
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+      </Grid>
+      <!--Filters-->
+      <Grid
+        Grid.Row="1" Grid.Column="0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        ColumnSpacing="0"
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="1*"/> 
+          <RowDefinition Height="1"/> 
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="0.425*"/>
+          <ColumnDefinition Width="0.425*"/>
+          <ColumnDefinition Width="0.15*"/>
+        </Grid.ColumnDefinitions>
+        <StackLayout
+          BackgroundColor="#e6e6e6"
+          Opacity="0.5"
+          Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand">
+          <StackLayout.Triggers>
+              <DataTrigger TargetType="StackLayout"
+                            Binding="{Binding SelectedFilter}" Value="0">
+                  <Setter Property="IsVisible" Value="False" />
+              </DataTrigger>
+          </StackLayout.Triggers>
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding SearchFutureCommand}"/>
+          </StackLayout.GestureRecognizers>
+        </StackLayout>
+        <StackLayout
+          BackgroundColor="Transparent"
+          Grid.Row="0" Grid.Column="0"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand">
+          <design:FavoritesBarLabel
+              Text="{resX:Translate FutureEvents}"/>
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding SearchFutureCommand}"/>
+          </StackLayout.GestureRecognizers>
+        </StackLayout>
+        <StackLayout
+          BackgroundColor="#e6e6e6"
+          Opacity="0.5"
+          Grid.Row="0" Grid.Column="1"  Grid.RowSpan="2"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand">
+          <StackLayout.Triggers>
+              <DataTrigger TargetType="StackLayout"
+                            Binding="{Binding SelectedFilter}" Value="1">
+                  <Setter Property="IsVisible" Value="False" />
+              </DataTrigger>
+          </StackLayout.Triggers>
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding SearchPastCommand}"/>
+          </StackLayout.GestureRecognizers>
+          <design:Separator
+            VerticalOptions="End"
+            HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <StackLayout
+          BackgroundColor="Transparent"
+          Grid.Row="0" Grid.Column="1"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand">
+          <design:FavoritesBarLabel
+              Text="{resX:Translate PastEvents}"/>
+          <!--<StackLayout.Triggers>
+              <DataTrigger TargetType="StackLayout"
+                            Binding="{Binding SelectedFilter}" Value="1">
+                  <Setter Property="BackgroundColor" Value="White" />
+              </DataTrigger>
+          </StackLayout.Triggers>-->
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding SearchPastCommand}"/>
+          </StackLayout.GestureRecognizers>
+        </StackLayout>
+        <StackLayout
+          BackgroundColor="#e6e6e6"
+          Opacity="0.5"
+          Grid.Row="0" Grid.Column="2"  Grid.RowSpan="2"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand">
+          <StackLayout.Triggers>
+              <DataTrigger TargetType="StackLayout"
+                            Binding="{Binding SelectedFilter}" Value="2">
+                  <Setter Property="IsVisible" Value="False" />
+              </DataTrigger>
+          </StackLayout.Triggers>
+          <!--<StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding SearchFilterCommand}"/>
+          </StackLayout.GestureRecognizers>-->
+          <design:Separator
+            VerticalOptions="End"
+            HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <StackLayout
+          BackgroundColor="Transparent"
+          Grid.Row="0" Grid.Column="2"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand"
+          Padding="0,12.5,0,0">
+          <Image
+            Source="app_filter"
+            Aspect="AspectFit"
+            HeightRequest="25"
+            WidthRequest="25"/>
+          <!--<StackLayout.Triggers>
+              <DataTrigger TargetType="StackLayout"
+                            Binding="{Binding SelectedFilter}" Value="2">
+                  <Setter Property="BackgroundColor" Value="White" />
+              </DataTrigger>
+          </StackLayout.Triggers>-->
+          <!--<StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding SearchFilterCommand}"/>
+          </StackLayout.GestureRecognizers>-->
+        </StackLayout>
+        <design:Separator
+          Grid.Row="1" Grid.Column="0">
+          <design:Separator.Triggers>
+              <DataTrigger TargetType="design:Separator"
+                            Binding="{Binding SelectedFilter}" Value="0">
+                  <Setter Property="IsVisible" Value="False" />
+              </DataTrigger>
+          </design:Separator.Triggers>
+        </design:Separator>
+        <design:Separator
+          Grid.Row="1" Grid.Column="1">
+          <design:Separator.Triggers>
+              <DataTrigger TargetType="design:Separator"
+                            Binding="{Binding SelectedFilter}" Value="1">
+                  <Setter Property="IsVisible" Value="False" />
+              </DataTrigger>
+          </design:Separator.Triggers>
+        </design:Separator>
+        <design:Separator
+          Grid.Row="1" Grid.Column="2">
+          <design:Separator.Triggers>
+              <DataTrigger TargetType="design:Separator"
+                            Binding="{Binding SelectedFilter}" Value="2">
+                  <Setter Property="IsVisible" Value="False" />
+              </DataTrigger>
+          </design:Separator.Triggers>
+        </design:Separator>
+        <design:VerticalSeparator
+          IsVisible="True"
+          HorizontalOptions="Start"
+          Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+          <design:VerticalSeparator.Triggers>
+              <DataTrigger TargetType="design:VerticalSeparator"
+                            Binding="{Binding SelectedFilter}" Value="0">
+                  <Setter Property="IsVisible" Value="True" />
+              </DataTrigger>
+              <DataTrigger TargetType="design:VerticalSeparator"
+                            Binding="{Binding SelectedFilter}" Value="1">
+                  <Setter Property="IsVisible" Value="True" />
+              </DataTrigger>
+          </design:VerticalSeparator.Triggers>
+        </design:VerticalSeparator>
+        <design:VerticalSeparator
+          IsVisible="True"
+          HorizontalOptions="Start"
+          Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+          <design:VerticalSeparator.Triggers>
+              <DataTrigger TargetType="design:VerticalSeparator"
+                            Binding="{Binding SelectedFilter}" Value="0">
+                  <Setter Property="IsVisible" Value="False" />
+              </DataTrigger>
+          </design:VerticalSeparator.Triggers>
+        </design:VerticalSeparator>
+      </Grid>
+      <!--Filters-->
+      <!--Articles-->
+        <StackLayout
+            Grid.Row="2"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+          <design:CachingListView
+
+                x:Name="ArticlesListView"
+               
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                SeparatorVisibility="None"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding RefreshCommand}"
+                IsRefreshing="{Binding IsRefreshing}"
+                ItemsSource="{Binding VisibleArticles}"
+                ItemTapped="ListView_OnItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <design:ArticleCellView Date="{Binding PublishedDate}" ImageSource="{Binding TitlePhoto}"
+                                                Title="{Binding Title}" Tags="{Binding TagsString}"
+                                                StartDate="{Binding StartDate}" StopDate="{Binding StopDate}"
+                                                StartTime="{Binding StartTime}" IsShowed="{Binding IsShowed}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </design:CachingListView>
+        </StackLayout>
+        <!--TopShadow-->
+        <Image Grid.Row="1" Source="drop_shadow_top.png" HorizontalOptions="FillAndExpand" Aspect="AspectFill"
+               VerticalOptions="Start" />
+        <StackLayout
+            Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            IsVisible="{Binding IsActivityIndicatorVisible}"
+            BackgroundColor="{Binding BackgroundColorOfActivityIndicator}" />
+        <ActivityIndicator
+            Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+            IsVisible="{Binding IsActivityIndicatorVisible}"
+            IsRunning="{Binding IsActivityIndicatorRuning}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+    </Grid>
+</ContentPage>

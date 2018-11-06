@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:design="clr-namespace:Map_Bul_App.Design;assembly=Map_Bul_App"
+             xmlns:coverters="clr-namespace:Map_Bul_App.Converters;assembly=Map_Bul_App"
+             xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
+             xmlns:resX="clr-namespace:Map_Bul_App.ResX;assembly=Map_Bul_App"
+             x:Class="Map_Bul_App.Views.PinDetailsView" >
+<!-- <ContentPage.BindingContext>
+    <viewModel:PinDetailsViewModel />
+  </ContentPage.BindingContext>-->
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <coverters:ListToStringConverter x:Key="TagsConverter" />
+      <coverters:BoolToColorConverter x:Key="ColorConverter" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <Grid
+      HorizontalOptions="FillAndExpand"
+      VerticalOptions="FillAndExpand"
+      RowSpacing="0"
+      BackgroundColor="White">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="50" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="1*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="1*" />
+    </Grid.ColumnDefinitions>
+
+    <design:HeaderStack Grid.Row="0" LeftImageSource="app_back.png" LeftImageCommand="{Binding BackClickCommand}"
+                          Title="{Binding Pin.Name}" RightImageSource="app_fav.png" RightImageCommand="{Binding AddToFavoritesCommand}" RightImageBackground="{Binding IsFavorite,Converter={StaticResource ColorConverter}}" NoGuest="True"/>
+
+    <design:StackLayoutButton
+      Grid.Row="1"
+      IsVisible="{Binding IsPersonal}"
+      Spacing="0"
+      BackgroundColor="White"
+      HorizontalOptions="FillAndExpand"
+      VerticalOptions="FillAndExpand">
+      <design:Separator
+        HorizontalOptions="FillAndExpand"/>
+      <StackLayout
+        Padding="10,0,10,0"
+        Orientation="Horizontal"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <design:LabelForStackLayoutButton
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand"
+          HorizontalTextAlignment="Center"
+          VerticalTextAlignment="Center"
+          Text="{resX:Translate EditMarker}"/>
+      <Image
+        Source="app_edit"
+        HeightRequest="20"
+        VerticalOptions="Center"
+        HorizontalOptions="End"/>
+      </StackLayout>
+      <design:StackLayoutButton.GestureRecognizers>
+        <TapGestureRecognizer
+          Command="{Binding GoToEditPersonalMarkerCommand}"/>
+      </design:StackLayoutButton.GestureRecognizers>
+      <design:StackLayoutButton.Triggers>
+        <DataTrigger Binding="{Binding IsPersonal}" Value="False" TargetType="design:StackLayoutButton">
+          <Setter Property="HeightRequest" Value="0"/>
+        </DataTrigger>
+        <DataTrigger Binding="{Binding IsPersonal}" Value="True" TargetType="design:StackLayoutButton">
+          <Setter Property="HeightRequest" Value="50"/>
+        </DataTrigger>
+      </design:StackLayoutButton.Triggers>
+    </design:StackLayoutButton>
+    <ScrollView
+          Grid.Row="2"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand"
+          BackgroundColor="White"
+          IsEnabled="True"
+          Orientation="Vertical">
+      <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical"
+                   Spacing="0">
+        <!--Фотография-->
+        <design:ScrolledViewerPhoto
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="Start"
+          ImagesSource="{Binding ImagesSource}"
+          SelectedImage="{Binding SelectedPhoto}"/>
+        <!--<Image
+            Source="{Binding Pin.Photo}"
+            HorizontalOptions="FillAndExpand"
+            Aspect="AspectFill"
+            VerticalOptions="Start" />-->
+        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="White"
+                     Orientation="Vertical" Padding="0,0,0,0" Spacing="0">
+          <!--Рыжая строка -->
+          <RelativeLayout HeightRequest="35"
+                          BackgroundColor="White"
+                          VerticalOptions="Start"
+                          HorizontalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand"
+                         BackgroundColor="{Binding Pin.Color}"
+                         HeightRequest="35"
+                         HorizontalOptions="FillAndExpand"
+                         Orientation="Horizontal"
+                         x:Name="TitleStack"
+                         Padding="30,0,30,0"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,Property=Width, ElementName=TitleImage, Factor=0.5}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
+
+              <design:ItemWhiteLabel Text="{Binding Pin.RootCategoryName}" HorizontalOptions="StartAndExpand"
+                                     VerticalOptions="CenterAndExpand" />
+              <design:ItemWhiteLabel Text="wifi" HorizontalOptions="End" IsVisible="{Binding Pin.WiFi}"
+                                                   VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <Image
+                x:Name="TitleImage"
+                Source="{Binding Icon}"
+                Aspect="AspectFit"
+                HorizontalOptions="Start"
+                VerticalOptions="CenterAndExpand" />
+
+          </RelativeLayout>
+          <!--Инфо-->
+          <StackLayout VerticalOptions="Start"
+                       HorizontalOptions="FillAndExpand"
+                       Orientation="Vertical" Padding="10,0,10,10" Spacing="0">
+            <design:MainLabel HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
+                              Text="{Binding Pin.BaseCategoryName}" />
+            <design:ItemMediumLabel HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
+                                      Text="{Binding WorkTime}" />
+            <design:MainLabel HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
+                              Text="{Binding Pin.Phone.Number}" />
+            <design:ItemMediumLabel HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
+                                    Text="{Binding Pin.Adress}" />
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                         Padding="0,0,0,10">
+              <design:MainLabel HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                Text="{Binding Pin.Description}" />
+            </StackLayout>
+            <design:TagsLabel HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
+                                  Text="{Binding Pin.Tags,Converter={StaticResource TagsConverter}}"/>
+            <design:RelatedEventsList
+              ItemsSource="{Binding Events}"/>
+          </StackLayout>
+        </StackLayout>
+
+        <Grid
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="EndAndExpand"
+          RowSpacing="0"
+          BackgroundColor="White">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+          </Grid.ColumnDefinitions>
+          <design:StackLayoutButton
+            Grid.Row="0"
+            BackgroundColor="White"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            HeightRequest="50">
+            <design:LabelForStackLayoutButton
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              HorizontalTextAlignment="Center"
+              VerticalTextAlignment="Center"
+              Text="{resX:Translate ShowAllEvents}"/>
+            <design:StackLayoutButton.GestureRecognizers>
+              <TapGestureRecognizer
+                Command="{Binding GoToCalendareCommand}"/>
+            </design:StackLayoutButton.GestureRecognizers>
+            <design:StackLayoutButton.Triggers>
+              <DataTrigger Binding="{Binding Pin.HaveRelatedEvents}" Value="False" TargetType="design:StackLayoutButton">
+                <Setter Property="BackgroundColor" Value="#e6e6e6"/>
+              </DataTrigger>
+            </design:StackLayoutButton.Triggers>
+          </design:StackLayoutButton>
+          <Image Grid.Row="0" Source="drop_shadow_bottom.png" Opacity="0.5" HorizontalOptions="FillAndExpand" Aspect="AspectFill" VerticalOptions="Start" />
+          <customMap:TKCustomMap
+              Grid.Row="1"
+              HeightRequest="300"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              HasScrollEnabled="False"
+              HasZoomEnabled="True"
+              x:Name="TkMap"
+              MapCenter="{Binding MapCenter}"
+              CustomPins="{Binding Pins}"
+              IsShowingUser="False"
+              IsRegionChangeAnimated="True" />
+          <Image Grid.Row="1" Source="drop_shadow_top.png" HorizontalOptions="FillAndExpand" Aspect="AspectFill"
+                                 VerticalOptions="Start" />
+        </Grid>
+      </StackLayout>
+    </ScrollView>
+    <Image Grid.Row="2" Source="drop_shadow_top.png" HorizontalOptions="FillAndExpand" Aspect="AspectFill"
+                     VerticalOptions="Start" />
+    <!--<StackLayout
+        Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        IsVisible="{Binding IsActivityIndicatorVisible}"
+        BackgroundColor="{Binding BackgroundColorOfActivityIndicator, Mode=OneWay}" />
+    <ActivityIndicator
+      Scale="2"
+        Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
+        IsVisible="{Binding IsActivityIndicatorVisible}"
+        IsRunning="{Binding IsActivityIndicatorRuning}"
+        HorizontalOptions="Center"
+        VerticalOptions="Center" />-->
+    <StackLayout
+        Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
+        x:Name="SelectedPhotoStackLayout"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Opacity="0"
+        IsVisible="False">
+      <Image
+        x:Name="LargeSelectedImage"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand"
+          Aspect="AspectFit"
+          Source="{Binding SelectedPhoto}">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+            Command="{Binding DeselectPhotoCommand}"/>
+        </Image.GestureRecognizers>
+      </Image>
+    </StackLayout>
+    <ActivityIndicator
+      x:Name="ImageActivityIndicator"
+      Scale="2"
+      IsVisible="False"
+      Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
+      HorizontalOptions="Center"
+      VerticalOptions="Center" />
+  </Grid>
+</ContentPage>
