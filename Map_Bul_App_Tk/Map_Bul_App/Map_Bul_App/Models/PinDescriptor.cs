@@ -56,7 +56,6 @@ namespace Map_Bul_App.Models
 
         public PinDescriptor()
         {
-            
         }
 
         public PinDescriptor(DeserializeGetMarkersData item)
@@ -86,6 +85,7 @@ namespace Map_Bul_App.Models
                 WorkTime = workTime,
                 Tags = tags
             };
+
             CategoriesBranch = item.CategoriesBranch;
             IsVisible = false;
             WiFi = item.Wifi;
