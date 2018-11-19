@@ -1,5 +1,4 @@
 ﻿using Map_Bul_App.Settings;
-using Map_Bul_App.ViewModel;
 using Xamarin.Forms;
 
 namespace Map_Bul_App.Views

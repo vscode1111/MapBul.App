@@ -1,7 +1,6 @@
 using System;
 using System.ComponentModel;
 using System.Net;
-using System.Reflection;
 using System.Threading.Tasks;
 using Android.Graphics;
 using Android.Text;

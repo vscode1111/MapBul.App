@@ -6,8 +6,6 @@ using Xamarin.Forms;
 using XLabs.Ioc;
 using XLabs.Platform.Device;
 using XLabs.Platform.Services;
-using XLabs.Platform.Services.Media;
-using XLabs.Serialization;
 
 namespace Map_Bul_App.Droid
 {

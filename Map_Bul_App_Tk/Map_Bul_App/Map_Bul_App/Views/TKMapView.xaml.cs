@@ -5,7 +5,6 @@ using Map_Bul_App.Settings;
 using Map_Bul_App.ViewModel;
 using TK.CustomMap;
 using Xamarin.Forms;
-using Xamarin.Forms.Maps;
 
 namespace Map_Bul_App.Views
 {

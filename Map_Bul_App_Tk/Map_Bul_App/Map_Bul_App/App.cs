@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Linq;
-using Map_Bul_App.Models;
-using Map_Bul_App.Models.Tables;
 using Map_Bul_App.Settings;
 using Map_Bul_App.Views;
 using Plugin.Toasts;
 using TK.CustomMap.Api.Google;
 using Xamarin.Forms;
-using XLabs.Forms.Controls;
 
 namespace Map_Bul_App
 {
@@ -53,7 +50,6 @@ namespace Map_Bul_App
             }
             catch (Exception e)
             {
-                
                 throw;
             }
         }

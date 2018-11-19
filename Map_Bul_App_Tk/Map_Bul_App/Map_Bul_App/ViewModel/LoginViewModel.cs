@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Map_Bul_App.Models;
 using Map_Bul_App.Models.Tables;
 using Map_Bul_App.ResX;
 using Map_Bul_App.Settings;

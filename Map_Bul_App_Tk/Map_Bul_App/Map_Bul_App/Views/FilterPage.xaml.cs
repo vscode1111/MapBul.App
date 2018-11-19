@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using Map_Bul_App.Design;
 using Map_Bul_App.Models.Tables;
-using Map_Bul_App.Settings;
 using Map_Bul_App.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;

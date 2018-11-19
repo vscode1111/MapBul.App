@@ -1,7 +1,6 @@
 ﻿using System;
 using Map_Bul_App.Settings;
 using Plugin.Toasts;
-using Xamarin.Forms;
 
 namespace Map_Bul_App.Design
 {

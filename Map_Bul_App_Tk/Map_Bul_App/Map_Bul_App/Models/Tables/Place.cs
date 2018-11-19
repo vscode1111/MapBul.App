@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Map_Bul_App.ResX;
 using Map_Bul_App.Settings;
 using SQLite.Net.Attributes;

@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using Map_Bul_App.Settings;
+﻿using Map_Bul_App.Settings;
 using Map_Bul_App.ViewModel;
 using Xamarin.Forms;
 
