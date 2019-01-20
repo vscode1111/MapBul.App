@@ -26,14 +26,20 @@ namespace Map_Bul_App.Design
             base.OnBindingContextChanged();
 
             if (BindingContext == null) return;
-            var imageSource = new UriImageSource
+
+            if (ImageSource != null)
             {
-                CachingEnabled = true,
-                CacheValidity = new TimeSpan(0,5,0,0,0),
-                Uri = new Uri(ImageSource)
-            };
-            PreviewImage.Source = imageSource;
-            
+                var imageSource = new UriImageSource
+                {
+                    CachingEnabled = true,
+                    CacheValidity = new TimeSpan(0, 5, 0, 0, 0),
+                    Uri = new Uri(ImageSource)
+                };
+
+
+                PreviewImage.Source = imageSource;
+            }
+
             TitleLabel.Text = Title;
             TagsLabel.Text = Tags;
             if (StartDate.HasValue)

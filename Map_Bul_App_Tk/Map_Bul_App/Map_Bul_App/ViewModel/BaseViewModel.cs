@@ -10,7 +10,6 @@ namespace Map_Bul_App.ViewModel
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-
         protected BaseViewModel()
         {
             _isActivityIndicatorRuning = _isActivityIndicatorRuning = false;
@@ -41,8 +40,6 @@ namespace Map_Bul_App.ViewModel
                 new PropertyChangedEventArgs("CancelInitialize"));
         }
         #endregion
-
-
 
         #region [Properties]
         #region [Private]
@@ -151,9 +148,4 @@ namespace Map_Bul_App.ViewModel
 
         #endregion [ Command ]
     }
-
-
-
-
-
 }

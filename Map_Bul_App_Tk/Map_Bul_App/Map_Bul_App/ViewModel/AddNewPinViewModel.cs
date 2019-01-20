@@ -522,10 +522,12 @@ namespace Map_Bul_App.ViewModel
                                       WorkTimeViewModels.Any(item => item.Days.Any()) &&
                                       IsValidLocation;
 
+                /*
                 if (!_isRedact)
                 {
                     tempValidResult = tempValidResult && Photos.Count(photoPath => !string.IsNullOrEmpty(photoPath))>0;
                 }
+                */
 
                 return tempValidResult;
             }
@@ -804,6 +806,11 @@ namespace Map_Bul_App.ViewModel
         private async void CheckRegion()
         {
             _haveChecked = true;
+            CytiId = 0;
+            IsValidLocation = true;
+
+            /*
+            _haveChecked = true;
             await Task.Run(() =>
             {
                 var result = GetRegion().Result;
@@ -854,6 +861,7 @@ namespace Map_Bul_App.ViewModel
                     });
                 }
             });
+            */
         }
 
         #region Event Handlers

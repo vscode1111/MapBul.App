@@ -18,7 +18,9 @@ namespace Map_Bul_App.Models
         public AuthorName AuthorName { get; set; }
         public string FormatedText => "    " + Text;
         public ImageSource TitlePhotoSource => ImageSource.FromUri(new Uri(TitlePhoto));
-        public ImageSource PhotoSource => ImageSource.FromUri(new Uri(Photo));
+
+        public ImageSource PhotoSource => !string.IsNullOrEmpty(Photo) ? ImageSource.FromUri(new Uri(Photo)) : null;
+
         public new string TagsString => Tags.ToTagsString();
 
         public string StartTimeString
@@ -39,7 +41,6 @@ namespace Map_Bul_App.Models
         public ICommand DeleteCommand=> new Command (OnDeleteItem);
         public ArticleEventItem(ArticleEvent item)
         {
-            
             ServerId = item.ServerId;
             Id = item.Id;
             Title = item.Title;
@@ -70,7 +71,6 @@ namespace Map_Bul_App.Models
             SourcePhoto = item.SourcePhoto;
 
             AddressName = item.AddressName;
-
         }
 
         public ArticleEventItem(DeserializeGetArticlesData item)

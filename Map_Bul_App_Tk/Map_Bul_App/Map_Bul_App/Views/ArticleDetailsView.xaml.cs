@@ -26,7 +26,6 @@ namespace Map_Bul_App.Views
 
         protected override void OnAppearing()
         {
-            
             base.OnAppearing();
             SourceUriLabel.Text = ResX.TextResource.Source + "<u>"+ CurrentViewModel.ArticleEventItem.SourceUrl + "</u>";
             SourceUriLabel.GestureRecognizers.Add(new TapGestureRecognizer
@@ -77,6 +76,5 @@ namespace Map_Bul_App.Views
         }
 
         private ArticleDetailsViewModel CurrentViewModel => BindingContext as ArticleDetailsViewModel;
-
     }
 }

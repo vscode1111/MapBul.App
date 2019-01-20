@@ -20,7 +20,6 @@ namespace Map_Bul_App.ViewModel
                 _articleEventItem.IsFavorite = true;
         }
 
-
         public override void InitilizeFunc(object obj = null)
         {
             if (obj != null)
@@ -28,8 +27,6 @@ namespace Map_Bul_App.ViewModel
                 ArticleEventItem = obj as ArticleEventItem;
             }
         }
-
-
 
         #region Property & Field
         public string Title
@@ -69,8 +66,6 @@ namespace Map_Bul_App.ViewModel
                 OnPropertyChanged();
             }
         }
-       
-
         #endregion
 
         public Command GoToArticleMarkerCommand
