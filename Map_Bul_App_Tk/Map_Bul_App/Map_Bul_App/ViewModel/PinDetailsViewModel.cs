@@ -46,15 +46,8 @@ namespace Map_Bul_App.ViewModel
                 RootCategoryName = PinFromServer.CategoriesBranch.LastOrDefault()?.Name ?? "",
                 PinImage = PinFromServer.Pin,
                 InfoImage = PinFromServer.Logo,
-                Photos =
-                    PinFromServer.Photos.Where(
-                        path =>
-                            path.StartsWith("http://185.76.145.214/") && path.Length > "http://185.76.145.214/".Length)
-                        .ToList(),
-                PhotosMini = PinFromServer.PhotosMini.Where(
-                        path =>
-                            path.StartsWith("http://185.76.145.214/") && path.Length > "http://185.76.145.214/".Length)
-                        .ToList(),
+                Photos = PinFromServer.Photos,
+                PhotosMini = PinFromServer.PhotosMini,
                 Photo = PinFromServer.Photo,
                 Name = PinFromServer.Name,
                 HexColor = PinFromServer.Color,
