@@ -57,14 +57,14 @@ namespace Map_Bul_App.Design
 
         public List<string> ImagesSource
         {
-            get { return (List<string>) GetValue(ImagesSourceProperty); }
-            set { SetValue(ImagesSourceProperty, value); }
+            get => (List<string>) GetValue(ImagesSourceProperty);
+            set => SetValue(ImagesSourceProperty, value);
         }
 
         public string SelectedImage
         {
-            get { return (string)GetValue(SelectedImageProperty); }
-            set { SetValue(SelectedImageProperty, value); }
+            get => (string)GetValue(SelectedImageProperty);
+            set => SetValue(SelectedImageProperty, value);
         }
     }
 }

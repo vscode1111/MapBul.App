@@ -42,7 +42,7 @@ namespace Map_Bul_App.ViewModel
         private int _markerId;
         public int MarkerId
         {
-            get { return _markerId; }
+            get => _markerId;
             set
             {
                 if (value != _markerId)
@@ -55,7 +55,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool IsFilterEnable
         {
-            get { return _isFilterEnable; }
+            get => _isFilterEnable;
             set
             {
                 if (value == _isFilterEnable) return;
@@ -65,7 +65,7 @@ namespace Map_Bul_App.ViewModel
         }
         public bool IsRefreshing
         {
-            get { return _isRefreshing; }
+            get => _isRefreshing;
             set
             {
                 if (_isRefreshing == value) return;
@@ -75,7 +75,7 @@ namespace Map_Bul_App.ViewModel
         }
         public DateTime StartDate
         {
-            get { return _startDate.Date; }
+            get => _startDate.Date;
             set
             {
                 if (value == _startDate) return;
@@ -86,7 +86,7 @@ namespace Map_Bul_App.ViewModel
 
         public DateTime StopDate
         {
-            get { return _stopDate.Date; }
+            get => _stopDate.Date;
             set
             {
                 if (value == _stopDate) return;
@@ -97,7 +97,7 @@ namespace Map_Bul_App.ViewModel
 
         public List<ArticleEventItem> Articles
         {
-            get { return _articles; }
+            get => _articles;
             set
             {
                 if (_articles == value) return;
@@ -111,7 +111,7 @@ namespace Map_Bul_App.ViewModel
 
         public ArticleEventItem SelectedArticleEventItem
         {
-            get { return _selectedArticleEventItem; }
+            get => _selectedArticleEventItem;
             set
             {
                 if (value != null)
@@ -127,7 +127,7 @@ namespace Map_Bul_App.ViewModel
 
         public int SelectedFilter
         {
-            get { return _selectedFilter;}
+            get => _selectedFilter;
             set
             {
                 if (value != _selectedFilter)

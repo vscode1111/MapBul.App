@@ -34,7 +34,7 @@ namespace Map_Bul_App.ViewModel.Design
         private List<MyDayOfWeek> _days;
         public List<MyDayOfWeek> Days
         {
-            get { return _days; }
+            get => _days;
             set
             {
                 if (value == _days) return;
@@ -67,7 +67,7 @@ namespace Map_Bul_App.ViewModel.Design
 
         public TimeSpan StartTime
         {
-            get { return _startTime; }
+            get => _startTime;
             set
             {
                 if (value == _startTime) return;
@@ -84,7 +84,7 @@ namespace Map_Bul_App.ViewModel.Design
 
         public TimeSpan StopTime
         {
-            get { return _stopTime; }
+            get => _stopTime;
             set
             {
                 if (value == _stopTime) return;

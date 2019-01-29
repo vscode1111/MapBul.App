@@ -16,7 +16,7 @@ namespace Map_Bul_App.Models
         private bool _isVisible;
         public bool IsVisible 
         {
-            get { return _isVisible; }
+            get => _isVisible;
             set
             {
                 if (_isVisible == value) return;
@@ -26,7 +26,7 @@ namespace Map_Bul_App.Models
         }
         public bool ItemSelected
         {
-            get { return _itemSelected; }
+            get => _itemSelected;
             set
             {
                 if (_itemSelected == value) return;
@@ -38,7 +38,7 @@ namespace Map_Bul_App.Models
         private ImageSource _icon;
 
         public ImageSource Icon {
-            get { return _icon; }
+            get => _icon;
             set
             {
                 if(value==_icon) return;
@@ -50,7 +50,7 @@ namespace Map_Bul_App.Models
 
         public ImageSource PinIcon
         {
-            get { return _pinIcon; }
+            get => _pinIcon;
             set
             {
                 if (value == _pinIcon) return;

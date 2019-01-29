@@ -49,44 +49,44 @@ namespace Map_Bul_App.Design
 
         public string PreviewImageSource
         {
-            get { return (string)GetValue(PreviewImageSourceProperty); }
-            set { SetValue(PreviewImageSourceProperty, value); }
+            get => (string)GetValue(PreviewImageSourceProperty);
+            set => SetValue(PreviewImageSourceProperty, value);
         }
 
         public string PinName
         {
-            get { return (string)GetValue(PinNameProperty); }
-            set { SetValue(PinNameProperty, value); }
+            get => (string)GetValue(PinNameProperty);
+            set => SetValue(PinNameProperty, value);
         }
 
         public string CategoryImageSource
         {
-            get { return (string)GetValue(CategoryImageSourceProperty); }
-            set { SetValue(CategoryImageSourceProperty, value); }
+            get => (string)GetValue(CategoryImageSourceProperty);
+            set => SetValue(CategoryImageSourceProperty, value);
         }
 
         public string CategoryName
         {
-            get { return (string)GetValue(CategoryNameProperty); }
-            set { SetValue(CategoryNameProperty, value); }
+            get => (string)GetValue(CategoryNameProperty);
+            set => SetValue(CategoryNameProperty, value);
         }
 
         public string SubCategoryName
         {
-            get { return (string)GetValue(SubCategoryNameProperty); }
-            set { SetValue(SubCategoryNameProperty, value); }
+            get => (string)GetValue(SubCategoryNameProperty);
+            set => SetValue(SubCategoryNameProperty, value);
         }
 
         public Color CategoryColor
         {
-            get { return (Color)GetValue(CategoryColorProperty); }
-            set { SetValue(CategoryColorProperty, value); }
+            get => (Color)GetValue(CategoryColorProperty);
+            set => SetValue(CategoryColorProperty, value);
         }
 
         public string Tags
         {
-            get { return (string)GetValue(TagsProperty); }
-            set { SetValue(TagsProperty, value); }
+            get => (string)GetValue(TagsProperty);
+            set => SetValue(TagsProperty, value);
         }
 
 

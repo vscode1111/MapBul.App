@@ -58,7 +58,7 @@ namespace Map_Bul_App.ViewModel
         public  Color BackgroundColorOfActivityIndicator => Color.FromRgba(0, 0, 0, 175);
         public bool IsActivityIndicatorVisible
         {
-            get { return _isActivityIndicatorVisible; }
+            get => _isActivityIndicatorVisible;
             set
             {
                 if (value == _isActivityIndicatorVisible) return;
@@ -68,7 +68,7 @@ namespace Map_Bul_App.ViewModel
         }
         public bool IsActivityIndicatorRuning
         {
-            get { return _isActivityIndicatorRuning; }
+            get => _isActivityIndicatorRuning;
             set
             {
                 if (value == _isActivityIndicatorRuning) return;
@@ -80,7 +80,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool IsInitialize
         {
-            get { return _isInitialize; }
+            get => _isInitialize;
             set
             {
                 if (value == _isInitialize) return;

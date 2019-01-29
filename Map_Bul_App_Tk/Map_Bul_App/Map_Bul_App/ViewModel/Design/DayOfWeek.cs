@@ -30,7 +30,7 @@ namespace Map_Bul_App.ViewModel.Design
 
         public bool IsSelected
         {
-            get { return _isSelected; }
+            get => _isSelected;
             set
             {
                 if (value == _isSelected) return;
@@ -43,7 +43,7 @@ namespace Map_Bul_App.ViewModel.Design
 
         public bool IsEnabled
         {
-            get { return _isEnabled; }
+            get => _isEnabled;
             set
             {
                 if (value == _isEnabled) return;

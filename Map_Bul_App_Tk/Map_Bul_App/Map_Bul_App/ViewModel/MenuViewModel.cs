@@ -79,7 +79,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool IsFavoritesVisible
         {
-            get { return _isFavoritesVisible; }
+            get => _isFavoritesVisible;
             set
             {
                 if (_isFavoritesVisible == value) return;

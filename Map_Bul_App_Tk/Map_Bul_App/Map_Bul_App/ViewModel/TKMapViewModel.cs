@@ -103,7 +103,7 @@ namespace Map_Bul_App.ViewModel
 
         public CurrentPinsOnMap CurrentPinsOnMap
         {
-            get { return _currentPinsOnMap; }
+            get => _currentPinsOnMap;
             set
             {
                 if(_currentPinsOnMap==value) return;
@@ -133,7 +133,7 @@ namespace Map_Bul_App.ViewModel
         /// </summary>
         public MapSpan MapRegion
         {
-            get { return _mapRegion; }
+            get => _mapRegion;
             set
             {
                 var enableLoading = false;
@@ -151,7 +151,7 @@ namespace Map_Bul_App.ViewModel
         }
         public Position UserLocation
         {
-            get { return _userLocation; }
+            get => _userLocation;
             set
             {
                 if (_userLocation != value)
@@ -181,7 +181,7 @@ namespace Map_Bul_App.ViewModel
         /// </summary>
         public ObservableCollection<TKCustomMapPin> Pins
         {
-            get { return _pins; }
+            get => _pins;
             set
             {
                 if (_pins != value)
@@ -197,7 +197,7 @@ namespace Map_Bul_App.ViewModel
         /// </summary>
         public Position MapCenter
         {
-            get { return _mapCenter; }
+            get => _mapCenter;
             set
             {
                 if (_mapCenter != value)
@@ -213,7 +213,7 @@ namespace Map_Bul_App.ViewModel
         /// </summary>
         public TKCustomMapPin SelectedPin
         {
-            get { return _selectedPin; }
+            get => _selectedPin;
             set
             {
                 if (_selectedPin == value) return;

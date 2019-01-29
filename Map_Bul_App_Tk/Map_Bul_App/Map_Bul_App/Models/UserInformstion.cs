@@ -17,7 +17,7 @@ namespace Map_Bul_App.Models
         private bool _isLogined;
         public int Id
         {
-            get { return _id; }
+            get => _id;
             set
             {
                 if (value == _id) return;
@@ -27,7 +27,7 @@ namespace Map_Bul_App.Models
         }
         public string Name
         {
-            get { return _name; }
+            get => _name;
             set
             {
                 if (value == null || value == _name) return;
@@ -37,7 +37,7 @@ namespace Map_Bul_App.Models
         }
         public string UserType
         {
-            get { return _userType; }
+            get => _userType;
             set
             {
                 if (value == _userType) return;
@@ -47,7 +47,7 @@ namespace Map_Bul_App.Models
         }
         public string Guid
         {
-            get { return _guid; }
+            get => _guid;
             set
             {
                 if (value == null || value == _guid) return;
@@ -57,7 +57,7 @@ namespace Map_Bul_App.Models
         }
         public bool IsLogined
         {
-            get { return _isLogined; }
+            get => _isLogined;
             set
             {
                 if (value == _isLogined) return;

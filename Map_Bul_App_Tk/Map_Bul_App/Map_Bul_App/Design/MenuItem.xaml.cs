@@ -26,26 +26,14 @@ namespace Map_Bul_App.Design
 
         public string LabelText
         {
-            get
-            {
-                return (string)GetValue(LabelTextProperty);
-            }
-            set
-            {
-                SetValue(LabelTextProperty, value);
-            }
+            get => (string)GetValue(LabelTextProperty);
+            set => SetValue(LabelTextProperty, value);
         }
 
         public string IconSource
         {
-            get
-            {
-                return (string)GetValue(IconSourceProperty);
-            }
-            set
-            {
-                SetValue(IconSourceProperty, value);
-            }
+            get => (string)GetValue(IconSourceProperty);
+            set => SetValue(IconSourceProperty, value);
         }
     }
 }

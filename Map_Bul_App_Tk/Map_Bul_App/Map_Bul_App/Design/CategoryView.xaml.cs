@@ -70,43 +70,36 @@ namespace Map_Bul_App.Design
 
         public ImageSource IconImageSource
         {
-            get { return (ImageSource) GetValue(IconImageSourceProperty); }
-            set { SetValue(IconImageSourceProperty, value); }
+            get => (ImageSource) GetValue(IconImageSourceProperty);
+            set => SetValue(IconImageSourceProperty, value);
         }
 
         public Color ItemColor
         {
-            get { return (Color) GetValue(ItemColorProperty); }
-            set { SetValue(ItemColorProperty, value); }
+            get => (Color) GetValue(ItemColorProperty);
+            set => SetValue(ItemColorProperty, value);
         }
 
         public string ItemName
         {
-            get { return (string) GetValue(ItemNameProperty); }
-            set { SetValue(ItemNameProperty, value); }
+            get => (string) GetValue(ItemNameProperty);
+            set => SetValue(ItemNameProperty, value);
         }
 
         public bool IsSelected
         {
-            get { return (bool) GetValue(IsSelectedProperty); }
-            set { SetValue(IsSelectedProperty, value); }
+            get => (bool) GetValue(IsSelectedProperty);
+            set => SetValue(IsSelectedProperty, value);
         }
         public int CategoryId
         {
-            get { return (int)GetValue(CategoryIdProperty); }
-            set
-            {
-                SetValue(CategoryIdProperty, value);
-            }
+            get => (int)GetValue(CategoryIdProperty);
+            set => SetValue(CategoryIdProperty, value);
         }
         public bool SeparatorVisible
         {
-            get { return (bool)GetValue(SeparatorVisibleProperty); }
-            set
-            {
-                SetValue(SeparatorVisibleProperty, value);
-
-            }
+            get => (bool)GetValue(SeparatorVisibleProperty);
+            set => SetValue(SeparatorVisibleProperty, value);
         }
     }
 }

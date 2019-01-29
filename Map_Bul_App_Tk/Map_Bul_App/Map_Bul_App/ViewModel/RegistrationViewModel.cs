@@ -36,7 +36,7 @@ namespace Map_Bul_App.ViewModel
             => (!string.IsNullOrEmpty(Login) && !string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(LastName));
         public string Login
         {
-            get { return _login; }
+            get => _login;
             set
             {
                 if (value == _login) return;
@@ -48,7 +48,7 @@ namespace Map_Bul_App.ViewModel
 
         public string FirstName // Имя
         {
-            get { return _firstName; }
+            get => _firstName;
             set
             {
                 if (value == _firstName) return;
@@ -60,7 +60,7 @@ namespace Map_Bul_App.ViewModel
 
         public string MiddleName //Фамилия
         {
-            get { return _middleName; }
+            get => _middleName;
             set
             {
                 if (value == _middleName) return;
@@ -71,7 +71,7 @@ namespace Map_Bul_App.ViewModel
 
         public string LastName //Фамилия
         {
-            get { return _lastName; }
+            get => _lastName;
             set
             {
                 if (value == _lastName) return;
@@ -83,7 +83,7 @@ namespace Map_Bul_App.ViewModel
 
         public string Phone
         {
-            get { return _phone; }
+            get => _phone;
             set
             {
                 if (value == _phone) return;
@@ -94,7 +94,7 @@ namespace Map_Bul_App.ViewModel
 
         public DateTime BirthDate
         {
-            get { return _birthDate; }
+            get => _birthDate;
             set
             {
                 if (value == _birthDate) return;
@@ -104,7 +104,7 @@ namespace Map_Bul_App.ViewModel
         }
         public int SelectedSexIndex
         {
-            get { return _selectedSexIndex; }
+            get => _selectedSexIndex;
             set
             {
                 if (value == _selectedSexIndex) return;

@@ -52,50 +52,26 @@ namespace Map_Bul_App.Design
 
         public Keyboard Keyboard
         {
-            get
-            {
-                return (Keyboard)GetValue(KeyboardProperty);
-            }
-            set
-            {
-                SetValue(KeyboardProperty, value);
-            }
+            get => (Keyboard)GetValue(KeyboardProperty);
+            set => SetValue(KeyboardProperty, value);
         }
 
         public string LabelText
         {
-            get
-            {
-                return (string)GetValue(LabelTextProperty);
-            }
-            set
-            {
-                SetValue(LabelTextProperty, value);
-            }
+            get => (string)GetValue(LabelTextProperty);
+            set => SetValue(LabelTextProperty, value);
         }
 
         public string EntryText
         {
-            get
-            {
-                return (string)GetValue(EntryTextProperty);
-            }
-            set
-            {
-                SetValue(EntryTextProperty, value);
-            }
+            get => (string)GetValue(EntryTextProperty);
+            set => SetValue(EntryTextProperty, value);
         }
 
         public string EntryPlaceholder
         {
-            get
-            {
-                return (string)GetValue(EntryPlaceholderProperty);
-            }
-            set
-            {
-                SetValue(EntryPlaceholderProperty, value);
-            }
+            get => (string)GetValue(EntryPlaceholderProperty);
+            set => SetValue(EntryPlaceholderProperty, value);
         }
 
 

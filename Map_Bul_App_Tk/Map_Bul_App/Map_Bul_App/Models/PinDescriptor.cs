@@ -101,7 +101,7 @@ namespace Map_Bul_App.Models
         private string _name;
         public string Name
         {
-            get { return _name; }
+            get => _name;
             set
             {
                 if (value != _name)
@@ -115,7 +115,7 @@ namespace Map_Bul_App.Models
         private string _introduction;
         public string Introduction
         {
-            get { return _introduction; }
+            get => _introduction;
             set
             {
                 if (value != _introduction)
@@ -129,7 +129,7 @@ namespace Map_Bul_App.Models
         private string _description;
         public string Description
         {
-            get { return _description; }
+            get => _description;
             set
             {
                 if (value != _description)
@@ -154,7 +154,7 @@ namespace Map_Bul_App.Models
         private string _site;
         public string Site
         {
-            get { return _site; }
+            get => _site;
             set
             {
                 if (value != _site)
@@ -168,7 +168,7 @@ namespace Map_Bul_App.Models
         private string _email;
         public string Email
         {
-            get {return _email;}
+            get => _email;
             set
             {
                 if (value != _email)

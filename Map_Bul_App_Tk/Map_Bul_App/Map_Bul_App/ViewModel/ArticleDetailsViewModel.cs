@@ -47,7 +47,7 @@ namespace Map_Bul_App.ViewModel
         private ArticleEventItem _articleEventItem;
         public ArticleEventItem ArticleEventItem
         {
-            get { return _articleEventItem; }
+            get => _articleEventItem;
             set
             {
                 if (value == null) return;
@@ -58,7 +58,7 @@ namespace Map_Bul_App.ViewModel
         }
         public bool IsFavorite
         {
-            get { return ArticleEventItem.IsFavorite; }
+            get => ArticleEventItem.IsFavorite;
             set
             {
                 if (_articleEventItem.IsFavorite == value) return;

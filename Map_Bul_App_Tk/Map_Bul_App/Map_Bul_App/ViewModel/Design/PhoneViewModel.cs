@@ -28,7 +28,7 @@ namespace Map_Bul_App.ViewModel.Design
 
         public Phone Phone
         {
-            get { return _phone; }
+            get => _phone;
             set
             {if(value==_phone) return;
                 _phone = value;

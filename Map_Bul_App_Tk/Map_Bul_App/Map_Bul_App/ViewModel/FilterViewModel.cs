@@ -105,9 +105,7 @@ namespace Map_Bul_App.ViewModel
             if (!selectedRootcategories.Any())
             {
                 foreach (var pin in Pins)
-                {
-                    pin.IsVisible = true && CheckVisiblePinByTags(pin);
-                }
+                    pin.IsVisible = CheckVisiblePinByTags(pin);
             }
             else
             {
@@ -120,9 +118,7 @@ namespace Map_Bul_App.ViewModel
                     }
 
                     if (!pin.SubCategories.Any()) //Если нет вложенных категорий, или ни одна из подкатегорий не выбрана
-                    {
                         pin.IsVisible = true;
-                    }
                     else
                     {
                         var subcategories =
@@ -137,11 +133,8 @@ namespace Map_Bul_App.ViewModel
                     }
                 }
                 foreach (var pin in Pins.Where(pin => !selectedRootcategories.Contains(pin.RootCategory)))
-                {
                     pin.IsVisible = false;
-                }
             }
-            //OnPropertyChanged(nameof(SelectedPins));
             OnPropertyChanged(nameof(SelectedPinsCnt));
         }
 
@@ -256,7 +249,7 @@ namespace Map_Bul_App.ViewModel
 
         public MapSpan MapRegion
         {
-            get { return _mapRegion; }
+            get => _mapRegion;
             set
             {
                 if (_mapRegion == value) return;
@@ -296,7 +289,7 @@ namespace Map_Bul_App.ViewModel
 
         public List<PinCategory> PinCategories
         {
-            get { return _pinCategories; }
+            get => _pinCategories;
             set
             {
                 if (value == _pinCategories) return;
@@ -311,7 +304,7 @@ namespace Map_Bul_App.ViewModel
 
         public List<PinCategory> PinSubCategories
         {
-            get { return _pinSubCategories; }
+            get => _pinSubCategories;
             set
             {
                 if (value == _pinSubCategories) return;
@@ -357,7 +350,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool MyMarkerSelected
         {
-            get { return _myMarkerSelected; }
+            get => _myMarkerSelected;
             set
             {
                 if (value == _myMarkerSelected) return;
@@ -370,7 +363,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool WifiSelected
         {
-            get { return _wifiSelected; }
+            get => _wifiSelected;
             set
             {
                 if (value == _wifiSelected) return;
@@ -383,7 +376,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool NowOpenSelected
         {
-            get { return _nowOpenSelected; }
+            get => _nowOpenSelected;
             set
             {
                 if (value == _nowOpenSelected) return;
@@ -396,7 +389,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool CategoriesVisible
         {
-            get { return _categoriesVisible; }
+            get => _categoriesVisible;
             set
             {
                 if (value == _categoriesVisible) return;
@@ -409,7 +402,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool SubCategoriesVisible
         {
-            get { return _subCategoriesVisible; }
+            get => _subCategoriesVisible;
             set
             {
                 if (value == _subCategoriesVisible) return;
@@ -426,7 +419,6 @@ namespace Map_Bul_App.ViewModel
         {
             MyMarkerSelected = !MyMarkerSelected;
             UpdatePinsVisible();
-
         });
 
         public ICommand ChangeWifiEnabledCommand=> new Command(() =>
@@ -456,6 +448,5 @@ namespace Map_Bul_App.ViewModel
         public ICommand ShowOnMapCommand => new Command(ShowMap);
 
         #endregion [ Command ]
-
     }
 }

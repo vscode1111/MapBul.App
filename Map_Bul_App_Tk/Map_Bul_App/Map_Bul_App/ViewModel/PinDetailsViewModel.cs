@@ -108,7 +108,7 @@ namespace Map_Bul_App.ViewModel
         private string _selectedPhoto;
         public string SelectedPhoto
         {
-            get { return _selectedPhoto; }
+            get => _selectedPhoto;
             set
             {
                 if (value != _selectedPhoto)
@@ -125,7 +125,7 @@ namespace Map_Bul_App.ViewModel
 
         public UserPinDescriptor Pin
         {
-            get { return _pin; }
+            get => _pin;
             set
             {
                 if (value != null && _pin != value)
@@ -140,7 +140,7 @@ namespace Map_Bul_App.ViewModel
 
         public ImageSource Icon
         {
-            get { return _icon; }
+            get => _icon;
             set
             {
                 if (_icon == value) return;
@@ -151,7 +151,7 @@ namespace Map_Bul_App.ViewModel
 
         private TimeSpan? OpenTime
         {
-            get { return _openTime; }
+            get => _openTime;
             set
             {
                 if (value == _openTime) return;
@@ -163,7 +163,7 @@ namespace Map_Bul_App.ViewModel
 
         private TimeSpan? CloseTime
         {
-            get { return _closeTime; }
+            get => _closeTime;
             set
             {
                 if (value == _closeTime) return;
@@ -195,7 +195,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool IsFavorite
         {
-            get { return _isFavorite; }
+            get => _isFavorite;
             set
             {
                 if (_isFavorite == value) return;
@@ -206,7 +206,7 @@ namespace Map_Bul_App.ViewModel
 
         public Position MapCenter
         {
-            get { return _mapCenter; }
+            get => _mapCenter;
             set
             {
                 if (_mapCenter == value) return;
@@ -217,7 +217,7 @@ namespace Map_Bul_App.ViewModel
 
         public ObservableCollection<TKCustomMapPin> Pins
         {
-            get { return _pins; }
+            get => _pins;
             set
             {
                 if (_pins == value) return;
@@ -229,7 +229,7 @@ namespace Map_Bul_App.ViewModel
         private List<RelatedEvent> _events;
         public List<RelatedEvent> Events
         {
-            get { return _events; }
+            get => _events;
             set
             {
                 if (value != _events)
@@ -243,7 +243,7 @@ namespace Map_Bul_App.ViewModel
         private List<string> _imagesSource;
         public List<string> ImagesSource
         {
-            get { return _imagesSource; }
+            get => _imagesSource;
             set
             {
                 if (value != _imagesSource)

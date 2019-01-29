@@ -22,7 +22,7 @@ namespace Map_Bul_App.ViewModel
 
         public string Login
         {
-            get { return _login; }
+            get => _login;
             set
             {
                 if (value == _login) return;
@@ -35,7 +35,7 @@ namespace Map_Bul_App.ViewModel
 
         public string Password
         {
-            get { return _password; }
+            get => _password;
             set
             {
                 if (value == _password) return;

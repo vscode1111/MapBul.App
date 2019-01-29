@@ -60,7 +60,7 @@ namespace Map_Bul_App.ViewModel
 
         public int SelectedFrame
         {
-            get { return _selectedFrame; }
+            get => _selectedFrame;
             set
             {
                 _selectedFrame = value;
@@ -71,7 +71,7 @@ namespace Map_Bul_App.ViewModel
 
         public int SelectedTitle
         {
-            get { return _selectedTitle; }
+            get => _selectedTitle;
             set
             {
                 if (value != _selectedTitle)
@@ -86,7 +86,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool IsRefreshing
         {
-            get { return _isRefreshing; }
+            get => _isRefreshing;
             set
             {
                 if (value == _isRefreshing) return;
@@ -97,7 +97,7 @@ namespace Map_Bul_App.ViewModel
 
         public ObservableCollection<ArticleEventItem> Articles
         {
-            get { return _articles; }
+            get => _articles;
             set
             {
                 if (_articles == value) return;
@@ -108,7 +108,7 @@ namespace Map_Bul_App.ViewModel
 
         public ObservableCollection<ArticleEventItem> Events
         {
-            get { return _events; }
+            get => _events;
             set
             {
                 if (_events == value) return;
@@ -119,7 +119,7 @@ namespace Map_Bul_App.ViewModel
 
         public ObservableCollection<UserPinDescriptor> Pins
         {
-            get { return _pins; }
+            get => _pins;
             set
             {
                 if (_pins == value) return;
@@ -130,7 +130,7 @@ namespace Map_Bul_App.ViewModel
 
         public ArticleEventItem SelectedArticleItem
         {
-            get { return _selectedArticleItem; }
+            get => _selectedArticleItem;
             set
             {
                 if (value != null)
@@ -145,7 +145,7 @@ namespace Map_Bul_App.ViewModel
 
         public UserPinDescriptor SelectedPin
         {
-            get { return _selectedPin; }
+            get => _selectedPin;
             set
             {
                 if (value != null)

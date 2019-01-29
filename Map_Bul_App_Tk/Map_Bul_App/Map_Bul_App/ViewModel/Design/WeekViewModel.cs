@@ -26,7 +26,7 @@ namespace Map_Bul_App.ViewModel.Design
 
         public List<MyDayOfWeek> Days
         {
-            get { return _days; }
+            get => _days;
             set
             {
                 if (value == _days) return;
@@ -37,7 +37,7 @@ namespace Map_Bul_App.ViewModel.Design
 
         public Guid CurrId
         {
-            get { return _currId; }
+            get => _currId;
             set
             {
                 if (value == _currId) return;

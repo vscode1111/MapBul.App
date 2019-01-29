@@ -38,10 +38,7 @@ namespace Map_Bul_App.Views
         private string _mail;
         public string Mail
         {
-            get
-            {
-                return _mail;
-            }
+            get => _mail;
             set
             {
                 if(_mail==value) return;

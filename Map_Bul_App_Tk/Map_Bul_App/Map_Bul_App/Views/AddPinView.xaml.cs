@@ -109,8 +109,8 @@ namespace Map_Bul_App.Views
 
         private AddNewPinViewModel CurrentViewModel
         {
-            get { return BindingContext as AddNewPinViewModel; }
-            set { BindingContext = value; }
+            get => BindingContext as AddNewPinViewModel;
+            set => BindingContext = value;
         }
 
         protected override void OnAppearing()

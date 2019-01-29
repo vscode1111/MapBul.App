@@ -21,7 +21,7 @@ namespace Map_Bul_App.Models
 
         public List<PinDescriptor> Pins
         {
-            get { return _pins; }
+            get => _pins;
             set
             {
                 if (_pins == value) return;
@@ -31,7 +31,7 @@ namespace Map_Bul_App.Models
         }
         public List<MapSpan> MapRegions
         {
-            get { return _mapRegions; }
+            get => _mapRegions;
             set
             {
                 if (_mapRegions == value) return;

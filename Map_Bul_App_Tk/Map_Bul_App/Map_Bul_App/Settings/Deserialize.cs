@@ -175,8 +175,8 @@ namespace Map_Bul_App.Settings
         public DateTime? _stopDate;
         public DateTime? StopDate
         {
-          get { return _stopDate ?? EndDate; }
-            set { _stopDate = value; }
+          get => _stopDate ?? EndDate;
+            set => _stopDate = value;
         }
         public AuthorName AuthorName { get; set; }
         public string MarkerAddress { get; set; }

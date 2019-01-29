@@ -48,7 +48,7 @@ namespace Map_Bul_App.Design
         private string _webImagePath;
         public string WebImagePath
         {
-            get { return _webImagePath; }
+            get => _webImagePath;
             set
             {
                 if (value != _webImagePath)

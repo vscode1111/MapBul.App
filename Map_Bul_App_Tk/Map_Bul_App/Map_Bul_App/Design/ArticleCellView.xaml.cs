@@ -86,50 +86,47 @@ namespace Map_Bul_App.Design
 
         public string ImageSource
         {
-            get { return (string)GetValue(ImageSourceProperty); }
-            set { SetValue(ImageSourceProperty, value); }
+            get => (string)GetValue(ImageSourceProperty);
+            set => SetValue(ImageSourceProperty, value);
         }
         public DateTime Date
         {
-            get { return (DateTime)GetValue(DateProperty); }
-            set { SetValue(DateProperty, value); }
+            get => (DateTime)GetValue(DateProperty);
+            set => SetValue(DateProperty, value);
         }
         public DateTime? StartDate
         {
-            get { return (DateTime?)GetValue(StartDateProperty); }
-            set { SetValue(StartDateProperty, value); }
+            get => (DateTime?)GetValue(StartDateProperty);
+            set => SetValue(StartDateProperty, value);
         }
         public TimeSpan? StartTime
         {
-            get { return (TimeSpan?)GetValue(StartTimeProperty); }
-            set { SetValue(StartTimeProperty, value); }
+            get => (TimeSpan?)GetValue(StartTimeProperty);
+            set => SetValue(StartTimeProperty, value);
         }
 
         public DateTime? StopDate
         {
-            get { return (DateTime?)GetValue(StopDateProperty); }
-            set { SetValue(StopDateProperty, value); }
+            get => (DateTime?)GetValue(StopDateProperty);
+            set => SetValue(StopDateProperty, value);
         }
 
         public string Title
         {
-            get { return (string)GetValue(TitleProperty); }
-            set { SetValue(TitleProperty, value); }
+            get => (string)GetValue(TitleProperty);
+            set => SetValue(TitleProperty, value);
         }
 
         public string Tags
         {
-            get { return (string)GetValue(TagsProperty); }
-            set { SetValue(TagsProperty, value); }
+            get => (string)GetValue(TagsProperty);
+            set => SetValue(TagsProperty, value);
         }
 
         public bool IsShowed
         {
-            get { return (bool)GetValue(IsShowedProperty); }
-            set
-            {
-                SetValue(IsShowedProperty, value);
-            }
+            get => (bool)GetValue(IsShowedProperty);
+            set => SetValue(IsShowedProperty, value);
         }
 
         public string EventDateString

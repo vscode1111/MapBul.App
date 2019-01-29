@@ -58,8 +58,8 @@ namespace Map_Bul_App.Design
 
         public List<RelatedEvent> ItemsSource
         {
-            get { return (List<RelatedEvent>)GetValue(ItemsSourceProperty); }
-            set { SetValue(ItemsSourceProperty, value); }
+            get => (List<RelatedEvent>)GetValue(ItemsSourceProperty);
+            set => SetValue(ItemsSourceProperty, value);
         }
     }
 }

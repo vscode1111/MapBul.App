@@ -64,49 +64,49 @@ namespace Map_Bul_App.Design
         }
         public string LeftImageSource
         {
-            get { return (string)GetValue(LeftImageSourceProperty); }
-            set { SetValue(LeftImageSourceProperty, value); }
+            get => (string)GetValue(LeftImageSourceProperty);
+            set => SetValue(LeftImageSourceProperty, value);
         }
 
         public ICommand LeftImageCommand
         {
-            get { return (ICommand)GetValue(LeftImageCommandProperty); }
-            set { SetValue(LeftImageCommandProperty, value); }
+            get => (ICommand)GetValue(LeftImageCommandProperty);
+            set => SetValue(LeftImageCommandProperty, value);
         }
 
         public string Title
         {
-            get { return (string) GetValue(TitleProperty); }
-            set { SetValue(TitleProperty, value); }
+            get => (string) GetValue(TitleProperty);
+            set => SetValue(TitleProperty, value);
         }
 
         public string RightImageSource
         {
-            get { return (string)GetValue(RightImageSourceProperty); }
-            set { SetValue(RightImageSourceProperty, value); }
+            get => (string)GetValue(RightImageSourceProperty);
+            set => SetValue(RightImageSourceProperty, value);
         }
         public ICommand RightImageCommand
         {
-            get { return (ICommand)GetValue(RightImageCommandProperty); }
-            set { SetValue(RightImageCommandProperty, value); }
+            get => (ICommand)GetValue(RightImageCommandProperty);
+            set => SetValue(RightImageCommandProperty, value);
         }
 
         public bool NoGuest
         {
-            get { return (bool)GetValue(NoGuestProperty); }
-            set { SetValue(NoGuestProperty, value); }
+            get => (bool)GetValue(NoGuestProperty);
+            set => SetValue(NoGuestProperty, value);
         }
         
         public StackLayout CustomTitleStack
         {
-            get { return (StackLayout)GetValue(CustomTitleStackProperty); }
-            set { SetValue(CustomTitleStackProperty, value); }
+            get => (StackLayout)GetValue(CustomTitleStackProperty);
+            set => SetValue(CustomTitleStackProperty, value);
         }
 
         public Color RightImageBackground
         {
-            get { return (Color)GetValue(RightImageBackgroundProperty); }
-            set { SetValue(RightImageBackgroundProperty, value); }
+            get => (Color)GetValue(RightImageBackgroundProperty);
+            set => SetValue(RightImageBackgroundProperty, value);
         }
 
     }

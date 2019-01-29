@@ -364,7 +364,7 @@ namespace Map_Bul_App.ViewModel
         private bool _isPersonalMarker;
         public bool IsPersonalMarker
         {
-            get { return _isPersonalMarker; }
+            get => _isPersonalMarker;
             set
             {
                 if (value != _isPersonalMarker)
@@ -388,7 +388,7 @@ namespace Map_Bul_App.ViewModel
         private ObservableCollection<string> _oldPhotos;
         public ObservableCollection<string> OldPhotos
         {
-            get { return _oldPhotos; }
+            get => _oldPhotos;
             set
             {
                 if (value != _oldPhotos)
@@ -402,7 +402,7 @@ namespace Map_Bul_App.ViewModel
         private ObservableCollection<string> _photos = new ObservableCollection<string>();
         public ObservableCollection<string> Photos
         {
-            get { return _photos; }
+            get => _photos;
             set
             {
                 if (value != _photos)
@@ -417,7 +417,7 @@ namespace Map_Bul_App.ViewModel
 
         public ObservableCollection<string> PhotosBase64Dictionary
         {
-            get { return _photosBase64Dictionary; }
+            get => _photosBase64Dictionary;
             set
             {
                 if (value != _photosBase64Dictionary)
@@ -430,7 +430,7 @@ namespace Map_Bul_App.ViewModel
 
         public ObservableCollection<PinCategory> PinCategories
         {
-            get { return _pinCategories; }
+            get => _pinCategories;
             set
             {
                 if (value == _pinCategories) return;
@@ -442,7 +442,7 @@ namespace Map_Bul_App.ViewModel
 
         public ObservableCollection<PinCategory> PinSubCategories
         {
-            get { return _pinSubCategories; }
+            get => _pinSubCategories;
             set
             {
                 if (value == _pinSubCategories) return;
@@ -455,7 +455,7 @@ namespace Map_Bul_App.ViewModel
 
         public string BaseCategoryString
         {
-            get { return _baseCategoryString; }
+            get => _baseCategoryString;
             set
             {
                 if (value == _baseCategoryString) return;
@@ -467,7 +467,7 @@ namespace Map_Bul_App.ViewModel
 
         public Color BaseCategoryColor
         {
-            get { return _baseCategoryColor; }
+            get => _baseCategoryColor;
             set
             {
                 if (value == _baseCategoryColor) return;
@@ -478,7 +478,7 @@ namespace Map_Bul_App.ViewModel
 
         public ImageSource BaseCategoryImage
         {
-            get { return _baseCategoryImage; }
+            get => _baseCategoryImage;
             set
             {
                 if (value == _baseCategoryImage) return;
@@ -489,7 +489,7 @@ namespace Map_Bul_App.ViewModel
 
         public int SelectedDiscountIndex
         {
-            get { return _selectedDiscountIndex; }
+            get => _selectedDiscountIndex;
             set
             {
                 if (value == _selectedDiscountIndex) return;
@@ -500,7 +500,7 @@ namespace Map_Bul_App.ViewModel
         
         public bool IsValidLocation
         {
-            get { return _isValidLocation; }
+            get => _isValidLocation;
             set
             {
                 if (value == _isValidLocation) return;
@@ -552,7 +552,7 @@ namespace Map_Bul_App.ViewModel
 
         public List<WorkTimeViewModel> WorkTimeViewModels
         {
-            get { return _workTimeViewModels; }
+            get => _workTimeViewModels;
             set
             {
                 if (value == _workTimeViewModels) return;
@@ -563,7 +563,7 @@ namespace Map_Bul_App.ViewModel
 
         public List<PhoneViewModel> PhoneViewModels
         {
-            get { return _phoneViewModels; }
+            get => _phoneViewModels;
             set
             {
                 if (value == _phoneViewModels) return;
@@ -574,7 +574,7 @@ namespace Map_Bul_App.ViewModel
 
         public WeekViewModel WeekViewModel
         {
-            get { return _weekViewModel; }
+            get => _weekViewModel;
             set
             {
                 if (value == _weekViewModel) return;
@@ -589,7 +589,7 @@ namespace Map_Bul_App.ViewModel
 
         public UserPinDescriptor Pin
         {
-            get { return _pin; }
+            get => _pin;
             set
             {
                 if (value != null && _pin != value)
@@ -601,7 +601,7 @@ namespace Map_Bul_App.ViewModel
 
         public Position MapCenter
         {
-            get { return _mapCenter; }
+            get => _mapCenter;
             set
             {
                 if (_mapCenter == value) return;
@@ -613,7 +613,7 @@ namespace Map_Bul_App.ViewModel
 
         public ObservableCollection<TKCustomMapPin> Pins
         {
-            get { return _pins; }
+            get => _pins;
             set
             {
                 if (_pins == value) return;
@@ -628,7 +628,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool CategoriesPopupVisible
         {
-            get { return _categoriesPopupVisible; }
+            get => _categoriesPopupVisible;
             set
             {
                 if (value == _categoriesPopupVisible) return;
@@ -639,7 +639,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool TagsPopupVisible
         {
-            get { return _tagsPopupVisible; }
+            get => _tagsPopupVisible;
             set
             {
                 if (value == _tagsPopupVisible) return;
@@ -650,7 +650,7 @@ namespace Map_Bul_App.ViewModel
 
         public bool DaysPopupVisible
         {
-            get { return _daysPopupVisible; }
+            get => _daysPopupVisible;
             set
             {
                 if (value == _daysPopupVisible) return;

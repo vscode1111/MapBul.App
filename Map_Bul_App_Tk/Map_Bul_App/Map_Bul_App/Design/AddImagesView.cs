@@ -272,11 +272,8 @@ namespace Map_Bul_App.Design
 
         public ObservableCollection<string> ImagePaths
         {
-            get { return (ObservableCollection<string>)GetValue(ImagePathsProperty); }
-            set
-            {
-                SetValue(ImagePathsProperty, value);
-            }
+            get => (ObservableCollection<string>)GetValue(ImagePathsProperty);
+            set => SetValue(ImagePathsProperty, value);
         }
 
 
@@ -285,11 +282,8 @@ namespace Map_Bul_App.Design
 
         public ObservableCollection<string> PhotosBase64Dictionary
         {
-            get { return (ObservableCollection<string>)GetValue(PhotosBase64DictionaryProperty); }
-            set
-            {
-                SetValue(PhotosBase64DictionaryProperty, value);
-            }
+            get => (ObservableCollection<string>)GetValue(PhotosBase64DictionaryProperty);
+            set => SetValue(PhotosBase64DictionaryProperty, value);
         }
 
         public static readonly BindableProperty OldImagePathsProperty =
@@ -297,8 +291,8 @@ namespace Map_Bul_App.Design
 
         public ObservableCollection<string> OldImagePaths
         {
-            get { return (ObservableCollection<string>)GetValue(OldImagePathsProperty); }
-            set { SetValue(OldImagePathsProperty, value); }
+            get => (ObservableCollection<string>)GetValue(OldImagePathsProperty);
+            set => SetValue(OldImagePathsProperty, value);
         }
     }
 
@@ -307,7 +301,7 @@ namespace Map_Bul_App.Design
         private string _imagePath;
         public string ImagePath
         {
-            get { return _imagePath; }
+            get => _imagePath;
             set
             {
                 if (value != _imagePath)
@@ -320,7 +314,7 @@ namespace Map_Bul_App.Design
         private string _imageUri;
         public string ImageUri
         {
-            get { return _imageUri; }
+            get => _imageUri;
             set
             {
                 if (value != _imageUri)
