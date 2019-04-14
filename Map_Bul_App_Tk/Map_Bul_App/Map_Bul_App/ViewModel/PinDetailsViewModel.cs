@@ -193,6 +193,11 @@ namespace Map_Bul_App.ViewModel
             }
         }
 
+        public string PhonoCount
+        {
+            get { return Pin.Photos.Count().ToString(); }
+        }
+
         public bool IsFavorite
         {
             get => _isFavorite;

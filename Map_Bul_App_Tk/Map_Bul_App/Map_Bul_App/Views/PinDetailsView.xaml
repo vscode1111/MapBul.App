@@ -81,16 +81,19 @@
       <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical"
                    Spacing="0">
         <!--Фотография-->
-        <!--<design:ScrolledViewerPhoto
+        <design:ScrolledViewerPhoto
+          HeightRequest="250"
+          WidthRequest="250"
           HorizontalOptions="FillAndExpand"
           VerticalOptions="Start"
           ImagesSource="{Binding ImagesSource}"
-          SelectedImage="{Binding SelectedPhoto}"/>-->
-        <Image
+          SelectedImage="{Binding SelectedPhoto}"/>
+        <!--<Image
             Source="{Binding Pin.Photo}"
+            HeightRequest="200"
             HorizontalOptions="FillAndExpand"
             Aspect="AspectFill"
-            VerticalOptions="Start" />
+            VerticalOptions="Start" />-->
         <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="White"
                      Orientation="Vertical" Padding="0,0,0,0" Spacing="0">
           <!--Рыжая строка -->
@@ -129,6 +132,8 @@
                               Text="{Binding Pin.BaseCategoryName}" />
             <design:ItemMediumLabel HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
                                       Text="{Binding WorkTime}" />
+            <design:ItemMediumLabel HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
+                                      Text="{Binding PhonoCount}" />              
             <design:MainLabel HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
                               Text="{Binding Pin.Phone.Number}" />
             <design:ItemMediumLabel HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
