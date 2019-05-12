@@ -262,9 +262,7 @@
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand">
           <design:CachingListView
-
                 x:Name="ArticlesListView"
-               
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
                 SeparatorVisibility="None"

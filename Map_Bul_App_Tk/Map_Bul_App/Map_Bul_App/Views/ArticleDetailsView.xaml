@@ -50,6 +50,7 @@
                     <Image
                         Grid.Row="0"
                         Source="{Binding ArticleEventItem.PhotoSource}"
+                        HeightRequest="350"
                         HorizontalOptions="FillAndExpand"
                         Aspect="AspectFill"
                         VerticalOptions="Start" />

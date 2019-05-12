@@ -33,12 +33,12 @@ namespace Map_Bul_App.Views
 
         private void ListView_OnItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var tempArticle = e.Item as ArticleEventItem;
-            if (tempArticle != null)
+            var articleEventItem = e.Item as ArticleEventItem;
+            if (articleEventItem != null)
             {
-                ApplicationSettings.DataBase.InsertArticleEventToShowedArticleEvents(tempArticle.ServerId, 0);
-                tempArticle.OnPropertyChanged("IsShowed");
-                CurrentViewModel.SelectedArticleEventItem = tempArticle;
+                ApplicationSettings.DataBase.InsertArticleEventToShowedArticleEvents(articleEventItem.ServerId, 0);
+                articleEventItem.OnPropertyChanged("IsShowed");
+                CurrentViewModel.SelectedArticleEventItem = articleEventItem;
             }
         }
 

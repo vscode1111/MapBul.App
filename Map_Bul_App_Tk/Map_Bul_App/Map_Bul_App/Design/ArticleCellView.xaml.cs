@@ -19,8 +19,6 @@ namespace Map_Bul_App.Design
             }
         }
 
-
-
         protected override void OnBindingContextChanged()
         {
             base.OnBindingContextChanged();
@@ -35,7 +33,6 @@ namespace Map_Bul_App.Design
                     CacheValidity = new TimeSpan(0, 5, 0, 0, 0),
                     Uri = new Uri(ImageSource)
                 };
-
 
                 PreviewImage.Source = imageSource;
             }
@@ -72,8 +69,7 @@ namespace Map_Bul_App.Design
             BindableProperty.Create<ArticleCellView, TimeSpan?>(p => p.StartTime, null);
 
         public static readonly BindableProperty StopDateProperty =
-    BindableProperty.Create<ArticleCellView, DateTime?>(p => p.StopDate, null);
-
+            BindableProperty.Create<ArticleCellView, DateTime?>(p => p.StopDate, null);
 
         public static readonly BindableProperty TitleProperty =
             BindableProperty.Create<ArticleCellView, string>(p => p.Title, default(string));
