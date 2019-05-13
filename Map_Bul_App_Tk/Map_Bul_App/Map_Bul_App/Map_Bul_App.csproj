@@ -45,6 +45,7 @@
     <Compile Include="Design\AddPinCategoryCell.xaml.cs">
       <DependentUpon>AddPinCategoryCell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Design\SwipeGestureRecognizer.cs" />
     <Compile Include="Design\PinCellView.xaml.cs">
       <DependentUpon>PinCellView.xaml</DependentUpon>
     </Compile>

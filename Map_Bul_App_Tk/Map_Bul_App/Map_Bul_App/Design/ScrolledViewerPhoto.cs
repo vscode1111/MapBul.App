@@ -15,6 +15,7 @@ namespace Map_Bul_App.Design
             };
             Content = _contentLayout;
             PropertyChanged += ScrolledViewerPhoto_PropertyChanged;
+           
         }
 
         private void ScrolledViewerPhoto_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

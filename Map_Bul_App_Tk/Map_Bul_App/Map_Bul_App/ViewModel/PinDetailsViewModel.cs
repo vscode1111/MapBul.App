@@ -100,6 +100,7 @@ namespace Map_Bul_App.ViewModel
         private bool _isFavorite;
         private ObservableCollection<TKCustomMapPin> _pins;
         private Position _mapCenter;
+        private int _selectedImageIndex;
 
         #endregion
 
@@ -319,7 +320,15 @@ namespace Map_Bul_App.ViewModel
 
         public Command DeselectPhotoCommand=>new Command(() =>
         {
-            SelectedPhoto = null;
+            // SelectedPhoto = null;
+            SelectedPhoto = ImagesSource[_selectedImageIndex];
+            if (_selectedImageIndex < ImagesSource.Count - 1)
+                _selectedImageIndex++;
+            else
+            {
+                _selectedImageIndex = 0;
+                SelectedPhoto = null;
+            }
         });
 
         protected virtual void OnPinDeleted()

@@ -231,8 +231,8 @@
           Aspect="AspectFit"
           Source="{Binding SelectedPhoto}">
         <Image.GestureRecognizers>
-          <TapGestureRecognizer
-            Command="{Binding DeselectPhotoCommand}"/>
+          <TapGestureRecognizer Command="{Binding DeselectPhotoCommand}"/>
+          <!--<SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>-->
         </Image.GestureRecognizers>
       </Image>
     </StackLayout>
