@@ -34,7 +34,7 @@ namespace Map_Bul_App.Design
     }
     public class SwipeGestureRecognizer : GestureRecognizer, ISwipeGestureController
     {
-        public SwipeGestureRecognizer(): base() { }
+        // public SwipeGestureRecognizer(): base(null) { }
 
         // Default threshold in pixels before a swipe is detected.
         const uint DefaultSwipeThreshold = 100;
