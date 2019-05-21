@@ -9,15 +9,15 @@ namespace Map_Bul_App.Views
         {
             BindingContext = viewModel;
             InitializeComponent();
-            SelectedPhotoStackLayout.BackgroundColor = Color.FromRgba(0, 0, 0, 215);
-            LargeSelectedImage.PropertyChanged += (sender, e) =>
-            {
-                if (e.PropertyName == Image.IsLoadingProperty.PropertyName)
-                {
-                    ImageActivityIndicator.IsRunning = LargeSelectedImage.IsLoading;
-                    ImageActivityIndicator.IsVisible = LargeSelectedImage.IsLoading;
-                }
-            };
+            SelectedPhotoStackLayout.BackgroundColor = Color.FromRgba(0, 0, 0, 255);
+            //LargeSelectedImage.PropertyChanged += (sender, e) =>
+            //{
+            //    if (e.PropertyName == Image.IsLoadingProperty.PropertyName)
+            //    {
+            //        ImageActivityIndicator.IsRunning = LargeSelectedImage.IsLoading;
+            //        ImageActivityIndicator.IsVisible = LargeSelectedImage.IsLoading;
+            //    }
+            //};
             NavigationPage.SetHasNavigationBar(this, false);//скрыть ActionBar
         }
 

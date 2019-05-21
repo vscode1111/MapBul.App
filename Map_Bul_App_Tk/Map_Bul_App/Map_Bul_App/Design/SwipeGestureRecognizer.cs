@@ -32,6 +32,7 @@ namespace Map_Bul_App.Design
         void SendSwipe(Element sender, double totalX, double totalY);
         bool DetectSwipe(View sender, SwipeDirection direction);
     }
+    /*
     public class SwipeGestureRecognizer : GestureRecognizer, ISwipeGestureController
     {
         // public SwipeGestureRecognizer(): base(null) { }
@@ -143,4 +144,5 @@ namespace Map_Bul_App.Design
             return (self & SwipeDirection.Down) == SwipeDirection.Down;
         }
     }
+    */
 }
