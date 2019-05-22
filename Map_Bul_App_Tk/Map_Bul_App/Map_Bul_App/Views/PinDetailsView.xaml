@@ -38,34 +38,34 @@
                             RightImageBackground="{Binding IsFavorite,Converter={StaticResource ColorConverter}}" NoGuest="True"/>
 
         <design:StackLayoutButton
-      Grid.Row="1"
-      IsVisible="{Binding IsPersonal}"
-      Spacing="0"
-      BackgroundColor="White"
-      HorizontalOptions="FillAndExpand"
-      VerticalOptions="FillAndExpand">
-            <design:Separator
-        HorizontalOptions="FillAndExpand"/>
-            <StackLayout
-        Padding="10,0,10,0"
-        Orientation="Horizontal"
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand">
-                <design:LabelForStackLayoutButton
+          Grid.Row="1"
+          IsVisible="{Binding IsPersonal}"
+          Spacing="0"
+          BackgroundColor="White"
           HorizontalOptions="FillAndExpand"
-          VerticalOptions="FillAndExpand"
-          HorizontalTextAlignment="Center"
-          VerticalTextAlignment="Center"
-          Text="{resX:Translate EditMarker}"/>
+          VerticalOptions="FillAndExpand">
+            <design:Separator
+                HorizontalOptions="FillAndExpand"/>
+            <StackLayout
+                Padding="10,0,10,0"
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <design:LabelForStackLayoutButton
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalTextAlignment="Center"
+                  VerticalTextAlignment="Center"
+                  Text="{resX:Translate EditMarker}"/>
                 <Image
-        Source="app_edit"
-        HeightRequest="20"
-        VerticalOptions="Center"
-        HorizontalOptions="End"/>
+                    Source="app_edit"
+                    HeightRequest="20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"/>
             </StackLayout>
             <design:StackLayoutButton.GestureRecognizers>
                 <TapGestureRecognizer
-          Command="{Binding GoToEditPersonalMarkerCommand}"/>
+                  Command="{Binding GoToEditPersonalMarkerCommand}"/>
             </design:StackLayoutButton.GestureRecognizers>
             <design:StackLayoutButton.Triggers>
                 <DataTrigger Binding="{Binding IsPersonal}" Value="False" TargetType="design:StackLayoutButton">
@@ -77,28 +77,23 @@
             </design:StackLayoutButton.Triggers>
         </design:StackLayoutButton>
         <ScrollView
-          Grid.Row="2"
-          HorizontalOptions="FillAndExpand"
-          VerticalOptions="FillAndExpand"
-          BackgroundColor="White"
-          IsEnabled="True"
-          Orientation="Vertical">
+              Grid.Row="2"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              BackgroundColor="White"
+              IsEnabled="True"
+              Orientation="Vertical">
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical"
                    Spacing="0">
                 <!--Фотография-->
                 <design:ScrolledViewerPhoto
-          HeightRequest="250"
-          WidthRequest="250"
-          HorizontalOptions="FillAndExpand"
-          VerticalOptions="Start"
-          ImagesSource="{Binding ImagesSource}"
-          SelectedImage="{Binding SelectedPhoto}"/>
-                <!--<Image
-            Source="{Binding Pin.Photo}"
-            HeightRequest="200"
-            HorizontalOptions="FillAndExpand"
-            Aspect="AspectFill"
-            VerticalOptions="Start" />-->
+                      HeightRequest="250"
+                      WidthRequest="250"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="Start"
+                      ImagesSource="{Binding ImagesSource}"
+                      SelectedImage="{Binding SelectedPhoto}"
+                    />
                 <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="White"
                      Orientation="Vertical" Padding="0,0,0,0" Spacing="0">
                     <!--Рыжая строка -->
@@ -122,12 +117,11 @@
                                                    VerticalOptions="CenterAndExpand" />
                         </StackLayout>
                         <Image
-                x:Name="TitleImage"
-                Source="{Binding Icon}"
-                Aspect="AspectFit"
-                HorizontalOptions="Start"
-                VerticalOptions="CenterAndExpand" />
-
+                            x:Name="TitleImage"
+                            Source="{Binding Icon}"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Start"
+                            VerticalOptions="CenterAndExpand" />
                     </RelativeLayout>
                     <!--Инфо-->
                     <StackLayout VerticalOptions="Start"
@@ -156,10 +150,10 @@
                 </StackLayout>
 
                 <Grid
-          HorizontalOptions="FillAndExpand"
-          VerticalOptions="EndAndExpand"
-          RowSpacing="0"
-          BackgroundColor="White">
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="EndAndExpand"
+                  RowSpacing="0"
+                  BackgroundColor="White">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="Auto" />
@@ -168,20 +162,20 @@
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
                     <design:StackLayoutButton
-            Grid.Row="0"
-            BackgroundColor="White"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="FillAndExpand"
-            HeightRequest="50">
+                        Grid.Row="0"
+                        BackgroundColor="White"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        HeightRequest="50">
                         <design:LabelForStackLayoutButton
-              HorizontalOptions="FillAndExpand"
-              VerticalOptions="FillAndExpand"
-              HorizontalTextAlignment="Center"
-              VerticalTextAlignment="Center"
-              Text="{resX:Translate ShowAllEvents}"/>
+                          HorizontalOptions="FillAndExpand"
+                          VerticalOptions="FillAndExpand"
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"
+                          Text="{resX:Translate ShowAllEvents}"/>
                         <design:StackLayoutButton.GestureRecognizers>
                             <TapGestureRecognizer
-                Command="{Binding GoToCalendareCommand}"/>
+                                Command="{Binding GoToCalendareCommand}"/>
                         </design:StackLayoutButton.GestureRecognizers>
                         <design:StackLayoutButton.Triggers>
                             <DataTrigger Binding="{Binding Pin.HaveRelatedEvents}" Value="False" TargetType="design:StackLayoutButton">
@@ -191,17 +185,17 @@
                     </design:StackLayoutButton>
                     <Image Grid.Row="0" Source="drop_shadow_bottom.png" Opacity="0.5" HorizontalOptions="FillAndExpand" Aspect="AspectFill" VerticalOptions="Start" />
                     <customMap:TKCustomMap
-              Grid.Row="1"
-              HeightRequest="300"
-              VerticalOptions="FillAndExpand"
-              HorizontalOptions="FillAndExpand"
-              HasScrollEnabled="False"
-              HasZoomEnabled="True"
-              x:Name="TkMap"
-              MapCenter="{Binding MapCenter}"
-              CustomPins="{Binding Pins}"
-              IsShowingUser="False"
-              IsRegionChangeAnimated="True" />
+                      Grid.Row="1"
+                      HeightRequest="300"
+                      VerticalOptions="FillAndExpand"
+                      HorizontalOptions="FillAndExpand"
+                      HasScrollEnabled="False"
+                      HasZoomEnabled="True"
+                      x:Name="TkMap"
+                      MapCenter="{Binding MapCenter}"
+                      CustomPins="{Binding Pins}"
+                      IsShowingUser="False"
+                      IsRegionChangeAnimated="True" />
                     <Image Grid.Row="1" Source="drop_shadow_top.png" HorizontalOptions="FillAndExpand" Aspect="AspectFill"
                                  VerticalOptions="Start" />
                 </Grid>
@@ -209,127 +203,16 @@
         </ScrollView>
         <Image Grid.Row="2" Source="drop_shadow_top.png" HorizontalOptions="FillAndExpand" Aspect="AspectFill"
                      VerticalOptions="Start" />
-        <!--<StackLayout
-        Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand"
-        IsVisible="{Binding IsActivityIndicatorVisible}"
-        BackgroundColor="{Binding BackgroundColorOfActivityIndicator, Mode=OneWay}" />
-    <ActivityIndicator
-      Scale="2"
-        Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
-        IsVisible="{Binding IsActivityIndicatorVisible}"
-        IsRunning="{Binding IsActivityIndicatorRuning}"
-        HorizontalOptions="Center"
-        VerticalOptions="Center" />-->
-    <!--<StackLayout
-        Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
-        x:Name="SelectedPhotoStackLayout"
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand"
-        Opacity="0"
-        IsVisible="False">
-      <Image
-        x:Name="LargeSelectedImage"
-          HorizontalOptions="FillAndExpand"
-          VerticalOptions="FillAndExpand"
-          Aspect="AspectFit"
-          Source="{Binding SelectedPhoto}">
-        <Image.GestureRecognizers>
-          <TapGestureRecognizer Command="{Binding DeselectPhotoCommand}"/>
-          -->
-        <!--<SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>-->
-        <!--
-        </Image.GestureRecognizers>
-      </Image>
-    </StackLayout>-->
 
         <design:PhotoPreviewStack x:Name="SelectedPhotoStackLayout"
                                   Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
                                   HorizontalOptions="FillAndExpand"
-                                  Source="{Binding SelectedPhoto}"
-                                  CloseCommand="{Binding DeselectPhotoCommand}"
                                   IsVisible="False"
+                                  Source="{Binding SelectedPhoto}"
+                                  CloseCommand="{Binding ClosePhotoCommand}"
+                                  BackCommand="{Binding BackPhotoCommand}"
+                                  ForwardCommand="{Binding ForwardPhotoCommand}"
         />
-        
-        <!--<StackLayout
-            Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
-            x:Name="SelectedPhotoStackLayout"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="FillAndExpand"
-            Opacity="0"
-            IsVisible="False">
-
-            <Grid
-                x:Class="Map_Bul_App.Design.HeaderStack"
-                VerticalOptions="FillAndExpand"
-                HorizontalOptions="FillAndExpand">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <StackLayout x:Name="CenterImageStack"
-                    Grid.Row="0"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                >
-                    <Image x:Name="CenterImage"
-                           VerticalOptions="FillAndExpand"
-                           HorizontalOptions="FillAndExpand"
-                           Aspect="AspectFit"
-                           Source="{Binding SelectedPhoto}"
-                    />
-                </StackLayout>
-                <StackLayout x:Name="LeftImageStack"
-                    Grid.Row="0"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Center"
-                    Orientation="Horizontal"
-                    Padding="0,0,0,0"
-                >
-                    <Image x:Name="LeftImage"
-                        Aspect="AspectFit"
-                        HorizontalOptions="Start"
-                        VerticalOptions="FillAndExpand"
-                        Opacity="0.8"
-                        HeightRequest="25"
-                        Source="white_left_arrow.png"
-                  />
-                </StackLayout>
-                <StackLayout x:Name="RightImageStack"
-                    Grid.Row="0"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
-                    Orientation="Horizontal"
-                    Padding="0,0,0,0"
-                >
-                    <Image x:Name="RightImage"
-                        Aspect="AspectFit"
-                        HorizontalOptions="End"
-                        VerticalOptions="FillAndExpand"
-                        Opacity="0.8"
-                        HeightRequest="25"
-                        Source="white_right_arrow.png"
-                    />
-                </StackLayout>
-                <StackLayout x:Name="CloseImageStack"
-                             Grid.Row="0"
-                             HorizontalOptions="End"
-                             VerticalOptions="Start"
-                             Orientation="Horizontal"
-                             Padding="0,0,0,0"
-                >
-                    <Image x:Name="CloseImage"
-                           Aspect="AspectFit"
-                           HorizontalOptions="End"
-                           VerticalOptions="FillAndExpand"
-                           Opacity="0.8"
-                           HeightRequest="25"
-                           Source="white_x_mark.png"
-                    />
-                </StackLayout>
-            </Grid>
-        </StackLayout>-->
-
         <ActivityIndicator
           x:Name="ImageActivityIndicator"
           Scale="2"

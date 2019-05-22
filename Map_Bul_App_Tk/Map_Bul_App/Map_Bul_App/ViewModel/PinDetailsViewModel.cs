@@ -318,17 +318,21 @@ namespace Map_Bul_App.ViewModel
             }
         }
 
-        public Command DeselectPhotoCommand=>new Command(() =>
+        public Command ClosePhotoCommand=>new Command(() =>
         {
-            // SelectedPhoto = null;
-            SelectedPhoto = ImagesSource[_selectedImageIndex];
+            SelectedPhoto = null;
+        });
+
+        public Command BackPhotoCommand => new Command(() =>
+        {
+            if (_selectedImageIndex > 0)
+                SelectedPhoto = ImagesSource[--_selectedImageIndex];
+        });
+
+        public Command ForwardPhotoCommand => new Command(() =>
+        {
             if (_selectedImageIndex < ImagesSource.Count - 1)
-                _selectedImageIndex++;
-            else
-            {
-                _selectedImageIndex = 0;
-                SelectedPhoto = null;
-            }
+                SelectedPhoto = ImagesSource[++_selectedImageIndex];
         });
 
         protected virtual void OnPinDeleted()
