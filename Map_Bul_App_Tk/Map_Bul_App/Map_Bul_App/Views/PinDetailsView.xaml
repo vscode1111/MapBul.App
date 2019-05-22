@@ -239,7 +239,14 @@
       </Image>
     </StackLayout>-->
 
-        <StackLayout
+        <design:PhotoPreviewStack x:Name="SelectedPhotoStackLayout"
+                                  Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
+                                  HorizontalOptions="FillAndExpand"
+                                  VerticalOptions="FillAndExpand"
+                                  IsVisible="False"
+        />
+        
+        <!--<StackLayout
             Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
             x:Name="SelectedPhotoStackLayout"
             HorizontalOptions="FillAndExpand"
@@ -315,7 +322,7 @@
                     />
                 </StackLayout>
             </Grid>
-        </StackLayout>
+        </StackLayout>-->
 
         <ActivityIndicator
           x:Name="ImageActivityIndicator"

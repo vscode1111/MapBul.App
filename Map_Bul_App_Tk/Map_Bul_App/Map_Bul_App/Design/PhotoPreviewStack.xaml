@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Map_Bul_App.Design.PhotoPreviewStack"             
+    HorizontalOptions="FillAndExpand"
+    VerticalOptions="FillAndExpand"
+>
+    <Grid
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout x:Name="CenterImageStack"
+                    Grid.Row="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                >
+            <Image x:Name="CenterImage"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"
+                           Aspect="AspectFit"
+                           Source="{Binding SelectedPhoto}"
+                    />
+        </StackLayout>
+        <StackLayout x:Name="LeftImageStack"
+                    Grid.Row="0"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Orientation="Horizontal"
+                    Padding="0,0,0,0"
+                >
+            <Image x:Name="LeftImage"
+                        Aspect="AspectFit"
+                        HorizontalOptions="Start"
+                        VerticalOptions="FillAndExpand"
+                        Opacity="0.8"
+                        HeightRequest="25"
+                        Source="white_left_arrow.png"
+                  />
+        </StackLayout>
+        <StackLayout x:Name="RightImageStack"
+                    Grid.Row="0"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    Orientation="Horizontal"
+                    Padding="0,0,0,0"
+                >
+            <Image x:Name="RightImage"
+                        Aspect="AspectFit"
+                        HorizontalOptions="End"
+                        VerticalOptions="FillAndExpand"
+                        Opacity="0.8"
+                        HeightRequest="25"
+                        Source="white_right_arrow.png"
+                    />
+        </StackLayout>
+        <StackLayout x:Name="CloseImageStack"
+                             Grid.Row="0"
+                             HorizontalOptions="End"
+                             VerticalOptions="Start"
+                             Orientation="Horizontal"
+                             Padding="0,0,0,0"
+                >
+            <Image x:Name="CloseImage"
+                           Aspect="AspectFit"
+                           HorizontalOptions="End"
+                           VerticalOptions="FillAndExpand"
+                           Opacity="0.8"
+                           HeightRequest="25"
+                           Source="white_x_mark.png"
+                    />
+        </StackLayout>
+    </Grid>
+</StackLayout>

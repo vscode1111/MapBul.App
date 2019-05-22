@@ -45,6 +45,9 @@
     <Compile Include="Design\AddPinCategoryCell.xaml.cs">
       <DependentUpon>AddPinCategoryCell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Design\PhotoPreviewStack.xaml.cs">
+      <DependentUpon>PhotoPreviewStack.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Design\SwipeGestureRecognizer.cs" />
     <Compile Include="Design\PinCellView.xaml.cs">
       <DependentUpon>PinCellView.xaml</DependentUpon>
@@ -470,6 +473,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Design\RelatedEventsList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Design\PhotoPreviewStack.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
