@@ -21,17 +21,16 @@
                            VerticalOptions="FillAndExpand"
                            HorizontalOptions="FillAndExpand"
                            Aspect="AspectFit"
-                           Source="{Binding SelectedPhoto}"
                     />
         </StackLayout>
-        <StackLayout x:Name="LeftImageStack"
+        <StackLayout x:Name="BackImageStack"
                     Grid.Row="0"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     Orientation="Horizontal"
                     Padding="0,0,0,0"
                 >
-            <Image x:Name="LeftImage"
+            <Image x:Name="BackImage"
                         Aspect="AspectFit"
                         HorizontalOptions="Start"
                         VerticalOptions="FillAndExpand"
@@ -40,14 +39,14 @@
                         Source="white_left_arrow.png"
                   />
         </StackLayout>
-        <StackLayout x:Name="RightImageStack"
+        <StackLayout x:Name="ForwardImageStack"
                     Grid.Row="0"
                     HorizontalOptions="End"
                     VerticalOptions="Center"
                     Orientation="Horizontal"
                     Padding="0,0,0,0"
                 >
-            <Image x:Name="RightImage"
+            <Image x:Name="ForwardImage"
                         Aspect="AspectFit"
                         HorizontalOptions="End"
                         VerticalOptions="FillAndExpand"

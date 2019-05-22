@@ -29,8 +29,13 @@
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
-        <design:HeaderStack Grid.Row="0" LeftImageSource="app_back.png" LeftImageCommand="{Binding BackClickCommand}"
-                          Title="{Binding Pin.Name}" RightImageSource="app_fav.png" RightImageCommand="{Binding AddToFavoritesCommand}" RightImageBackground="{Binding IsFavorite,Converter={StaticResource ColorConverter}}" NoGuest="True"/>
+        <design:HeaderStack Grid.Row="0" 
+                            LeftImageSource="app_back.png" 
+                            LeftImageCommand="{Binding BackClickCommand}"
+                            Title="{Binding Pin.Name}" 
+                            RightImageSource="app_fav.png" 
+                            RightImageCommand="{Binding AddToFavoritesCommand}" 
+                            RightImageBackground="{Binding IsFavorite,Converter={StaticResource ColorConverter}}" NoGuest="True"/>
 
         <design:StackLayoutButton
       Grid.Row="1"
@@ -242,7 +247,8 @@
         <design:PhotoPreviewStack x:Name="SelectedPhotoStackLayout"
                                   Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
                                   HorizontalOptions="FillAndExpand"
-                                  VerticalOptions="FillAndExpand"
+                                  Source="{Binding SelectedPhoto}"
+                                  CloseCommand="{Binding DeselectPhotoCommand}"
                                   IsVisible="False"
         />
         

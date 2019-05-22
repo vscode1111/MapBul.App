@@ -342,7 +342,7 @@ namespace Map_Bul_App.ViewModel
         private Color _baseCategoryColor;
         private ImageSource _baseCategoryImage;
         private int _selectedDiscountIndex;
-        //private ImageSource _photo;
+        //private Source _photo;
         private bool _isValidLocation;
         private List<WorkTimeViewModel> _workTimeViewModels;
         private List<PhoneViewModel> _phoneViewModels;
