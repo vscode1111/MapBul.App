@@ -211,7 +211,9 @@
                                   Source="{Binding SelectedPhoto}"
                                   CloseCommand="{Binding ClosePhotoCommand}"
                                   BackCommand="{Binding BackPhotoCommand}"
+                                  BackVisible="{Binding BackVisible}"
                                   ForwardCommand="{Binding ForwardPhotoCommand}"
+                                  ForwardVisible="{Binding ForwardVisible}"
         />
         <ActivityIndicator
           x:Name="ImageActivityIndicator"

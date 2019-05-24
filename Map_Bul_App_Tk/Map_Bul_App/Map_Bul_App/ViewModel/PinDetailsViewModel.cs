@@ -91,6 +91,12 @@ namespace Map_Bul_App.ViewModel
             });
         }
 
+        private void CalculateBackAndForwardVisible()
+        {
+            BackVisible = _selectedImageIndex != 0;
+            ForwardVisible = _selectedImageIndex != (ImagesSource?.Count ?? 1) - 1;
+        }
+
         #region Field
 
         private UserPinDescriptor _pin;
@@ -194,10 +200,7 @@ namespace Map_Bul_App.ViewModel
             }
         }
 
-        public string PhonoCount
-        {
-            get { return Pin.Photos.Count().ToString(); }
-        }
+        public string PhonoCount => Pin.Photos.Count().ToString();
 
         public bool IsFavorite
         {
@@ -256,6 +259,7 @@ namespace Map_Bul_App.ViewModel
                 {
                     _imagesSource = value;
                     OnPropertyChanged();
+                    CalculateBackAndForwardVisible();
                 }
             }
         }
@@ -327,13 +331,45 @@ namespace Map_Bul_App.ViewModel
         {
             if (_selectedImageIndex > 0)
                 SelectedPhoto = ImagesSource[--_selectedImageIndex];
+
+            CalculateBackAndForwardVisible();
         });
+
+        private bool _backVisible;
+        public bool BackVisible
+        {
+            get => _backVisible;
+            set
+            {
+                if (value != _backVisible)
+                {
+                    _backVisible = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public Command ForwardPhotoCommand => new Command(() =>
         {
             if (_selectedImageIndex < ImagesSource.Count - 1)
                 SelectedPhoto = ImagesSource[++_selectedImageIndex];
+
+            CalculateBackAndForwardVisible();
         });
+
+        private bool _forwardVisible;
+        public bool ForwardVisible
+        {
+            get => _forwardVisible;
+            set
+            {
+                if (value != _forwardVisible)
+                {
+                    _forwardVisible = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         protected virtual void OnPinDeleted()
         {
