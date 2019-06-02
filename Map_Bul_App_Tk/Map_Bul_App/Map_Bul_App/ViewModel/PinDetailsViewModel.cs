@@ -97,6 +97,16 @@ namespace Map_Bul_App.ViewModel
             ForwardVisible = _selectedImageIndex != (ImagesSource?.Count ?? 1) - 1;
         }
 
+        private void UpdateSelectedImageIndex(string selectedPhoto)
+        {
+            for (var i = 0; i < ImagesSource.Count; i++)
+                if (ImagesSource[i] == selectedPhoto)
+                {
+                    _selectedImageIndex = i;
+                    break;
+                }
+        }
+
         #region Field
 
         private UserPinDescriptor _pin;
@@ -122,6 +132,8 @@ namespace Map_Bul_App.ViewModel
                 {
                     _selectedPhoto = value;
                     OnPropertyChanged();
+                    UpdateSelectedImageIndex(_selectedPhoto);
+                    CalculateBackAndForwardVisible();
                 }
             }
         }
@@ -175,8 +187,6 @@ namespace Map_Bul_App.ViewModel
             {
                 if (value == _closeTime) return;
                 _closeTime = value;
-                OnPropertyChanged();
-
                 OnPropertyChanged(nameof(WorkTime));
             }
         }
@@ -259,7 +269,6 @@ namespace Map_Bul_App.ViewModel
                 {
                     _imagesSource = value;
                     OnPropertyChanged();
-                    CalculateBackAndForwardVisible();
                 }
             }
         }
@@ -331,8 +340,6 @@ namespace Map_Bul_App.ViewModel
         {
             if (_selectedImageIndex > 0)
                 SelectedPhoto = ImagesSource[--_selectedImageIndex];
-
-            CalculateBackAndForwardVisible();
         });
 
         private bool _backVisible;
@@ -353,8 +360,6 @@ namespace Map_Bul_App.ViewModel
         {
             if (_selectedImageIndex < ImagesSource.Count - 1)
                 SelectedPhoto = ImagesSource[++_selectedImageIndex];
-
-            CalculateBackAndForwardVisible();
         });
 
         private bool _forwardVisible;
