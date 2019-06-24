@@ -31,7 +31,7 @@ namespace Map_Bul_App.Views
 
         }
 
-        private void ListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+        private void ArticlesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var articleEventItem = e.Item as ArticleEventItem;
             if (articleEventItem != null)
@@ -42,9 +42,9 @@ namespace Map_Bul_App.Views
             }
         }
 
-        private void ArticlesListView_OnItemAppearing(object sender, ItemVisibilityEventArgs e)
+        private void ArticlesListView_ItemAppearing(object sender, ItemVisibilityEventArgs e)
         {
-            //CurrentViewModel.LazyLoadCommand.Execute(e.Item);
+            CurrentViewModel.LazyLoadCommand.Execute(e.Item);
         }
     }
 }

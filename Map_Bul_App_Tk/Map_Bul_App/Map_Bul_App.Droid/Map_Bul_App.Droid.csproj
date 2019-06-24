@@ -491,10 +491,10 @@
     <AndroidResource Include="Resources\drawable\drop_shadow_left.png" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://185.76.145.214/Service/webservice.asmx">
+    <WebReferenceUrl Include="http://192.168.0.11:18748/webservice.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\MapBulWebReference\</RelPath>
-      <UpdateFromURL>http://185.76.145.214/Service/webservice.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.0.11:18748/webservice.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

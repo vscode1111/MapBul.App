@@ -77,8 +77,8 @@ namespace Map_Bul_App.Droid.MapBulWebReference {
         
         /// <remarks/>
         public WebService() {
+            // this.Url = "http://192.168.0.11:18748/webservice.asmx";
             this.Url = "http://service.mapbul.scub111.com/WebService.asmx";
-            //this.Url = "http://192.168.0.11:18748/webservice.asmx";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -411,26 +411,30 @@ namespace Map_Bul_App.Droid.MapBulWebReference {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MapBul.ru/GetRecentArticles", RequestNamespace="http://MapBul.ru/", ResponseNamespace="http://MapBul.ru/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string GetRecentArticles(string appLang, bool refresh, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<System.DateTime> existingDateTime) {
+        public string GetRecentArticles(string appLang, int page, int size, bool refresh, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<System.DateTime> existingDateTime) {
             object[] results = this.Invoke("GetRecentArticles", new object[] {
                         appLang,
+                        page,
+                        size,
                         refresh,
                         existingDateTime});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void GetRecentArticlesAsync(string appLang, bool refresh, System.Nullable<System.DateTime> existingDateTime) {
-            this.GetRecentArticlesAsync(appLang, refresh, existingDateTime, null);
+        public void GetRecentArticlesAsync(string appLang, int page, int size, bool refresh, System.Nullable<System.DateTime> existingDateTime) {
+            this.GetRecentArticlesAsync(appLang, page, size, refresh, existingDateTime, null);
         }
         
         /// <remarks/>
-        public void GetRecentArticlesAsync(string appLang, bool refresh, System.Nullable<System.DateTime> existingDateTime, object userState) {
+        public void GetRecentArticlesAsync(string appLang, int page, int size, bool refresh, System.Nullable<System.DateTime> existingDateTime, object userState) {
             if ((this.GetRecentArticlesOperationCompleted == null)) {
                 this.GetRecentArticlesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetRecentArticlesOperationCompleted);
             }
             this.InvokeAsync("GetRecentArticles", new object[] {
                         appLang,
+                        page,
+                        size,
                         refresh,
                         existingDateTime}, this.GetRecentArticlesOperationCompleted, userState);
         }
@@ -444,26 +448,30 @@ namespace Map_Bul_App.Droid.MapBulWebReference {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MapBul.ru/GetRecentEvents", RequestNamespace="http://MapBul.ru/", ResponseNamespace="http://MapBul.ru/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string GetRecentEvents(string appLang, bool refresh, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<System.DateTime> existingDateTime) {
+        public string GetRecentEvents(string appLang, int page, int size, bool refresh, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<System.DateTime> existingDateTime) {
             object[] results = this.Invoke("GetRecentEvents", new object[] {
                         appLang,
+                        page,
+                        size,
                         refresh,
                         existingDateTime});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void GetRecentEventsAsync(string appLang, bool refresh, System.Nullable<System.DateTime> existingDateTime) {
-            this.GetRecentEventsAsync(appLang, refresh, existingDateTime, null);
+        public void GetRecentEventsAsync(string appLang, int page, int size, bool refresh, System.Nullable<System.DateTime> existingDateTime) {
+            this.GetRecentEventsAsync(appLang, page, size, refresh, existingDateTime, null);
         }
         
         /// <remarks/>
-        public void GetRecentEventsAsync(string appLang, bool refresh, System.Nullable<System.DateTime> existingDateTime, object userState) {
+        public void GetRecentEventsAsync(string appLang, int page, int size, bool refresh, System.Nullable<System.DateTime> existingDateTime, object userState) {
             if ((this.GetRecentEventsOperationCompleted == null)) {
                 this.GetRecentEventsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetRecentEventsOperationCompleted);
             }
             this.InvokeAsync("GetRecentEvents", new object[] {
                         appLang,
+                        page,
+                        size,
                         refresh,
                         existingDateTime}, this.GetRecentEventsOperationCompleted, userState);
         }

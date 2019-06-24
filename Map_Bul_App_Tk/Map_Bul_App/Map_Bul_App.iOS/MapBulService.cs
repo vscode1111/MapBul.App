@@ -107,7 +107,7 @@ namespace Map_Bul_App.iOS
             }
         }
 
-        public string GetArticles(bool isRefresh, DateTime? existingDateTime)
+        public string GetArticles(int page, int size, bool isRefresh, DateTime? existingDateTime)
         {
             try
             {
@@ -119,7 +119,7 @@ namespace Map_Bul_App.iOS
             }
         }
 
-        public string GetEvents(bool isRefresh, DateTime? existingDateTime)
+        public string GetEvents(int page, int size, bool isRefresh, DateTime? existingDateTime)
         {
             try
             {

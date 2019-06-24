@@ -52,7 +52,7 @@ namespace Map_Bul_App.Droid
         }
 
         /// <summary>
-        ///     P1- левый верхний угол.
+        ///     P1 - левый верхний угол.
         ///     P2 - правый нижний угол.
         /// </summary>
         /// <returns></returns>
@@ -71,14 +71,14 @@ namespace Map_Bul_App.Droid
             return _service.GetMarkerDescription(id, ApplicationSettings.GetLanguage);
         }
 
-        public string GetArticles(bool isRefresh,DateTime? existingDateTime)
+        public string GetArticles(int page, int size, bool isRefresh, DateTime? existingDateTime)
         {
-            return _service.GetRecentArticles(ApplicationSettings.GetLanguage,isRefresh, existingDateTime);
+            return _service.GetRecentArticles(ApplicationSettings.GetLanguage, page, size, isRefresh, existingDateTime);
         }
 
-        public string GetEvents(bool isRefresh, DateTime? existingDateTime)
+        public string GetEvents(int page, int size, bool isRefresh, DateTime? existingDateTime)
         {
-            return _service.GetRecentEvents(ApplicationSettings.GetLanguage,isRefresh, existingDateTime);
+            return _service.GetRecentEvents(ApplicationSettings.GetLanguage, page, size, isRefresh, existingDateTime);
         }
 
 

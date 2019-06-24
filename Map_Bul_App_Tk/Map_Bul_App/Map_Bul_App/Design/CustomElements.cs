@@ -368,7 +368,8 @@ namespace Map_Bul_App.Design
 
     public class CachingListView : ListView
     {
-        public CachingListView():base(ListViewCachingStrategy.RecycleElement)
+        // public CachingListView():base(ListViewCachingStrategy.RecycleElement)
+        public CachingListView()
         {
 
         }

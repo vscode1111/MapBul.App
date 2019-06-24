@@ -26,6 +26,7 @@ namespace Map_Bul_App.ViewModel
         }
 
         #region [Fields]
+
         private readonly object _locker = new object();
         private bool _isFilterEnable;
         private ArticleType _type;
@@ -40,6 +41,7 @@ namespace Map_Bul_App.ViewModel
         #region [Property]
 
         private int _markerId;
+
         public int MarkerId
         {
             get => _markerId;
@@ -63,6 +65,7 @@ namespace Map_Bul_App.ViewModel
                 OnPropertyChanged();
             }
         }
+
         public bool IsRefreshing
         {
             get => _isRefreshing;
@@ -73,6 +76,7 @@ namespace Map_Bul_App.ViewModel
                 OnPropertyChanged();
             }
         }
+
         public DateTime StartDate
         {
             get => _startDate.Date;
@@ -160,6 +164,7 @@ namespace Map_Bul_App.ViewModel
         #endregion
 
         #region [Method]
+
         /*
                 private void SetArticles(IEnumerable<DeserializeGetArticlesData> response)
                 {
@@ -186,17 +191,19 @@ namespace Map_Bul_App.ViewModel
                     OnPropertyChanged(nameof(VisibleArticles));
                 }
         */
+
         #endregion
 
         #region [Command]
 
-        public ICommand SearchFutureCommand=>new Command(act =>
+        public ICommand SearchFutureCommand => new Command(act =>
         {
+            /*
             IsRefreshing = true;
             SelectedFilter = 0;
             Task.Run(() =>
             {
-                if ((act != null && (bool)act) || IsFilterEnable)
+                if ((act != null && (bool) act) || IsFilterEnable)
                 {
                     //Выбран участок - будущее
                     if (StartDate > DateTime.Now)
@@ -239,6 +246,7 @@ namespace Map_Bul_App.ViewModel
                     IsRefreshing = false;
                 });
             });
+            */
             //if ((act!=null && (bool) act) || IsFilterEnable)
             //{
             //    //Выбран участок - будущее
@@ -280,13 +288,14 @@ namespace Map_Bul_App.ViewModel
 
         });
 
-        public ICommand SearchPastCommand=>new Command(act =>
+        public ICommand SearchPastCommand => new Command(act =>
         {
+            /*
             IsRefreshing = true;
             SelectedFilter = 1;
             Task.Run(() =>
             {
-                if ((act != null && (bool)act) || IsFilterEnable)
+                if ((act != null && (bool) act) || IsFilterEnable)
                 {
                     //Выбран участок - будущее
                     if (StartDate > DateTime.Now)
@@ -342,6 +351,7 @@ namespace Map_Bul_App.ViewModel
                     IsRefreshing = false;
                 });
             });
+            */
             //if ((act != null && (bool) act) || IsFilterEnable)
             //{
             //    //Выбран участок - будущее
@@ -383,7 +393,7 @@ namespace Map_Bul_App.ViewModel
             //IsRefreshing = false;
         });
 
-        public ICommand SearchFilterCommand=>new Command(act =>
+        public ICommand SearchFilterCommand => new Command(act =>
         {
             IsRefreshing = true;
             SelectedFilter = 2;
@@ -412,11 +422,11 @@ namespace Map_Bul_App.ViewModel
                         {
                             //Полностью в промежутке
                             var a = article.StartDate.Value >= StartDate && article.StopDate.Value <= StopDate;
-                            //конец в промежутке
+                            //Конец в промежутке
                             var b = article.StopDate >= StartDate && article.StopDate <= StopDate;
-                            //начало в промежутке
+                            //Начало в промежутке
                             var c = article.StartDate >= StartDate && article.StartDate <= StopDate;
-                            //включает промежуток
+                            //Включает промежуток
                             var d = article.StartDate <= StartDate && article.StopDate >= StopDate;
                             isVisible = a || b || c || d;
                         }
@@ -487,30 +497,16 @@ namespace Map_Bul_App.ViewModel
             IsRefreshing = true;
             Task.Run(() =>
             {
-                List<DeserializeGetArticlesData> deserializeGetArticlesDatas = new List<DeserializeGetArticlesData>();
-                List<DeserializeGetArticlesData> response;
-                var lastDate = Articles.FirstOrDefault()?.PublishedDate;
-                if (MarkerId == 0)
-                {
-                    response = ApplicationSettings.Service.GetArticles(_type, true, lastDate);
-                    deserializeGetArticlesDatas = response;
-                }
-                else
-                {
-                    response = ApplicationSettings.Service.GetRelatedEventsFromMarker(MarkerId,false).ToList();
-                    deserializeGetArticlesDatas = response;
-                }
-                if (response != null && deserializeGetArticlesDatas.Any())
+                // var lastDate = Articles.FirstOrDefault()?.StartDate ?? DateTime.Now;
+                var lastDate = DateTime.Now;
+                lastDate_last = lastDate;
+                var response = ApplicationSettings.Service.GetArticles(_type, 1, 100, true, lastDate);
+
+                if (response != null && response.Any())
                 {
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        var articles =
-                        deserializeGetArticlesDatas.Select(item => new ArticleEventItem(item))
-                            .ToList();
-                        var newIds = articles.Select(item => item.ServerId).ToList();
-                        var cnt = Articles.RemoveAll(item => newIds.Contains(item.ServerId));
-                        articles = articles.Concat(Articles).ToList();
-                        Articles = articles.OrderByDescending(item => item.PublishedDate).ToList();
+                        Articles = response.Select(item => new ArticleEventItem(item)).ToList();
                         IsRefreshing = false;
                         SelectedFilter = -1;
                         OnPropertyChanged(nameof(VisibleArticles));
@@ -518,70 +514,47 @@ namespace Map_Bul_App.ViewModel
                 }
                 else
                 {
-                    Device.BeginInvokeOnMainThread(() => { IsRefreshing = false; });
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        Articles.Clear();
+                        IsRefreshing = false;
+                        OnPropertyChanged(nameof(VisibleArticles));
+                    });
                 }
             });
         });
+
+        private DateTime? lastDate_last;
 
         public Command LazyLoadCommand => new Command<ArticleEventItem>(article =>
         {
-            Task.Run(() =>
-            {
-                lock (_locker)
-                {
-                    var cnt = VisibleArticles.Count();
-                    if (cnt >= 15)
-                    {
-                        var toskip = cnt - 5;
-                        if (VisibleArticles.Skip(toskip).FirstOrDefault() == article)
-                        {
-                            var lastDate = VisibleArticles.LastOrDefault().PublishedDate;
-                            var newArticles = ApplicationSettings.Service.GetArticles(_type, false, lastDate);
-                            var deserializeGetArticles = newArticles;
-                            if (newArticles != null && deserializeGetArticles.Any())
-                            {
-                                var toAdd = deserializeGetArticles.Select(item => new ArticleEventItem(item));
-                                Device.BeginInvokeOnMainThread(() =>
-                                {
-                                    Articles.AddRange(toAdd);
-                                    OnPropertyChanged(nameof(Articles));
-                                    OnPropertyChanged(nameof(VisibleArticles));
-                                });
-                            }
-                        }
-                    }
-                }
-            });
+            //Task.Run(() =>
+            //{
+            //    lock (_locker)
+            //    {
+            //        if (Articles.LastOrDefault() == article)
+            //        {
+            //            var lastDate = Articles.LastOrDefault().StartDate;
+            //            if (lastDate != lastDate_last)
+            //            {
+            //                var newArticles = ApplicationSettings.Service.GetArticles(_type, 1, 1, true, lastDate);
+            //                if (newArticles != null && newArticles.Any())
+            //                {
+            //                    var toAdd = newArticles.Select(item => new ArticleEventItem(item));
+            //                    Device.BeginInvokeOnMainThread(() =>
+            //                    {
+            //                        Articles.AddRange(toAdd);
+            //                        OnPropertyChanged(nameof(Articles));
+            //                        OnPropertyChanged(nameof(VisibleArticles));
+            //                    });
+            //                }
+            //            }
+            //            lastDate_last = lastDate;
+            //        }
+            //    }
+            //});
         });
 
         #endregion
-
-        //private Color _backgroundFutureFiltersColor;
-        //public Color BackgroundFutureFiltersColor
-        //{
-        //    get {return _backgroundFutureFiltersColor; }
-        //    set
-        //    {
-        //        if (value != _backgroundFutureFiltersColor)
-        //        {
-        //            _backgroundFutureFiltersColor = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
-
-        //private Color _backgroundPastFiltersColor;
-        //public Color BackgroundPastFiltersColor
-        //{
-        //    get { return _backgroundPastFiltersColor; }
-        //    set
-        //    {
-        //        if (value != _backgroundPastFiltersColor)
-        //        {
-        //            _backgroundPastFiltersColor = value;
-        //            OnPropertyChanged();
-        //        }
-        //    }
-        //}
     }
 }

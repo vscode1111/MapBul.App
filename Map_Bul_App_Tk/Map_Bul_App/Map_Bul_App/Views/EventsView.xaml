@@ -271,7 +271,9 @@
                 RefreshCommand="{Binding RefreshCommand}"
                 IsRefreshing="{Binding IsRefreshing}"
                 ItemsSource="{Binding VisibleArticles}"
-                ItemTapped="ListView_OnItemTapped">
+                ItemTapped="ArticlesListView_ItemTapped"
+                ItemAppearing="ArticlesListView_ItemAppearing"
+              >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <design:ArticleCellView Date="{Binding PublishedDate}" ImageSource="{Binding TitlePhoto}"

@@ -23,10 +23,12 @@ namespace Map_Bul_App.Settings
 
         
         string GetSessionMarkers(double p1Lat, double p1Lng, double p2Lat, double p2Lng, string sessionToken);
+
         string GetMarkerDetails(int id);
 
-        string GetArticles(bool isRefresh, DateTime? existingDateTime);
-        string GetEvents(bool isRefresh, DateTime? existingDateTime);
+        string GetArticles(int page, int size, bool isRefresh, DateTime? existingDateTime);
+
+        string GetEvents(int page, int size, bool isRefresh, DateTime? existingDateTime);
 
         string GetPermittedCities(string userGuid, bool isPersonal);
 
@@ -40,7 +42,9 @@ namespace Map_Bul_App.Settings
         string ClearSession(string sessionToken);
 
         string SaveFavoriteArticleAndEvent(string userGuid, int articleEventSertverId);
+
         string RemoveFavoriteArticleAndEvent(string userGuid, int articleEventSertverId);
+
         string GetFavoritsArticlAndEvent(string userGuid);
 
         string SaveFavoriteMarker(string userGuid, int markerSertverId);
@@ -60,7 +64,6 @@ namespace Map_Bul_App.Settings
         //string GetMarkers(double p1Lat, double p1Lng, double p2Lat, double p2Lng);
         //string GetUserTypeById(int id, string userGuid);
     }
-
 
     public sealed class MapBulService
     {
@@ -529,7 +532,7 @@ namespace Map_Bul_App.Settings
 
         #endregion
 
-        public List<DeserializeGetArticlesData> GetArticles(ArticleType type, bool isRefresh,
+        public List<DeserializeGetArticlesData> GetArticles(ArticleType type, int page, int size, bool isRefresh,
             DateTime? existingDateTime)
         {
             if (!ApplicationSettings.IsConnectToInternet)
@@ -546,20 +549,25 @@ namespace Map_Bul_App.Settings
                     switch (type)
                     {
                         case ArticleType.Article:
-                            responce = DependencyService.Get<IMapBulService>().GetArticles(isRefresh, existingDateTime);
+                            responce = DependencyService.Get<IMapBulService>()
+                                .GetArticles(page, size, isRefresh, existingDateTime);
                             break;
                         case ArticleType.Event:
-                            responce = DependencyService.Get<IMapBulService>().GetEvents(isRefresh, existingDateTime);
+                            responce = DependencyService.Get<IMapBulService>()
+                                .GetEvents(page, size, isRefresh, existingDateTime);
                             break;
                         default:
-                            responce = DependencyService.Get<IMapBulService>().GetArticles(isRefresh, existingDateTime);
+                            responce = DependencyService.Get<IMapBulService>()
+                                .GetArticles(page, size, isRefresh, existingDateTime);
                             break;
                     }
                 }, cancel.Token).Wait(cancel.Token);
                 var result = Serializer.Deserialize<DeserializeGetArticles>(responce);
                 if (result.Success)
                 {
-                    return type == ArticleType.Article ? result.Data.Where(item => item.StartDate == null).ToList() : result.Data;
+                    return type == ArticleType.Article
+                        ? result.Data.Where(item => item.StartDate == null).ToList()
+                        : result.Data;
                 }
                 OnErrorEvent(result.ErrorReason);
                 return null;
