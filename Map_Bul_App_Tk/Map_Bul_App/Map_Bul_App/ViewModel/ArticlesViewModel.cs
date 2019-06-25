@@ -500,7 +500,10 @@ namespace Map_Bul_App.ViewModel
                 // var lastDate = Articles.FirstOrDefault()?.StartDate ?? DateTime.Now;
                 var lastDate = DateTime.Now;
                 lastDate_last = lastDate;
-                var response = ApplicationSettings.Service.GetArticles(_type, 1, 100, true, lastDate);
+
+                var response = MarkerId == 0 
+                    ? ApplicationSettings.Service.GetArticles(_type, 1, 100, true, lastDate) 
+                    : ApplicationSettings.Service.GetRelatedEventsFromMarker(MarkerId, false).ToList();
 
                 if (response != null && response.Any())
                 {
