@@ -164,8 +164,6 @@ namespace Map_Bul_App.Droid
             return _service.RecoverPassword(email, ApplicationSettings.GetLanguage);
         }
 
-
-
         public string GetSessionMarkers(double p1Lat, double p1Lng, double p2Lat, double p2Lng,string sessionToken)
         {
             string userGuid = "";
@@ -177,7 +175,6 @@ namespace Map_Bul_App.Droid
                 return _service.GetMarkers(p1Lat, p1Lng, p2Lat, p2Lng, userGuid, ApplicationSettings.GetLanguage);
             return _service.GetSessionMarkers( p1Lat,  p1Lng,  p2Lat,  p2Lng, sessionToken, userGuid, ApplicationSettings.GetLanguage);
         }
-
 
         public string ClearSession(string sessionToken)
         {
@@ -209,7 +206,6 @@ namespace Map_Bul_App.Droid
                 return null;
             }
         }
-
 
         public string GetFavoritsArticlAndEvent(string userGuid)
         {

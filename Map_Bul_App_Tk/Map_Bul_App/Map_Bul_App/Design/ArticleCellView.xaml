@@ -24,9 +24,9 @@
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
               <design:EventDateLabel TextColor="Black" HorizontalOptions="Start" Text="{resX:Translate ArticleDateLabelText}" x:Name="EventDateLabel" IsVisible="False" />
               <design:EventDateLabelText HorizontalOptions="Start" x:Name="EventDateDate" IsVisible="False"/>
-             <design:CellDateLabel HorizontalOptions="EndAndExpand" x:Name="DateLabel" IsVisible="False"/>
+              <design:CellDateLabel HorizontalOptions="EndAndExpand" x:Name="DateLabel" IsVisible="False"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="StartTimeStackLayout">
               <design:EventDateLabel TextColor="Black" HorizontalOptions="Start" Text="{resX:Translate StartTimeA}"/>
               <design:EventDateLabelText HorizontalOptions="Start" x:Name="StartTimeLabel"/>
             </StackLayout>

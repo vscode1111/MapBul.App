@@ -564,11 +564,8 @@ namespace Map_Bul_App.Settings
                 }, cancel.Token).Wait(cancel.Token);
                 var result = Serializer.Deserialize<DeserializeGetArticles>(responce);
                 if (result.Success)
-                {
-                    return type == ArticleType.Article
-                        ? result.Data.Where(item => item.StartDate == null).ToList()
-                        : result.Data;
-                }
+                   return result.Data;
+
                 OnErrorEvent(result.ErrorReason);
                 return null;
             }

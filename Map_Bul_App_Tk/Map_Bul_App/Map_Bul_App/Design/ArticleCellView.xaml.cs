@@ -50,9 +50,14 @@ namespace Map_Bul_App.Design
                 DateLabel.Text = Date.ToString("dd.MM.yy");
                 DateLabel.IsVisible = true;
             }
+
             if (StartTime.HasValue /* && StartTime.Value != TimeSpan.Zero*/)
             {
                 StartTimeLabel.Text = new DateTime(StartTime.Value.Ticks).ToString("HH:mm");
+            }
+            else
+            {
+                StartTimeStackLayout.IsVisible = false;
             }
         }
 
